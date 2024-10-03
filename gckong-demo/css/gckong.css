@@ -1,0 +1,625 @@
+/* CSS Document */
+body {
+  background-color: #f74461;
+  margin: 0px 0px 0px 0px;
+  font-size: 12px;
+  line-height: 19.4px;
+}
+a {
+  text-decoration: none;
+}
+a.white_link {
+  color: white;
+}
+a.white_link:hover {
+  text-decoration: underline;
+}
+a.blue_link {
+  color: #94e1ff;
+}
+a.blue_link:hover {
+  text-decoration: underline;
+}
+div#head {
+  background: url(../images/ywgc/head_bg.png) top repeat-x;
+  height: 110px;
+}
+div#head_wrapper,
+div#content,
+div#comment {
+  position: relative;
+  width: 970px;
+  margin: 0 auto;
+  height: 100%;
+}
+img#logo {
+  position: absolute;
+  width: 159x;
+  height: 90px;
+}
+span#logo_text1 {
+  position: absolute;
+  top: 65px;
+  left: 170px;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+span#logo_text2 {
+  position: absolute;
+  top: 65px;
+  left: 240px;
+  color: #93e0fe;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+ul#login_tools {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  font-size: 12px;
+}
+ul#login_tools li {
+  float: right;
+  margin-left: 10px;
+}
+input#search_edit {
+  position: absolute;
+  right: 31px;
+  bottom: 25px;
+  width: 155.2px;
+  height: 23.5px;
+  border: 0;
+  padding-left: 10px;
+  padding-right: 30px;
+  background: url(../images/ywgc/search_edit.png) no-repeat;
+}
+button#search_submit {
+  position: absolute;
+  right: 0px;
+  bottom: 25px;
+  width: 31px;
+  height: 25px;
+  border: 0;
+  background: url(../images/ywgc/search_submit.png) no-repeat;
+}
+div#lrc {
+  position: relative;
+  width: 933px;
+  top: -70px;
+  margin: 0 auto;
+}
+div#lrc_left {
+  float: left;
+  width: 401px;
+  background: url(../images/ywgc/lrc_left.png) repeat-y;
+}
+div#lrc_right {
+  float: right;
+  width: 401px;
+  background-color: #ffffff;
+}
+div#lrc_source {
+  width: 90%;
+}
+div#lrc_translated {
+  width: 90%;
+}
+div#arrow {
+  width: 64px;
+  height: 124px;
+  position: relative;
+  left: 389px;
+  top: 135px;
+  background: url(../images/ywgc/arrow.png) no-repeat;
+}
+div#lrc_footer {
+  clear: both;
+  width: 933px;
+  height: 25px;
+  background: url(../images/ywgc/lrc_footer.png) no-repeat;
+}
+p.lrc_src_text,
+p.lrc_dest_text {
+  letter-spacing: 10px;
+  margin-left: 50px;
+  line-height: 2em;
+}
+p.lrc_src_text {
+  color: white;
+}
+div#split_line {
+  height: 2px;
+  font-size: 0;
+}
+div#recommend {
+  position: relative;
+  width: 940px;
+  margin: 0 auto;
+  height: 100%;
+  color: white;
+  font-family: "����", Tahoma, Verdana, "΢���ź�";
+  letter-spacing: 10px;
+  font-size: 25px;
+  padding-left: 40px;
+  padding-top: 10px;
+}
+div#gcbk_recommend {
+  position: relative;
+  width: 240px;
+  margin: 0 auto;
+  height: 100%;
+  color: white;
+  font-family: "����", Tahoma, Verdana, "΢���ź�";
+  letter-spacing: 10px;
+  font-size: 25px;
+  padding-top: 10px;
+}
+div#recommend_wrapper {
+  position: relative;
+  width: 940px;
+  margin: 0 auto;
+  height: 100%;
+  margin-bottom: 30px;
+}
+div#gcbk_recommend_wrapper {
+  position: relative;
+  width: 240px;
+  margin: 0 auto;
+  height: 100%;
+  margin-bottom: 30px;
+}
+div#arrow_down {
+  position: relative;
+  left: 108px;
+  top: -6px;
+  width: 8px;
+  height: 34px;
+  background: url(../images/ywgc/arrow_down.png) no-repeat;
+  z-index: 5;
+}
+div#gcbk_arrow_down {
+  position: relative;
+  left: 158px;
+  top: -6px;
+  width: 8px;
+  height: 34px;
+  background: url(../images/ywgc/arrow_down.png) no-repeat;
+  z-index: 5;
+}
+div#hot_recommend {
+  position: relative;
+  width: 940px;
+  left: -25px;
+  top: -13px;
+}
+div#gcbk_hot_recommend {
+  position: relative;
+  width: 240px;
+  top: -11px;
+}
+div#hot_head {
+  position: relative;
+  width: 940px;
+  height: 19px;
+  background: url(../images/ywgc/hot_head.png) no-repeat;
+  font-size: 0;
+}
+div#gcbk_hot_head {
+  position: relative;
+  width: 243px;
+  height: 15px;
+  background: url(../images/ywgc/gcbk_hot_head.png) no-repeat;
+  font-size: 0;
+}
+div#hot_music {
+  width: 940px;
+  float: left;
+  background-color: #ffffff;
+}
+div#gcbk_hot_music {
+  width: 240px;
+  float: left;
+  background-color: #ffffff;
+}
+div#hot_footer {
+  clear: both;
+  width: 940px;
+  height: 18px;
+  background: url(../images/ywgc/hot_footer.png) no-repeat;
+  font-size: 0;
+}
+div#gcbk_hot_footer {
+  clear: both;
+  width: 244px;
+  height: 16px;
+  background: url(../images/ywgc/gcbk_hot_footer.png) no-repeat;
+  font-size: 0;
+}
+div#footer {
+  height: 50px;
+  width: 100%;
+  background: url(../images/ywgc/footer.png) repeat-x;
+  text-align: center;
+  line-height: 40px;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+div#song01 {
+  display: block;
+  width: 229px;
+  height: 97px;
+  margin: 0 auto;
+  float: left;
+  margin-right: 8px;
+  margin-bottom: 10px;
+}
+div#song01 a {
+  display: block;
+  width: 229px;
+  height: 97px;
+  background: url("../images/ywgc/song01.gif") top left no-repeat;
+  line-height: 291px;
+  overflow: hidden;
+}
+div#song01 a:hover {
+  background: url("../images/ywgc/song01.gif") no-repeat -229px 0px;
+}
+div#song02 {
+  display: block;
+  width: 229px;
+  height: 97px;
+  margin: 0 auto;
+  float: left;
+  margin-right: 8px;
+  margin-bottom: 10px;
+}
+div#song02 a {
+  display: block;
+  width: 229px;
+  height: 97px;
+  background: url("../images/ywgc/song02.gif") top left no-repeat;
+  line-height: 291px;
+  overflow: hidden;
+}
+div#song02 a:hover {
+  background: url("../images/ywgc/song02.gif") no-repeat -229px 0px;
+}
+div#song03 {
+  display: block;
+  width: 229px;
+  height: 97px;
+  margin: 0 auto;
+  float: left;
+  margin-right: 8px;
+  margin-bottom: 10px;
+}
+div#song03 a {
+  display: block;
+  width: 229px;
+  height: 97px;
+  background: url("../images/ywgc/song03.gif") top left no-repeat;
+  line-height: 291px;
+  overflow: hidden;
+}
+div#song03 a:hover {
+  background: url("../images/ywgc/song03.gif") no-repeat -229px 0px;
+}
+div#song04 {
+  display: block;
+  width: 229px;
+  height: 97px;
+  margin: 0 auto;
+  float: left;
+  margin-bottom: 10px;
+}
+div#song04 a {
+  display: block;
+  width: 229px;
+  height: 97px;
+  background: url("../images/ywgc/song04.gif") top left no-repeat;
+  line-height: 291px;
+  overflow: hidden;
+}
+div#song04 a:hover {
+  background: url("../images/ywgc/song04.gif") no-repeat -229px 0px;
+}
+div#song05 {
+  display: block;
+  width: 217px;
+  height: 92px;
+  margin: 0 auto;
+  float: left;
+  margin-left: 7px;
+  margin-right: 6px;
+  margin-bottom: 12px;
+}
+div#song05 a {
+  display: block;
+  width: 217px;
+  height: 92px;
+  background: url("../images/ywgc/song05.gif") top left no-repeat;
+  line-height: 276px;
+  overflow: hidden;
+}
+div#song05 a:hover {
+  background: url("../images/ywgc/song05.gif") no-repeat -217px 0px;
+}
+div#song06 {
+  display: block;
+  width: 217px;
+  height: 92px;
+  margin: 0 auto;
+  float: left;
+  margin-left: 7px;
+  margin-right: 6px;
+  margin-bottom: 12px;
+}
+div#song06 a {
+  display: block;
+  width: 217px;
+  height: 92px;
+  background: url("../images/ywgc/song06.gif") top left no-repeat;
+  line-height: 276px;
+  overflow: hidden;
+}
+div#song06 a:hover {
+  background: url("../images/ywgc/song06.gif") no-repeat -217px 0px;
+}
+div#song07 {
+  display: block;
+  width: 217px;
+  height: 92px;
+  margin: 0 auto;
+  float: left;
+  margin-left: 7px;
+  margin-right: 6px;
+  margin-bottom: 12px;
+}
+div#song07 a {
+  display: block;
+  width: 217px;
+  height: 92px;
+  background: url("../images/ywgc/song07.gif") top left no-repeat;
+  line-height: 276px;
+  overflow: hidden;
+}
+div#song07 a:hover {
+  background: url("../images/ywgc/song07.gif") no-repeat -217px 0px;
+}
+div#song08 {
+  display: block;
+  width: 217px;
+  height: 92px;
+  margin: 0 auto;
+  float: left;
+  margin-left: 7px;
+  margin-bottom: 12px;
+}
+div#song08 a {
+  display: block;
+  width: 217px;
+  height: 92px;
+  background: url("../images/ywgc/song08.gif") top left no-repeat;
+  line-height: 276px;
+  overflow: hidden;
+}
+div#song08 a:hover {
+  background: url("../images/ywgc/song08.gif") no-repeat -217px 0px;
+}
+div#song09 {
+  display: block;
+  width: 217px;
+  height: 92px;
+  margin: 0 auto;
+  float: left;
+  margin-left: 7px;
+  margin-right: 6px;
+  margin-bottom: 12px;
+}
+div#song09 a {
+  display: block;
+  width: 217px;
+  height: 92px;
+  background: url("../images/ywgc/song09.gif") top left no-repeat;
+  line-height: 276px;
+  overflow: hidden;
+}
+div#song09 a:hover {
+  background: url("../images/ywgc/song09.gif") no-repeat -217px 0px;
+}
+div#song10 {
+  display: block;
+  width: 217px;
+  height: 92px;
+  margin: 0 auto;
+  float: left;
+  margin-left: 7px;
+  margin-right: 6px;
+  margin-bottom: 12px;
+}
+div#song10 a {
+  display: block;
+  width: 217px;
+  height: 92px;
+  background: url("../images/ywgc/song10.gif") top left no-repeat;
+  line-height: 276px;
+  overflow: hidden;
+}
+div#song10 a:hover {
+  background: url("../images/ywgc/song10.gif") no-repeat -217px 0px;
+}
+div#song11 {
+  display: block;
+  width: 217px;
+  height: 92px;
+  margin: 0 auto;
+  float: left;
+  margin-left: 7px;
+  margin-right: 6px;
+  margin-bottom: 12px;
+}
+div#song11 a {
+  display: block;
+  width: 217px;
+  height: 92px;
+  background: url("../images/ywgc/song11.gif") top left no-repeat;
+  line-height: 276px;
+  overflow: hidden;
+}
+div#song11 a:hover {
+  background: url("../images/ywgc/song11.gif") no-repeat -217px 0px;
+}
+div#song12 {
+  display: block;
+  width: 217px;
+  height: 92px;
+  margin: 0 auto;
+  float: left;
+  margin-left: 7px;
+  margin-bottom: 12px;
+}
+div#song12 a {
+  display: block;
+  width: 217px;
+  height: 92px;
+  background: url("../images/ywgc/song12.gif") top left no-repeat;
+  line-height: 276px;
+  overflow: hidden;
+}
+div#song12 a:hover {
+  background: url("../images/ywgc/song12.gif") no-repeat -217px 0px;
+}
+div#song13 {
+  display: block;
+  width: 217px;
+  height: 92px;
+  margin: 0 auto;
+  float: left;
+  margin-left: 7px;
+  margin-right: 6px;
+  margin-bottom: 12px;
+}
+div#song13 a {
+  display: block;
+  width: 217px;
+  height: 92px;
+  background: url("../images/ywgc/song13.gif") top left no-repeat;
+  line-height: 276px;
+  overflow: hidden;
+}
+div#song13 a:hover {
+  background: url("../images/ywgc/song13.gif") no-repeat -217px 0px;
+}
+div#song14 {
+  display: block;
+  width: 217px;
+  height: 92px;
+  margin: 0 auto;
+  float: left;
+  margin-left: 7px;
+  margin-right: 6px;
+}
+div#song14 a {
+  display: block;
+  width: 217px;
+  height: 92px;
+  background: url("../images/ywgc/song14.gif") top left no-repeat;
+  line-height: 276px;
+  overflow: hidden;
+}
+div#song14 a:hover {
+  background: url("../images/ywgc/song14.gif") no-repeat -217px 0px;
+}
+div#content_left {
+  width: 718px;
+  position: relative;
+  float: left;
+}
+div#content_right {
+  width: 240px;
+  position: relative;
+  float: right;
+}
+div#bza_header {
+  display: block;
+  width: 718px;
+  height: 77px;
+  background: url(../images/ywgc/bza.png) no-repeat;
+}
+div#zcmt_header {
+  display: block;
+  width: 718px;
+  height: 79px;
+  background: url(../images/ywgc/zcmt.png) no-repeat;
+}
+div#gqjd_header {
+  display: block;
+  width: 718px;
+  height: 78px;
+  background: url(../images/ywgc/gqjd.png) no-repeat;
+}
+div#xgyd_header {
+  display: block;
+  width: 718px;
+  height: 78px;
+  background: url(../images/ywgc/xgyd.png) no-repeat;
+}
+div.gcbk_content {
+  width: 718px;
+  background: url(../images/ywgc/gcbk_content_bg.png) repeat-y;
+}
+div.gcbk_shadow {
+  display: block;
+  width: 718px;
+  height: 38px;
+  background: url(../images/ywgc/gcbk_shadow.png) no-repeat;
+}
+div#comment_music_info {
+  width: 260px;
+  float: left;
+}
+div#comment_messages {
+  width: 700px;
+  float: right;
+}
+div#yhyj {
+  display: block;
+  width: 84px;
+  height: 29px;
+  background: url(../images/ywgc/yhyj.png) no-repeat;
+  margin: 20px auto;
+}
+div#music_info_box {
+  height: 180px;
+  width: 180px;
+  background: #93e0fe;
+  margin: 0 auto;
+  border: #c40309 solid 1.5px;
+  font-size: 14px;
+  color: #f74461;
+  line-height: 1.5em;
+}
+div#attention {
+  display: block;
+  width: 95px;
+  height: 25px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+div#attention a {
+  display: block;
+  width: 95px;
+  height: 25px;
+  background: url("../images/ywgc/attention.gif") top left no-repeat;
+  line-height: 75px;
+  overflow: hidden;
+}
+div#attention a:hover {
+  background: url("../images/ywgc/attention.gif") no-repeat -95px 0px;
+}
+div.singer_pic {
+  margin: 20px auto;
+}

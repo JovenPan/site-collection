@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!--[if lt IE 9]>
+      <script src="../js/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 7]>
+      <style type="text/css">
+        #gotopbtn {
+          position: absolute;
+          top: expression(eval(document.documentElement.scrollTop + 50));
+        }
+      </style>
+    <![endif]-->
+    <link rel="stylesheet" href="../css/base.css" />
+    <style>
+      /***************** header *****************/
+      #header-wrapper {
+        width: 100%;
+        height: 150px;
+        background: url(../css/header-bg.png) top center;
+        position: relative;
+      }
+      header {
+        width: 960px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .logo {
+        position: absolute;
+        top: 40px;
+        left: 10px;
+        border: 0;
+      }
+      .link-text {
+        position: absolute;
+        top: 90px;
+        left: 225px;
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 0.1em;
+      }
+      .login-tools {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+        padding-top: 5px;
+      }
+      .login-tools a {
+        margin-right: 20px;
+        color: #333;
+        font-weight: bold;
+        font-size: 12px;
+      }
+      .lrc_scroll {
+        position: absolute;
+        top: 40px;
+        left: 450px;
+        width: 500px;
+        height: 75px;
+      }
+      a.left_button {
+        height: 50px;
+        width: 30px;
+        background: url(../css/prev-next-icon.png) 0 0 no-repeat;
+        float: left;
+        display: inline;
+        text-indent: -9999px;
+        margin: 12px 30px 0 0;
+      }
+      a.left_button:hover {
+        background: url(../css/prev-next-icon.png) 0 -50px no-repeat;
+      }
+      a.rightt_button {
+        height: 50px;
+        width: 30px;
+        background: url(../css/prev-next-icon.png) -30px 0 no-repeat;
+        float: left;
+        display: inline;
+        text-indent: -9999px;
+        margin: 12px 0 0 30px;
+      }
+      a.rightt_button:hover {
+        background: url(../css/prev-next-icon.png) -30px -50px no-repeat;
+      }
+      .lrc_scroll .Cont {
+        width: 380px;
+        overflow: hidden;
+        float: left;
+      }
+      .lrc_scroll .ScrCont {
+        width: 10000000px;
+      }
+      .lrc_scroll .Cont .classical-lyrics {
+        width: 380px;
+        float: left;
+        font-size: 16px;
+        font-family: "微软雅黑", "楷体";
+        line-height: 22px;
+      }
+      .classical-lyrics a {
+        color: #f74461;
+      }
+      .classical-lyrics-author {
+        float: right;
+      }
+      .classical-lyrics-author a {
+        color: #0ea5e5;
+      }
+      .lrc_scroll #List1,
+      .lrc_scroll #List2 {
+        float: left;
+      }
+    </style>
+    <script src="../js/jquery-1.7.1.js"></script>
+    <script src="../js/init.js"></script>
+    <script>
+      $(document).ready(initSearchBox);
+    </script>
+  </head>
+  <body>
+    <div id="header-wrapper">
+      <header>
+        <a class="logo" href=""><img src="../images/logo_203.png" /></a>
+        <span class="link-text"> 聆 听 · 林 </span>
+        <span class="login-tools"
+          ><a href="">注 册</a><a href="">登 录</a></span
+        >
+        <div class="lrc_scroll">
+          <a
+            class="left_button"
+            href="javascript:void(0);"
+            onmousedown="ISL_GoUp()"
+            onmouseup="ISL_StopUp()"
+            onmouseout="ISL_StopUp()"
+            >上一首</a
+          >
+
+          <div class="Cont" id="ISL_Cont">
+            <div class="ScrCont">
+              <div id="List1">
+                <div class="classical-lyrics">
+                  <a href="" title="林夕·汤唯《晚秋》"
+                    >爱不是一个人所能抵抗，错误有你和我一起补偿。等什么，又怎样。晚秋不晚，又何妨。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 林夕·汤唯《晚秋》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="黄伟文·陈奕迅《最佳损友》"
+                    >为何旧知己在最后，变不到老友。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 黄伟文·陈奕迅《最佳损友》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="林夕·王菲《流年》"
+                    >有生之年狭路相逢终不能幸免，手心忽然长出纠缠的曲线，懂事之前情动以后长不过一天，留不住算不出流年。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 林夕·王菲《流年》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="罗大佑《光阴的故事》"
+                    >风车在四季轮回的歌里，它天天的流转。风花雪月的诗句里，我在年年的成长。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 罗大佑《光阴的故事》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="汪峰《当我想你的时候》"
+                    >至少有十年我不曾流泪，至少有十首歌给我安慰。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 汪峰《当我想你的时候》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="林夕·王菲《约定》"
+                    >还记得街灯照出一脸黄，还燃亮那份微温的便档。剪影的你轮廓太好看，凝住眼泪才敢细看。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 林夕·王菲《约定》</a>
+                  </p>
+                </div>
+              </div>
+              <div id="List2"></div>
+            </div>
+          </div>
+
+          <a
+            class="rightt_button"
+            href="javascript:void(0);"
+            onmousedown="ISL_GoDown()"
+            onmouseup="ISL_StopDown()"
+            onmouseout="ISL_StopDown()"
+            >下一首</a
+          >
+        </div>
+      </header>
+    </div>
+    <!-- id="header-wrapper" -->
+
+    <script>
+      var Speed = 1; //速度(毫秒)
+      var Space = 20; //每次移动(px)
+      var PageWidth = 380; //翻页宽度
+      var fill = 0; //整体移位
+      var MoveLock = false;
+      var MoveTimeObj;
+      var Comp = 0;
+      var AutoPlayObj = null;
+      GetObj("List2").innerHTML = GetObj("List1").innerHTML;
+      GetObj("ISL_Cont").scrollLeft = fill;
+      GetObj("ISL_Cont").onmouseover = function () {
+        clearInterval(AutoPlayObj);
+      };
+      GetObj("ISL_Cont").onmouseout = function () {
+        AutoPlay();
+      };
+      AutoPlay();
+      function GetObj(objName) {
+        if (document.getElementById) {
+          return eval('document.getElementById("' + objName + '")');
+        } else {
+          return eval("document.all." + objName);
+        }
+      }
+      function AutoPlay() {
+        //自动滚动
+        clearInterval(AutoPlayObj);
+        AutoPlayObj = setInterval("ISL_GoDown();ISL_StopDown();", 8000); //间隔时间
+      }
+      function ISL_GoUp() {
+        //上翻开始
+        if (MoveLock) return;
+        clearInterval(AutoPlayObj);
+        MoveLock = true;
+        MoveTimeObj = setInterval("ISL_ScrUp();", Speed);
+      }
+      function ISL_StopUp() {
+        //上翻停止
+        clearInterval(MoveTimeObj);
+        if ((GetObj("ISL_Cont").scrollLeft % PageWidth) - fill != 0) {
+          Comp = fill - (GetObj("ISL_Cont").scrollLeft % PageWidth);
+          CompScr();
+        } else {
+          MoveLock = false;
+        }
+        AutoPlay();
+      }
+      function ISL_ScrUp() {
+        //上翻动作
+        if (GetObj("ISL_Cont").scrollLeft <= 0) {
+          GetObj("ISL_Cont").scrollLeft =
+            GetObj("ISL_Cont").scrollLeft + GetObj("List1").offsetWidth;
+        }
+        GetObj("ISL_Cont").scrollLeft -= Space;
+      }
+      function ISL_GoDown() {
+        //下翻
+        clearInterval(MoveTimeObj);
+        if (MoveLock) return;
+        clearInterval(AutoPlayObj);
+        MoveLock = true;
+        ISL_ScrDown();
+        MoveTimeObj = setInterval("ISL_ScrDown()", Speed);
+      }
+      function ISL_StopDown() {
+        //下翻停止
+        clearInterval(MoveTimeObj);
+        if ((GetObj("ISL_Cont").scrollLeft % PageWidth) - fill != 0) {
+          Comp = PageWidth - (GetObj("ISL_Cont").scrollLeft % PageWidth) + fill;
+          CompScr();
+        } else {
+          MoveLock = false;
+        }
+        AutoPlay();
+      }
+      function ISL_ScrDown() {
+        //下翻动作
+        if (GetObj("ISL_Cont").scrollLeft >= GetObj("List1").scrollWidth) {
+          GetObj("ISL_Cont").scrollLeft =
+            GetObj("ISL_Cont").scrollLeft - GetObj("List1").scrollWidth;
+        }
+        GetObj("ISL_Cont").scrollLeft += Space;
+      }
+      function CompScr() {
+        var num;
+        if (Comp == 0) {
+          MoveLock = false;
+          return;
+        }
+        if (Comp < 0) {
+          //上翻
+          if (Comp < -Space) {
+            Comp += Space;
+            num = Space;
+          } else {
+            num = -Comp;
+            Comp = 0;
+          }
+          GetObj("ISL_Cont").scrollLeft -= num;
+          setTimeout("CompScr()", Speed);
+        } else {
+          //下翻
+          if (Comp > Space) {
+            Comp -= Space;
+            num = Space;
+          } else {
+            num = Comp;
+            Comp = 0;
+          }
+          GetObj("ISL_Cont").scrollLeft += num;
+          setTimeout("CompScr()", Speed);
+        }
+      }
+    </script>
+
+    <style>
+      /***************** nav *****************/
+      nav {
+        width: 960px;
+        height: 45px;
+        margin: 0 auto;
+        background: url(../css/nav-bg.png) top center no-repeat;
+        position: relative;
+      }
+      .search-area {
+        float: right;
+        margin-top: 6px;
+        margin-right: 15px;
+      }
+      .search-box {
+        float: right;
+        width: 200px;
+        height: 28px;
+        border: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+        color: #888;
+        border: 1px solid #ffb2bf;
+        border-left: 0;
+        line-height: 28px;
+      }
+      .search-btn {
+        float: right;
+        text-indent: -9999px;
+        width: 80px;
+        height: 30px;
+        background: url(../css/search-btn-bg.png) 0 0 no-repeat;
+      }
+      a.search-btn:hover {
+        background: url(../css/search-btn-bg.png) 0 -30px no-repeat;
+      }
+      a.search-type {
+        float: right;
+        width: 70px;
+        height: 30px;
+        line-height: 30px;
+        color: #666;
+        text-indent: 12px;
+        border: 0;
+        background: url(../css/search-type-bg.png) 0 0 no-repeat;
+      }
+      a.search-type:hover {
+        text-decoration: none;
+        color: #333;
+        background: url(../css/search-type-bg.png) 0 -30px no-repeat;
+      }
+      .nav-text-area {
+        float: left;
+        margin-top: 12px;
+        margin-left: 160px;
+      }
+      .seperator {
+        display: block;
+        float: left;
+        color: #fff;
+        font-weight: bold;
+        margin: 0 10px;
+      }
+      a.nav-text-bk,
+      a.nav-text-ch,
+      a.nav-text-gs {
+        float: left;
+        width: 80px;
+        height: 20px;
+        text-indent: -9999px;
+        background-image: url(../css/nav-text-bg.png);
+        background-repeat: no-repeat;
+      }
+      a.nav-text-bk {
+        background-position: 0 0;
+      }
+      a.nav-text-ch {
+        background-position: -80px 0;
+      }
+      a.nav-text-gs {
+        background-position: -160px 0;
+      }
+      a.nav-text-bk:hover {
+        background-position: 0 -20px;
+      }
+      a.nav-text-ch:hover {
+        background-position: -80px -20px;
+      }
+      a.nav-text-gs:hover {
+        background-position: -160px -20px;
+      }
+      .search-types a {
+        display: block;
+        width: 70px;
+        height: 30px;
+        line-height: 30px;
+        color: #888;
+        text-indent: 12px;
+        border-top: 1px solid #eee;
+        background: #fff;
+      }
+      .search-types a:hover {
+        text-decoration: none;
+        color: #333;
+      }
+    </style>
+    <nav>
+      <section class="nav-text-area">
+        <a class="nav-text-bk" href="">歌·百科</a>
+        <span class="seperator">|</span>
+        <a class="nav-text-ch" href="">词画·配</a>
+        <span class="seperator">|</span>
+        <a class="nav-text-gs" href="">故事·锦</a>
+      </section>
+      <div class="search-area">
+        <a class="search-btn" href="">搜索</a>
+        <input class="search-box" type="text" value="那些感动你的歌..." />
+        <a class="search-type" href="javascript:void(0)">百 科</a>
+      </div>
+      <!-- class="search-area" -->
+      <section
+        class="search-types"
+        style="display: none; position: absolute; z-index: 999"
+      >
+        <a href="javascript:void(0)" onclick="selectSearchType(0)">百 科</a>
+        <a href="javascript:void(0)" onclick="selectSearchType(1)">词 画</a>
+        <a href="javascript:void(0)" onclick="selectSearchType(2)">故 事</a>
+      </section>
+    </nav>
+    <script>
+      function selectSearchType(idx) {
+        var searchTypes = ["百 科", "词 画", "故 事"];
+        $("nav .search-type").text(searchTypes[idx]);
+        $("nav .search-types").slideUp("fast");
+      }
+      $(document).ready(function () {
+        var $hiddenMenu = $("nav .search-types");
+        var showMenu = function () {
+          if ($hiddenMenu.is(":visible")) {
+            $hiddenMenu.slideUp("fast");
+            return false;
+          }
+          var pos = $(this).position();
+          var x = pos.left;
+          var y = parseInt(pos.top) + parseInt($(this).height());
+          $hiddenMenu.css({ left: x, top: y });
+          $hiddenMenu.slideDown("slow");
+          return false;
+        };
+
+        $("nav .search-type").hover(showMenu, function () {});
+
+        $("body").click(function () {
+          if ($hiddenMenu.is(":visible")) {
+            $hiddenMenu.slideUp("fast");
+            return false;
+          }
+        });
+      });
+    </script>
+
+    <style>
+      /***************** container *****************/
+      #container {
+        width: 960px;
+        margin: 0 auto;
+        padding: 20px 0;
+        position: relative;
+      }
+      /***************** main column *****************/
+      .main-column {
+        float: left;
+        width: 610px;
+        margin-left: 5px;
+        border: 1px solid transparent;
+        position: relative;
+      }
+      a.music {
+        display: block;
+        width: 84px;
+        height: 84px;
+        background: url(../images/sound-imglist.png) -252px 0 no-repeat;
+      }
+      a.music:hover {
+        background: url(../images/sound-imglist.png) -252px -84px no-repeat;
+      }
+      a.movie {
+        display: block;
+        width: 84px;
+        height: 84px;
+        background: url(../images/sound-imglist.png) -168px 0 no-repeat;
+      }
+      a.movie:hover {
+        background: url(../images/sound-imglist.png) -168px -84px no-repeat;
+      }
+      a.sound {
+        display: block;
+        width: 84px;
+        height: 84px;
+        background: url(../images/sound-imglist.png) -84px 0 no-repeat;
+      }
+      a.sound:hover {
+        background: url(../images/sound-imglist.png) -84px -84px no-repeat;
+      }
+      a.speech {
+        display: block;
+        width: 84px;
+        height: 84px;
+        background: url(../images/sound-imglist.png) 0 0 no-repeat;
+      }
+      a.speech:hover {
+        background: url(../images/sound-imglist.png) 0 -84px no-repeat;
+      }
+      div.module_instance {
+        position: relative;
+        width: 690px;
+        margin-bottom: 20px;
+      }
+      img.module_avatar {
+        float: left;
+      }
+      img.module_arrow {
+        position: absolute;
+        left: 90px;
+        top: 25px;
+        z-index: 10;
+      }
+      div.module_content {
+        float: right;
+      }
+      div.module_content_wrap {
+        border-top: 1px solid #dfdfdf;
+        border-left: 1px solid #dfdfdf;
+        border-right: 1px solid #dfdfdf;
+        background: white;
+        width: 550px;
+        padding: 30px 20px 10px 20px;
+        word-break: break-all;
+        overflow: auto;
+      }
+      p.article_title {
+        font-size: 18px;
+      }
+      p.article_content {
+        margin-top: 25px;
+        font-size: 14px;
+        font-family: "微软雅黑", "黑体", Tahoma, Verdana;
+        color: #555555;
+        line-height: 2em;
+      }
+      .module_instance a {
+        margin: 20px 0;
+      }
+      ul.article_ul li {
+        float: left;
+        margin-right: 10px;
+        margin-top: 30px;
+      }
+      ul.article_ul li a {
+        color: #b4b4b4;
+        font-size: 13px;
+        font-family: "微软雅黑", "黑体", Tahoma, Verdana;
+      }
+      ul.article_ul li a:hover {
+        color: #999999;
+        text-decoration: none;
+      }
+    </style>
+    <script>
+      //翻译发音
+      function play_click(url) {
+        // 创建 audio 元素
+        var audio = document.getElementById("audio");
+
+        audio.src = url;
+
+        // 播放音频
+        audio.play();
+
+        /* var div = document.getElementById("div_embed");
+        div.innerHTML =
+          '<embed src="' +
+          url +
+          '" loop="0" autostart="true" hidden="true"></embed>'; */
+      }
+    </script>
+    <div id="container">
+      <div class="main-column">
+        <!-- <div id="div_embed"></div> -->
+        <audio id="audio"></audio>
+
+        <div class="module_instance">
+          <img src="../images/avatar/medium_1.jpg" class="module_avatar" />
+          <img src="../images/profile_arrow.png" class="module_arrow" />
+          <div class="module_content">
+            <div class="module_content_wrap">
+              <article>
+                <p class="article_title">歌曲：《愿你决定》网友怀恋</p>
+                <a
+                  class="music"
+                  href="javascript:void(0);"
+                  onclick="play_click('../sound/yuannijueding.mp3');return false;"
+                ></a>
+                <p class="article_content">
+                  常常望 愿你决定 共我相伴活出生命<br />
+                  即使我 来时没有爱 离别盛载满是情<br />
+                  祈求望 命里注定 就算几多风雨劲<br />
+                  准许这个我共你于今生 恋得高兴<br />
+                </p>
+              </article>
+              <ul class="article_ul">
+                <li><a href="#">#哥哥</a></li>
+                <li><a href="#">#愿你决定</a></li>
+                <li><a href="#">#经典歌曲</a></li>
+                <li><a href="#">#怀恋</a></li>
+              </ul>
+            </div>
+            <img src="../images/gcbk_shadow.png" width="592" />
+          </div>
+          <div style="clear: both"></div>
+        </div>
+
+        <div class="module_instance">
+          <img src="../images/avatar/medium_2.jpg" class="module_avatar" />
+          <img src="../images/profile_arrow.png" class="module_arrow" />
+          <div class="module_content">
+            <div class="module_content_wrap">
+              <article>
+                <p class="article_title">台词：《苏州河》经典台词</p>
+                <a
+                  class="movie"
+                  href="javascript:void(0);"
+                  onclick="play_click('../sound/suzhouhe.mp3');return false;"
+                ></a>
+                <p class="article_content">
+                  如果有一天我走了 你会像马达那样找我吗<br />
+                  会啊<br />
+                  会一直找吗<br />
+                  会<br />
+                  会一直找到死吗<br />
+                  会<br />
+                  你撒谎<br />
+                </p>
+              </article>
+              <ul class="article_ul">
+                <li><a href="#">#台词</a></li>
+                <li><a href="#">#文艺</a></li>
+                <li><a href="#">#神经质</a></li>
+                <li><a href="#">#苏州河</a></li>
+                <li><a href="#">#周迅</a></li>
+                <li><a href="#">#贾宏声</a></li>
+              </ul>
+            </div>
+            <img src="../images/gcbk_shadow.png" width="592" />
+          </div>
+          <div style="clear: both"></div>
+        </div>
+
+        <div class="module_instance">
+          <img src="../images/avatar/medium_3.jpg" class="module_avatar" />
+          <img src="../images/profile_arrow.png" class="module_arrow" />
+          <div class="module_content">
+            <div class="module_content_wrap">
+              <article>
+                <p class="article_title">碎语：《艺术人生》杨澜</p>
+                <a
+                  class="speech"
+                  href="javascript:void(0);"
+                  onclick="play_click('../sound/yanglan.mp3');return false;"
+                ></a>
+                <p class="article_content">
+                  年轻的时候最大的财富<br />
+                  不是你的青春不是你的美貌<br />
+                  也不是你的 充沛的精力<br />
+                  而是你有犯错误的机会<br />
+                  如果年轻的时候你都不能够<br />
+                  追随自己心里的那种 强烈的愿望<br />
+                  去为自己认为值得干的事冒一次风险<br />
+                  哪怕是犯一次错误的话<br />
+                  那青春多么苍白啊<br />
+                </p>
+              </article>
+              <ul class="article_ul">
+                <li><a href="#">#艺术人生</a></li>
+                <li><a href="#">#杨澜</a></li>
+                <li><a href="#">#励志</a></li>
+              </ul>
+            </div>
+            <img src="../images/gcbk_shadow.png" width="592" />
+          </div>
+          <div style="clear: both"></div>
+        </div>
+
+        <div class="module_instance">
+          <img src="../images/avatar/medium_4.jpg" class="module_avatar" />
+          <img src="../images/profile_arrow.png" class="module_arrow" />
+          <div class="module_content">
+            <div class="module_content_wrap">
+              <article>
+                <p class="article_title">声音：男声模仿周迅，超像</p>
+                <a
+                  class="sound"
+                  href="javascript:void(0);"
+                  onclick="play_click('../sound/zhouxun.mp3');return false;"
+                ></a>
+                <p class="article_content">
+                  大家好<br />
+                  我是周迅<br />
+                  额 祝大家在新的一年里<br />
+                  毛邓三 不挂<br />
+                </p>
+              </article>
+              <ul class="article_ul">
+                <li><a href="#">#模仿</a></li>
+                <li><a href="#">#周迅</a></li>
+                <li><a href="#">#趣味</a></li>
+                <li><a href="#">#假声</a></li>
+              </ul>
+            </div>
+            <img src="../images/gcbk_shadow.png" width="592" />
+          </div>
+          <div style="clear: both"></div>
+        </div>
+
+        <div class="module_instance">
+          <img src="../images/avatar/medium_1.jpg" class="module_avatar" />
+          <img src="../images/profile_arrow.png" class="module_arrow" />
+          <div class="module_content">
+            <div class="module_content_wrap">
+              <article>
+                <p class="article_title">歌曲：《给我一支烟》姜宇清</p>
+                <a
+                  class="music"
+                  href="javascript:void(0);"
+                  onclick="play_click('../sound/geiwoyizhiyan.mp3');return false;"
+                ></a>
+                <p class="article_content">
+                  昨天的甜言蜜语一转眼<br />
+                  今天就变成可笑的谎言<br />
+                  说什么幸福说什么难过<br />
+                  都不过是一念之间<br />
+                </p>
+              </article>
+              <ul class="article_ul">
+                <li><a href="#">#女人</a></li>
+                <li><a href="#">#失恋</a></li>
+                <li><a href="#">#怨念</a></li>
+                <li><a href="#">#姜宇清</a></li>
+              </ul>
+            </div>
+            <img src="../images/gcbk_shadow.png" width="592" />
+          </div>
+          <div style="clear: both"></div>
+        </div>
+
+        <div class="module_instance">
+          <img src="../images/avatar/medium_1.jpg" class="module_avatar" />
+          <img src="../images/profile_arrow.png" class="module_arrow" />
+          <div class="module_content">
+            <div class="module_content_wrap">
+              <article>
+                <p class="article_title">歌曲：《中华民谣》童白</p>
+                <a
+                  class="music"
+                  href="javascript:void(0);"
+                  onclick="play_click('../sound/zhonghuaminyao.mp3');return false;"
+                ></a>
+                <p class="article_content">
+                  风雪连天万户侯<br />
+                  莲花宝座伸出兰花手<br />
+                  妙语解开心中事<br />
+                  几家拜我几家愁<br />
+                  风雪连天万户侯<br />
+                  莲花宝座伸出兰花手<br />
+                  妙语解开心中事<br />
+                  几家拜我几家愁<br />
+                </p>
+              </article>
+              <ul class="article_ul">
+                <li><a href="#">#民谣</a></li>
+                <li><a href="#">#童声</a></li>
+                <li><a href="#">#孙浩</a></li>
+                <li><a href="#">#老歌</a></li>
+              </ul>
+            </div>
+            <img src="../images/gcbk_shadow.png" width="592" />
+          </div>
+          <div style="clear: both"></div>
+        </div>
+
+        <div class="module_instance">
+          <img src="../images/avatar/medium_5.jpg" class="module_avatar" />
+          <img src="../images/profile_arrow.png" class="module_arrow" />
+          <div class="module_content">
+            <div class="module_content_wrap">
+              <article>
+                <p class="article_title">歌曲：《晚秋》汤唯</p>
+                <a
+                  class="music"
+                  href="javascript:void(0);"
+                  onclick="play_click('../sound/wanqiu.mp3');return false;"
+                ></a>
+                <p class="article_content">
+                  爱不是一个人所能抵抗<br />
+                  错误有你和我一起补偿<br />
+                  等什么<br />
+                  又怎样<br />
+                  晚秋 不晚<br />
+                  又 何妨<br />
+                </p>
+              </article>
+              <ul class="article_ul">
+                <li><a href="#">#晚秋</a></li>
+                <li><a href="#">#汤唯</a></li>
+                <li><a href="#">#林夕</a></li>
+                <li><a href="#">#影视歌曲</a></li>
+              </ul>
+            </div>
+            <img src="../images/gcbk_shadow.png" width="592" />
+          </div>
+          <div style="clear: both"></div>
+        </div>
+      </div>
+      <!-- class="main-column" -->
+    </div>
+    <!-- id="container" -->
+
+    <!-- [BEGIN]返回顶部 -->
+    <div id="gotopbtn">
+      <img
+        src="../images/goto_top.png"
+        onmouseover="javascript:this.src='../images/goto_top_hover.png'"
+        onmouseout="javascript:this.src='../images/goto_top.png'"
+        alt="返回顶部"
+      />
+    </div>
+    <script type="text/javascript">
+      backTop = function (btnId) {
+        var btn = document.getElementById(btnId);
+        var d = document.documentElement;
+        window.onscroll = set;
+        btn.onclick = function () {
+          btn.style.display = "none";
+          window.onscroll = null;
+          this.timer = setInterval(function () {
+            d.scrollTop -= Math.ceil(d.scrollTop * 0.1);
+            if (d.scrollTop == 0)
+              clearInterval(btn.timer, (window.onscroll = set));
+          }, 10);
+        };
+        function set() {
+          btn.style.display = d.scrollTop ? "block" : "none";
+        }
+      };
+      backTop("gotopbtn");
+    </script>
+    <!-- [END]返回顶部 -->
+
+    <div style="clear: both"></div>
+
+    <style>
+      /***************** footer *****************/
+      footer {
+        width: 960px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 12px;
+        font-family: "微软雅黑";
+        line-height: 40px;
+        position: relative;
+        color: #b4b4b4;
+        display: block;
+        margin-top: 50px;
+      }
+      footer a {
+        color: #b4b4b4;
+      }
+      footer a:hover {
+        color: #0ea5e5;
+      }
+      #gotopbtn {
+        position: fixed;
+        bottom: 55px;
+        right: 20px;
+        display: none;
+        cursor: pointer;
+      }
+    </style>
+
+    <footer>
+      <img src="../images/footer-splitline.png" width="960px" height="1px" />
+      <p>
+        Copyright © 2012 <a href="index.php">歌词控.</a>&nbsp;&nbsp;Powered
+        by&nbsp;<a href="">Neil</a>&nbsp;&&nbsp;<a href="">路过蜻蜓</a>
+      </p>
+    </footer>
+  </body>
+</html>

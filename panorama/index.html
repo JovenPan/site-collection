@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>全景图</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="./js/lib/orienter.min.js"></script>
+	<script src="./js/lib/css3d.min.js"></script>
+	<script src="./js/lib/stats.min.js"></script>
+	<script src="./js/lib/zepto.min.js"></script>
+	<script>
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			recalc = function() {
+				var clientWidth = docEl.clientWidth;
+				if (!clientWidth) return;
+				docEl.style.fontSize = 100 * (clientWidth / 750) + 'px'
+			};
+		if (!doc.addEventListener) return;
+		win.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc, false)
+	})(document, window);
+	</script>
+	<script>
+	function getUrlParam(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) {
+			return unescape(r[2]);
+		}
+	}
+
+	var page = 'demo'
+	var value = getUrlParam('page')
+
+	if(value){
+		page = value
+	}
+
+	var title = {
+		'demo': '全景图-原型Demo',
+		'tao': '全景图-仿淘宝造物节',
+		'anta': '全景图-仿安踏广告'
+	}
+	document.title = title[page]
+
+	var node = document.createElement('script')
+	node.src = './js/config/' + page + '.js'
+	document.getElementsByTagName('head')[0].appendChild(node)
+	</script>
+</head>
+<body>
+	<div id="bg"></div>
+	<div id="view"></div>
+
+	<script src="./js/index.js"></script>
+</body>
+</html>

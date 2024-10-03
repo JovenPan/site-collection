@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!--[if lt IE 9]>
+      <script src="../js/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../css/base.css" />
+    <style>
+      /***************** header *****************/
+      #header-wrapper {
+        width: 100%;
+        height: 150px;
+        background: url(../css/header-bg.png) top center;
+        position: relative;
+      }
+      header {
+        width: 960px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .logo {
+        position: absolute;
+        top: 40px;
+        left: 10px;
+        border: 0;
+      }
+      .link-text {
+        position: absolute;
+        top: 90px;
+        left: 225px;
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 0.1em;
+      }
+      .login-tools {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+        padding-top: 5px;
+      }
+      .login-tools a {
+        margin-right: 20px;
+        color: #333;
+        font-weight: bold;
+        font-size: 12px;
+      }
+      .lrc_scroll {
+        position: absolute;
+        top: 40px;
+        left: 450px;
+        width: 500px;
+        height: 75px;
+      }
+      a.left_button {
+        height: 50px;
+        width: 30px;
+        background: url(../css/prev-next-icon.png) 0 0 no-repeat;
+        float: left;
+        display: inline;
+        text-indent: -9999px;
+        margin: 12px 30px 0 0;
+      }
+      a.left_button:hover {
+        background: url(../css/prev-next-icon.png) 0 -50px no-repeat;
+      }
+      a.rightt_button {
+        height: 50px;
+        width: 30px;
+        background: url(../css/prev-next-icon.png) -30px 0 no-repeat;
+        float: left;
+        display: inline;
+        text-indent: -9999px;
+        margin: 12px 0 0 30px;
+      }
+      a.rightt_button:hover {
+        background: url(../css/prev-next-icon.png) -30px -50px no-repeat;
+      }
+      .lrc_scroll .Cont {
+        width: 380px;
+        overflow: hidden;
+        float: left;
+      }
+      .lrc_scroll .ScrCont {
+        width: 10000000px;
+      }
+      .lrc_scroll .Cont .classical-lyrics {
+        width: 380px;
+        float: left;
+        font-size: 16px;
+        font-family: "微软雅黑", "楷体";
+        line-height: 22px;
+      }
+      .classical-lyrics a {
+        color: #f74461;
+      }
+      .classical-lyrics-author {
+        float: right;
+      }
+      .classical-lyrics-author a {
+        color: #0ea5e5;
+      }
+      .lrc_scroll #List1,
+      .lrc_scroll #List2 {
+        float: left;
+      }
+    </style>
+    <script src="../js/jquery-1.7.1.js"></script>
+    <script src="../js/init.js"></script>
+    <script>
+      $(document).ready(initSearchBox);
+    </script>
+  </head>
+  <body>
+    <div id="header-wrapper">
+      <header>
+        <a class="logo" href=""><img src="../images/logo-icon.gif" /></a>
+        <span class="link-text"> 词 画 · 配 </span>
+        <span class="login-tools"
+          ><a href="">注 册</a><a href="">登 录</a></span
+        >
+        <div class="lrc_scroll">
+          <a
+            class="left_button"
+            href="javascript:void(0);"
+            onmousedown="ISL_GoUp()"
+            onmouseup="ISL_StopUp()"
+            onmouseout="ISL_StopUp()"
+            >上一首</a
+          >
+
+          <div class="Cont" id="ISL_Cont">
+            <div class="ScrCont">
+              <div id="List1">
+                <div class="classical-lyrics">
+                  <a href="" title="林夕·汤唯《晚秋》"
+                    >爱不是一个人所能抵抗，错误有你和我一起补偿。等什么，又怎样。晚秋不晚，又何妨。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 林夕·汤唯《晚秋》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="黄伟文·陈奕迅《最佳损友》"
+                    >为何旧知己在最后，变不到老友。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 黄伟文·陈奕迅《最佳损友》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="林夕·王菲《流年》"
+                    >有生之年狭路相逢终不能幸免，手心忽然长出纠缠的曲线，懂事之前情动以后长不过一天，留不住算不出流年。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 林夕·王菲《流年》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="罗大佑《光阴的故事》"
+                    >风车在四季轮回的歌里，它天天的流转。风花雪月的诗句里，我在年年的成长。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 罗大佑《光阴的故事》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="汪峰《当我想你的时候》"
+                    >至少有十年我不曾流泪，至少有十首歌给我安慰。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 汪峰《当我想你的时候》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="林夕·王菲《约定》"
+                    >还记得街灯照出一脸黄，还燃亮那份微温的便档。剪影的你轮廓太好看，凝住眼泪才敢细看。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 林夕·王菲《约定》</a>
+                  </p>
+                </div>
+              </div>
+              <div id="List2"></div>
+            </div>
+          </div>
+
+          <a
+            class="rightt_button"
+            href="javascript:void(0);"
+            onmousedown="ISL_GoDown()"
+            onmouseup="ISL_StopDown()"
+            onmouseout="ISL_StopDown()"
+            >下一首</a
+          >
+        </div>
+      </header>
+    </div>
+    <!-- id="header-wrapper" -->
+
+    <script>
+      var Speed = 1; //速度(毫秒)
+      var Space = 20; //每次移动(px)
+      var PageWidth = 380; //翻页宽度
+      var fill = 0; //整体移位
+      var MoveLock = false;
+      var MoveTimeObj;
+      var Comp = 0;
+      var AutoPlayObj = null;
+      GetObj("List2").innerHTML = GetObj("List1").innerHTML;
+      GetObj("ISL_Cont").scrollLeft = fill;
+      GetObj("ISL_Cont").onmouseover = function () {
+        clearInterval(AutoPlayObj);
+      };
+      GetObj("ISL_Cont").onmouseout = function () {
+        AutoPlay();
+      };
+      AutoPlay();
+      function GetObj(objName) {
+        if (document.getElementById) {
+          return eval('document.getElementById("' + objName + '")');
+        } else {
+          return eval("document.all." + objName);
+        }
+      }
+      function AutoPlay() {
+        //自动滚动
+        clearInterval(AutoPlayObj);
+        AutoPlayObj = setInterval("ISL_GoDown();ISL_StopDown();", 8000); //间隔时间
+      }
+      function ISL_GoUp() {
+        //上翻开始
+        if (MoveLock) return;
+        clearInterval(AutoPlayObj);
+        MoveLock = true;
+        MoveTimeObj = setInterval("ISL_ScrUp();", Speed);
+      }
+      function ISL_StopUp() {
+        //上翻停止
+        clearInterval(MoveTimeObj);
+        if ((GetObj("ISL_Cont").scrollLeft % PageWidth) - fill != 0) {
+          Comp = fill - (GetObj("ISL_Cont").scrollLeft % PageWidth);
+          CompScr();
+        } else {
+          MoveLock = false;
+        }
+        AutoPlay();
+      }
+      function ISL_ScrUp() {
+        //上翻动作
+        if (GetObj("ISL_Cont").scrollLeft <= 0) {
+          GetObj("ISL_Cont").scrollLeft =
+            GetObj("ISL_Cont").scrollLeft + GetObj("List1").offsetWidth;
+        }
+        GetObj("ISL_Cont").scrollLeft -= Space;
+      }
+      function ISL_GoDown() {
+        //下翻
+        clearInterval(MoveTimeObj);
+        if (MoveLock) return;
+        clearInterval(AutoPlayObj);
+        MoveLock = true;
+        ISL_ScrDown();
+        MoveTimeObj = setInterval("ISL_ScrDown()", Speed);
+      }
+      function ISL_StopDown() {
+        //下翻停止
+        clearInterval(MoveTimeObj);
+        if ((GetObj("ISL_Cont").scrollLeft % PageWidth) - fill != 0) {
+          Comp = PageWidth - (GetObj("ISL_Cont").scrollLeft % PageWidth) + fill;
+          CompScr();
+        } else {
+          MoveLock = false;
+        }
+        AutoPlay();
+      }
+      function ISL_ScrDown() {
+        //下翻动作
+        if (GetObj("ISL_Cont").scrollLeft >= GetObj("List1").scrollWidth) {
+          GetObj("ISL_Cont").scrollLeft =
+            GetObj("ISL_Cont").scrollLeft - GetObj("List1").scrollWidth;
+        }
+        GetObj("ISL_Cont").scrollLeft += Space;
+      }
+      function CompScr() {
+        var num;
+        if (Comp == 0) {
+          MoveLock = false;
+          return;
+        }
+        if (Comp < 0) {
+          //上翻
+          if (Comp < -Space) {
+            Comp += Space;
+            num = Space;
+          } else {
+            num = -Comp;
+            Comp = 0;
+          }
+          GetObj("ISL_Cont").scrollLeft -= num;
+          setTimeout("CompScr()", Speed);
+        } else {
+          //下翻
+          if (Comp > Space) {
+            Comp -= Space;
+            num = Space;
+          } else {
+            num = Comp;
+            Comp = 0;
+          }
+          GetObj("ISL_Cont").scrollLeft += num;
+          setTimeout("CompScr()", Speed);
+        }
+      }
+    </script>
+
+    <style>
+      /***************** nav *****************/
+      nav {
+        width: 960px;
+        height: 45px;
+        margin: 0 auto;
+        background: url(../css/nav-bg.png) top center no-repeat;
+        position: relative;
+      }
+      .search-area {
+        float: right;
+        margin-top: 6px;
+        margin-right: 15px;
+      }
+      .search-box {
+        float: right;
+        width: 200px;
+        height: 28px;
+        border: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+        color: #888;
+        border: 1px solid #ffb2bf;
+        border-left: 0;
+        line-height: 28px;
+      }
+      .search-btn {
+        float: right;
+        text-indent: -9999px;
+        width: 80px;
+        height: 30px;
+        background: url(../css/search-btn-bg.png) 0 0 no-repeat;
+      }
+      a.search-btn:hover {
+        background: url(../css/search-btn-bg.png) 0 -30px no-repeat;
+      }
+      a.search-type {
+        float: right;
+        width: 70px;
+        height: 30px;
+        line-height: 30px;
+        color: #666;
+        text-indent: 12px;
+        border: 0;
+        background: url(../css/search-type-bg.png) 0 0 no-repeat;
+      }
+      a.search-type:hover {
+        text-decoration: none;
+        color: #333;
+        background: url(../css/search-type-bg.png) 0 -30px no-repeat;
+      }
+      .nav-text-area {
+        float: left;
+        margin-top: 12px;
+        margin-left: 160px;
+      }
+      .seperator {
+        display: block;
+        float: left;
+        color: #fff;
+        font-weight: bold;
+        margin: 0 10px;
+      }
+      a.nav-text-bk,
+      a.nav-text-ch,
+      a.nav-text-gs {
+        float: left;
+        width: 80px;
+        height: 20px;
+        text-indent: -9999px;
+        background-image: url(../css/nav-text-bg.png);
+        background-repeat: no-repeat;
+      }
+      a.nav-text-bk {
+        background-position: 0 0;
+      }
+      a.nav-text-ch {
+        background-position: -80px 0;
+      }
+      a.nav-text-gs {
+        background-position: -160px 0;
+      }
+      a.nav-text-bk:hover {
+        background-position: 0 -20px;
+      }
+      a.nav-text-ch:hover {
+        background-position: -80px -20px;
+      }
+      a.nav-text-gs:hover {
+        background-position: -160px -20px;
+      }
+      .search-types a {
+        display: block;
+        width: 70px;
+        height: 30px;
+        line-height: 30px;
+        color: #888;
+        text-indent: 12px;
+        border-top: 1px solid #eee;
+        background: #fff;
+      }
+      .search-types a:hover {
+        text-decoration: none;
+        color: #333;
+      }
+    </style>
+    <nav>
+      <section class="nav-text-area">
+        <a class="nav-text-bk" href="">歌·百科</a>
+        <span class="seperator">|</span>
+        <a class="nav-text-ch" href="">词画·配</a>
+        <span class="seperator">|</span>
+        <a class="nav-text-gs" href="">故事·锦</a>
+      </section>
+      <div class="search-area">
+        <a class="search-btn" href="">搜索</a>
+        <input class="search-box" type="text" value="那些感动你的歌..." />
+        <a class="search-type" href="javascript:void(0)">百 科</a>
+      </div>
+      <!-- class="search-area" -->
+      <section
+        class="search-types"
+        style="display: none; position: absolute; z-index: 999"
+      >
+        <a href="javascript:void(0)" onclick="selectSearchType(0)">百 科</a>
+        <a href="javascript:void(0)" onclick="selectSearchType(1)">词 画</a>
+        <a href="javascript:void(0)" onclick="selectSearchType(2)">故 事</a>
+      </section>
+    </nav>
+    <script>
+      function selectSearchType(idx) {
+        var searchTypes = ["百 科", "词 画", "故 事"];
+        $("nav .search-type").text(searchTypes[idx]);
+        $("nav .search-types").slideUp("fast");
+      }
+      $(document).ready(function () {
+        var $hiddenMenu = $("nav .search-types");
+        var showMenu = function () {
+          if ($hiddenMenu.is(":visible")) {
+            $hiddenMenu.slideUp("fast");
+            return false;
+          }
+          var pos = $(this).position();
+          var x = pos.left;
+          var y = parseInt(pos.top) + parseInt($(this).height());
+          $hiddenMenu.css({ left: x, top: y });
+          $hiddenMenu.slideDown("slow");
+          return false;
+        };
+        //$('nav .search-type').click(showMenu);
+
+        $("nav .search-type").hover(showMenu, function () {});
+
+        $("body").click(function () {
+          if ($hiddenMenu.is(":visible")) {
+            $hiddenMenu.slideUp("fast");
+            return false;
+          }
+        });
+      });
+    </script>
+
+    <style>
+      /***************** container *****************/
+      #container {
+        width: 960px;
+        height: 1000px;
+        margin: 0 auto;
+        padding: 20px 0;
+        position: relative;
+      }
+      /***************** main column *****************/
+      .main-column {
+        float: left;
+        width: 610px;
+        margin-left: 5px;
+        border: 1px solid transparent;
+        position: relative;
+      }
+      .large_chp_recommends {
+        width: 600px;
+        height: 707px; /*background-color:#f74461;*/
+        background: url(../images/cihua/cihua_bg.png) repeat-y;
+        position: relative;
+      }
+      .cihua_lefttop {
+        position: absolute;
+        top: -3px;
+        width: 56px;
+        height: 56px;
+        background: url(../images/cihua/cihua_top_left.png) no-repeat;
+      }
+      .cihua_righttop {
+        position: absolute;
+        right: 0;
+        top: -4px;
+        width: 63px;
+        height: 56px;
+        background: url(../images/cihua/cihua_top_right.png) no-repeat;
+      }
+      .cihua_bottom {
+        position: absolute;
+        bottom: -10px;
+        width: 600px;
+        height: 58px;
+        background: url(../images/cihua/cihua_bottom.png) no-repeat;
+      }
+      .cihua_pic {
+        margin: 75px 60px;
+        width: 80%;
+        border: 1px solid #f74461;
+      }
+      .cihua_ci {
+        position: absolute;
+        left: 150px;
+        bottom: 120px;
+        width: 45%;
+      }
+      .large_chp_recommends p {
+        color: white;
+        font-size: 12px;
+        line-height: 2em;
+        font-family: "微软雅黑";
+      }
+      .large_chp_recommends p.upline {
+        position: absolute;
+        right: 100px;
+        bottom: 60px;
+      }
+      .large_chp_recommends p.downline {
+        position: absolute;
+        right: 100px;
+        bottom: 30px;
+      }
+      .large_chp_recommends p a {
+        color: white;
+      }
+      .large_chp_recommends p a:hover {
+        color: black;
+        text-decoration: none;
+      }
+      .info {
+        padding-right: 20px;
+      }
+      .chp {
+        margin-bottom: 20px;
+      }
+      .info {
+        color: #e2e2e2;
+      }
+      .info a {
+        color: #0ea5e5;
+      }
+    </style>
+    <div id="container">
+      <div class="main-column">
+        <article class="chp">
+          <div class="large_chp_recommends">
+            <span class="cihua_lefttop"></span>
+            <span class="cihua_righttop"></span>
+            <span class="cihua_bottom"></span>
+            <a href="#"
+              ><img class="cihua_pic" src="../images/cihua/pic.png"
+            /></a>
+            <a href="#"
+              ><img class="cihua_ci" src="../images/cihua/lrc.png"
+            /></a>
+            <p align="right" class="upline">
+              ——<a href="gcbk.php?id=<?=$row->musicID?>">《黄浦江深》</a>方文山
+            </p>
+            <p align="right" class="downline">
+              词/<a href="profile.php?user_id=<?=$row->text_author_id?>">苏苏</a
+              >&nbsp;&nbsp;&nbsp;&nbsp;画/<a
+                href="profile.php?user_id=<?=$row->photo_author_id?>"
+                >路过蜻蜓</a
+              >
+            </p>
+          </div>
+          <span class="info"><br /></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">评论（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">分享（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">>> 点击查看</a></span>
+          <span class="info">|</span>
+          <img src="../images/splitline.png" width="600px" />
+        </article>
+        <article class="chp">
+          <div class="large_chp_recommends">
+            <span class="cihua_lefttop"></span>
+            <span class="cihua_righttop"></span>
+            <span class="cihua_bottom"></span>
+            <a href="#"
+              ><img
+                class="cihua_pic"
+                src="../images/cihua/04EBC715C5389D16C53F9D7DE08F83AD_510_342.JPEG"
+            /></a>
+            <a href="#"
+              ><img class="cihua_ci" src="../images/cihua/lrc.png"
+            /></a>
+            <p align="right" class="upline">
+              ——<a href="gcbk.php?id=<?=$row->musicID?>">《黄浦江深》</a>方文山
+            </p>
+            <p align="right" class="downline">
+              词/<a href="profile.php?user_id=<?=$row->text_author_id?>">苏苏</a
+              >&nbsp;&nbsp;&nbsp;&nbsp;画/<a
+                href="profile.php?user_id=<?=$row->photo_author_id?>"
+                >路过蜻蜓</a
+              >
+            </p>
+          </div>
+          <span class="info"><br /></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">评论（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">分享（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">>> 点击查看</a></span>
+          <span class="info">|</span>
+          <img src="../images/splitline.png" width="600px" />
+        </article>
+        <article class="chp">
+          <div class="large_chp_recommends">
+            <span class="cihua_lefttop"></span>
+            <span class="cihua_righttop"></span>
+            <span class="cihua_bottom"></span>
+            <a href="#"
+              ><img
+                class="cihua_pic"
+                src="../images/cihua/25AB7CB0C28C5498F2FEE3F127908229_499_332.JPEG"
+            /></a>
+            <a href="#"
+              ><img class="cihua_ci" src="../images/cihua/lrc.png"
+            /></a>
+            <p align="right" class="upline">
+              ——<a href="gcbk.php?id=<?=$row->musicID?>">《黄浦江深》</a>方文山
+            </p>
+            <p align="right" class="downline">
+              词/<a href="profile.php?user_id=<?=$row->text_author_id?>">苏苏</a
+              >&nbsp;&nbsp;&nbsp;&nbsp;画/<a
+                href="profile.php?user_id=<?=$row->photo_author_id?>"
+                >路过蜻蜓</a
+              >
+            </p>
+          </div>
+          <span class="info"><br /></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">评论（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">分享（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">>> 点击查看</a></span>
+          <span class="info">|</span>
+          <img src="../images/splitline.png" width="600px" />
+        </article>
+        <article class="chp">
+          <div class="large_chp_recommends">
+            <span class="cihua_lefttop"></span>
+            <span class="cihua_righttop"></span>
+            <span class="cihua_bottom"></span>
+            <a href="#"
+              ><img
+                class="cihua_pic"
+                src="../images/cihua/FFE75C99186DAA34462F6ABBFC8337D3_500_334.JPEG"
+            /></a>
+            <a href="#"
+              ><img class="cihua_ci" src="../images/cihua/lrc.png"
+            /></a>
+            <p align="right" class="upline">
+              ——<a href="gcbk.php?id=<?=$row->musicID?>">《黄浦江深》</a>方文山
+            </p>
+            <p align="right" class="downline">
+              词/<a href="profile.php?user_id=<?=$row->text_author_id?>">苏苏</a
+              >&nbsp;&nbsp;&nbsp;&nbsp;画/<a
+                href="profile.php?user_id=<?=$row->photo_author_id?>"
+                >路过蜻蜓</a
+              >
+            </p>
+          </div>
+          <span class="info"><br /></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">评论（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">分享（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">>> 点击查看</a></span>
+          <span class="info">|</span>
+          <img src="../images/splitline.png" width="600px" />
+        </article>
+        <article class="chp">
+          <div class="large_chp_recommends">
+            <span class="cihua_lefttop"></span>
+            <span class="cihua_righttop"></span>
+            <span class="cihua_bottom"></span>
+            <a href="#"
+              ><img
+                class="cihua_pic"
+                src="../images/cihua/32197D43FF5B49C9AA3D623D70F81F68_500_341.JPEG"
+            /></a>
+            <a href="#"
+              ><img class="cihua_ci" src="../images/cihua/lrc.png"
+            /></a>
+            <p align="right" class="upline">
+              ——<a href="gcbk.php?id=<?=$row->musicID?>">《黄浦江深》</a>方文山
+            </p>
+            <p align="right" class="downline">
+              词/<a href="profile.php?user_id=<?=$row->text_author_id?>">苏苏</a
+              >&nbsp;&nbsp;&nbsp;&nbsp;画/<a
+                href="profile.php?user_id=<?=$row->photo_author_id?>"
+                >路过蜻蜓</a
+              >
+            </p>
+          </div>
+          <span class="info"><br /></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">评论（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">分享（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">>> 点击查看</a></span>
+          <span class="info">|</span>
+          <img src="../images/splitline.png" width="600px" />
+        </article>
+        <article class="chp">
+          <div class="large_chp_recommends">
+            <span class="cihua_lefttop"></span>
+            <span class="cihua_righttop"></span>
+            <span class="cihua_bottom"></span>
+            <a href="#"
+              ><img
+                class="cihua_pic"
+                src="../images/cihua/58843193B4824DAA95F9089416D5F1CB_500_332.JPEG"
+            /></a>
+            <a href="#"
+              ><img class="cihua_ci" src="../images/cihua/lrc.png"
+            /></a>
+            <p align="right" class="upline">
+              ——<a href="gcbk.php?id=<?=$row->musicID?>">《黄浦江深》</a>方文山
+            </p>
+            <p align="right" class="downline">
+              词/<a href="profile.php?user_id=<?=$row->text_author_id?>">苏苏</a
+              >&nbsp;&nbsp;&nbsp;&nbsp;画/<a
+                href="profile.php?user_id=<?=$row->photo_author_id?>"
+                >路过蜻蜓</a
+              >
+            </p>
+          </div>
+          <span class="info"><br /></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">评论（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">分享（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">>> 点击查看</a></span>
+          <span class="info">|</span>
+          <img src="../images/splitline.png" width="600px" />
+        </article>
+        <article class="chp">
+          <div class="large_chp_recommends">
+            <span class="cihua_lefttop"></span>
+            <span class="cihua_righttop"></span>
+            <span class="cihua_bottom"></span>
+            <a href="#"
+              ><img
+                class="cihua_pic"
+                src="../images/cihua/36FF91E0683C45E7A4DBF35019E9B67A_500_338.JPEG"
+            /></a>
+            <a href="#"
+              ><img class="cihua_ci" src="../images/cihua/lrc.png"
+            /></a>
+            <p align="right" class="upline">
+              ——<a href="gcbk.php?id=<?=$row->musicID?>">《黄浦江深》</a>方文山
+            </p>
+            <p align="right" class="downline">
+              词/<a href="profile.php?user_id=<?=$row->text_author_id?>">苏苏</a
+              >&nbsp;&nbsp;&nbsp;&nbsp;画/<a
+                href="profile.php?user_id=<?=$row->photo_author_id?>"
+                >路过蜻蜓</a
+              >
+            </p>
+          </div>
+          <span class="info"><br /></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">评论（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">分享（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">>> 点击查看</a></span>
+          <span class="info">|</span>
+          <img src="../images/splitline.png" width="600px" />
+        </article>
+        <article class="chp">
+          <div class="large_chp_recommends">
+            <span class="cihua_lefttop"></span>
+            <span class="cihua_righttop"></span>
+            <span class="cihua_bottom"></span>
+            <a href="#"
+              ><img
+                class="cihua_pic"
+                src="../images/cihua/9ECC96A1C65E87E95E4B191B4E3215BE_500_358.JPEG"
+            /></a>
+            <a href="#"
+              ><img class="cihua_ci" src="../images/cihua/lrc.png"
+            /></a>
+            <p align="right" class="upline">
+              ——<a href="gcbk.php?id=<?=$row->musicID?>">《黄浦江深》</a>方文山
+            </p>
+            <p align="right" class="downline">
+              词/<a href="profile.php?user_id=<?=$row->text_author_id?>">苏苏</a
+              >&nbsp;&nbsp;&nbsp;&nbsp;画/<a
+                href="profile.php?user_id=<?=$row->photo_author_id?>"
+                >路过蜻蜓</a
+              >
+            </p>
+          </div>
+          <span class="info"><br /></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">评论（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">分享（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">>> 点击查看</a></span>
+          <span class="info">|</span>
+          <img src="../images/splitline.png" width="600px" />
+        </article>
+        <article class="chp">
+          <div class="large_chp_recommends">
+            <span class="cihua_lefttop"></span>
+            <span class="cihua_righttop"></span>
+            <span class="cihua_bottom"></span>
+            <a href="#"
+              ><img
+                class="cihua_pic"
+                src="../images/cihua/7EBBC45C11DAFD07DFDBB69924A56742_500_333.JPEG"
+            /></a>
+            <a href="#"
+              ><img class="cihua_ci" src="../images/cihua/lrc.png"
+            /></a>
+            <p align="right" class="upline">
+              ——<a href="gcbk.php?id=<?=$row->musicID?>">《黄浦江深》</a>方文山
+            </p>
+            <p align="right" class="downline">
+              词/<a href="profile.php?user_id=<?=$row->text_author_id?>">苏苏</a
+              >&nbsp;&nbsp;&nbsp;&nbsp;画/<a
+                href="profile.php?user_id=<?=$row->photo_author_id?>"
+                >路过蜻蜓</a
+              >
+            </p>
+          </div>
+          <span class="info"><br /></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">评论（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">分享（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">>> 点击查看</a></span>
+          <span class="info">|</span>
+          <img src="../images/splitline.png" width="600px" />
+        </article>
+        <article class="chp">
+          <div class="large_chp_recommends">
+            <span class="cihua_lefttop"></span>
+            <span class="cihua_righttop"></span>
+            <span class="cihua_bottom"></span>
+            <a href="#"
+              ><img
+                class="cihua_pic"
+                src="../images/cihua/4F1D0E908FE9A793273CE5FD3642EA63_500_335.JPEG"
+            /></a>
+            <a href="#"
+              ><img class="cihua_ci" src="../images/cihua/lrc.png"
+            /></a>
+            <p align="right" class="upline">
+              ——<a href="gcbk.php?id=<?=$row->musicID?>">《黄浦江深》</a>方文山
+            </p>
+            <p align="right" class="downline">
+              词/<a href="profile.php?user_id=<?=$row->text_author_id?>">苏苏</a
+              >&nbsp;&nbsp;&nbsp;&nbsp;画/<a
+                href="profile.php?user_id=<?=$row->photo_author_id?>"
+                >路过蜻蜓</a
+              >
+            </p>
+          </div>
+          <span class="info"><br /></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">评论（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">分享（10）</a></span>
+          <span class="info">|</span>
+          <span class="info"><a href="#">>> 点击查看</a></span>
+          <span class="info">|</span>
+          <img src="../images/splitline.png" width="600px" />
+        </article>
+        <a href="#">下一页</a>
+      </div>
+      <!-- class="main-column" -->
+
+      <style>
+        /***************** side column *****************/
+        .side-column {
+          float: left;
+          width: 310px;
+          padding-left: 25px;
+          border: 1px solid transparent;
+          background: url(../css/seperator-column-bg.jpg) 10px 0 repeat-y;
+          position: relative;
+        }
+        .side-column h3 {
+          font-size: 16px;
+          color: #eb4e66;
+          line-height: 30px;
+          font-weight: normal;
+          font-family: "微软雅黑";
+          letter-spacing: 0.2em;
+          text-align: center;
+          background: #eae8dd;
+          border: 1px solid #dfdfdf;
+          margin-bottom: 5px;
+        }
+        .side-column h3 span {
+          margin: 0 35px;
+        }
+        .hqc {
+          width: 140px;
+          height: 168px;
+          background-color: #f9f77c;
+          position: relative;
+          margin: 15px 0;
+        }
+        .hqc_lefttop {
+          position: absolute;
+          left: -1px;
+          top: -2px;
+          width: 14px;
+          height: 14px;
+          background: url(../images/cihua/border_140_168.png) 0 0 no-repeat;
+        }
+        .hqc_righttop {
+          position: absolute;
+          right: -1px;
+          top: -2px;
+          width: 14px;
+          height: 14px;
+          background: url(../images/cihua/border_140_168.png) -14px 0 no-repeat;
+        }
+        .hqc_leftbottom {
+          position: absolute;
+          left: -1px;
+          bottom: -2px;
+          width: 14px;
+          height: 14px;
+          background: url(../images/cihua/border_140_168.png) 0 -14px no-repeat;
+        }
+        .hqc_rightbottom {
+          position: absolute;
+          right: -2px;
+          bottom: -2px;
+          width: 14px;
+          height: 14px;
+          background: url(../images/cihua/border_140_168.png) -14px -14px
+            no-repeat;
+        }
+        .hqc_pic {
+          margin: 20px 12px;
+          width: 80%;
+        }
+        .cqh {
+          width: 140px;
+          height: 168px;
+          background-color: #7ccef9;
+          position: relative;
+          margin: 15px 0;
+        }
+        .side-column li {
+          float: left;
+          position: relative;
+          margin: 0 7px;
+        }
+        .hqc_img {
+          position: absolute;
+          top: 20px;
+          left: 12px;
+          width: 82%;
+          height: 45%;
+          background-color: white;
+        }
+        .hqc_img a {
+          padding-top: 20px;
+        }
+        .hqc_lrc {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          width: 75%;
+        }
+        .hqc a,
+        .hqc_img a {
+          color: #0ea5e5;
+        }
+        #show_hqc_info {
+          display: none;
+          position: absolute;
+          width: 250px;
+          background-color: black;
+          z-index: 999;
+          opacity: 0.8;
+          filter: alpha(opacity=80);
+        }
+        #show_hqc_info p,
+        #show_cqh_info p {
+          color: white;
+          padding: 2px 5px;
+        }
+        #show_cqh_info {
+          display: none;
+          position: absolute;
+          width: 250px;
+          background-color: black;
+          z-index: 999;
+          opacity: 0.8;
+          filter: alpha(opacity=80);
+        }
+        .cqh_lrc {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          width: 75%;
+          color: black;
+        }
+        #show_cqh_info .cqh_lrc_content {
+          color: #0ea5e5;
+          padding-top: 20px;
+        }
+        #show_cqh_info .cqh_lrc_author {
+          color: #eb4e66;
+          padding-bottom: 20px;
+        }
+      </style>
+      <script>
+        $(document).ready(function () {
+          $(".hqc_pic").each(function () {
+            $(this).mouseover(function () {
+              $("#show_hqc_info").css("display", "block");
+            });
+            $(this).mousemove(function (event) {
+              $("#show_hqc_info").css({
+                top: event.pageY + 10,
+                left: event.pageX + 10,
+              });
+            });
+            $(this).mouseout(function () {
+              $("#show_hqc_info").css("display", "none");
+            });
+          });
+          $(".cqh_lrc").each(function () {
+            $(this).mouseover(function () {
+              $("#show_cqh_info").css("display", "block");
+            });
+            $(this).mousemove(function (event) {
+              $("#show_cqh_info").css({
+                top: event.pageY + 10,
+                left: event.pageX + 10,
+              });
+            });
+            $(this).mouseout(function () {
+              $("#show_cqh_info").css("display", "none");
+            });
+          });
+        });
+      </script>
+      <aside class="side-column">
+        <h3><span>发画求词</span>|<span>发词求画</span></h3>
+        <ul>
+          <li>
+            <div class="hqc" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <a href="#"
+                ><img
+                  class="hqc_pic"
+                  src="../images/cihua/37CE763A977E4D5364C2BC3F25025030_500_333.JPEG"
+              /></a>
+              <a href="#"
+                ><p>已有 15 种配法</p>
+                <p>点击查看</p></a
+              >
+            </div>
+            <div class="hqc" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <a href="#"
+                ><img
+                  class="hqc_pic"
+                  src="../images/cihua/7EBBC45C11DAFD07DFDBB69924A56742_500_333.JPEG"
+              /></a>
+              <a href="#"
+                ><p>已有 8 种配法</p>
+                <p>点击查看</p></a
+              >
+            </div>
+            <div class="hqc" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <a href="#"
+                ><img
+                  class="hqc_pic"
+                  src="../images/cihua/4F1D0E908FE9A793273CE5FD3642EA63_500_335.JPEG"
+              /></a>
+              <a href="#"
+                ><p>已有 7 种配法</p>
+                <p>点击查看</p></a
+              >
+            </div>
+            <div class="hqc" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <a href="#"
+                ><img
+                  class="hqc_pic"
+                  src="../images/cihua/ED4E3043E3DDBAEBB8C17E5B7E1A144B_500_334.JPEG"
+              /></a>
+              <a href="#"
+                ><p>已有 4 种配法</p>
+                <p>点击查看</p></a
+              >
+            </div>
+            <div class="hqc" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <a href="#"
+                ><img
+                  class="hqc_pic"
+                  src="../images/cihua/37CE763A977E4D5364C2BC3F25025030_500_333.JPEG"
+              /></a>
+              <a href="#"
+                ><p>已有 15 种配法</p>
+                <p>点击查看</p></a
+              >
+            </div>
+            <div class="hqc" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <a href="#"
+                ><img
+                  class="hqc_pic"
+                  src="../images/cihua/7EBBC45C11DAFD07DFDBB69924A56742_500_333.JPEG"
+              /></a>
+              <a href="#"
+                ><p>已有 8 种配法</p>
+                <p>点击查看</p></a
+              >
+            </div>
+            <div class="hqc" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <a href="#"
+                ><img
+                  class="hqc_pic"
+                  src="../images/cihua/4F1D0E908FE9A793273CE5FD3642EA63_500_335.JPEG"
+              /></a>
+              <a href="#"
+                ><p>已有 7 种配法</p>
+                <p>点击查看</p></a
+              >
+            </div>
+            <div class="hqc" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <a href="#"
+                ><img
+                  class="hqc_pic"
+                  src="../images/cihua/ED4E3043E3DDBAEBB8C17E5B7E1A144B_500_334.JPEG"
+              /></a>
+              <a href="#"
+                ><p>已有 4 种配法</p>
+                <p>点击查看</p></a
+              >
+            </div>
+            <div class="hqc" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <a href="#"
+                ><img
+                  class="hqc_pic"
+                  src="../images/cihua/37CE763A977E4D5364C2BC3F25025030_500_333.JPEG"
+              /></a>
+              <a href="#"
+                ><p>已有 15 种配法</p>
+                <p>点击查看</p></a
+              >
+            </div>
+            <div class="hqc" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <a href="#"
+                ><img
+                  class="hqc_pic"
+                  src="../images/cihua/7EBBC45C11DAFD07DFDBB69924A56742_500_333.JPEG"
+              /></a>
+              <a href="#"
+                ><p>已有 8 种配法</p>
+                <p>点击查看</p></a
+              >
+            </div>
+            <div class="hqc" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <a href="#"
+                ><img
+                  class="hqc_pic"
+                  src="../images/cihua/4F1D0E908FE9A793273CE5FD3642EA63_500_335.JPEG"
+              /></a>
+              <a href="#"
+                ><p>已有 7 种配法</p>
+                <p>点击查看</p></a
+              >
+            </div>
+            <div class="hqc" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <a href="#"
+                ><img
+                  class="hqc_pic"
+                  src="../images/cihua/ED4E3043E3DDBAEBB8C17E5B7E1A144B_500_334.JPEG"
+              /></a>
+              <a href="#"
+                ><p>已有 4 种配法</p>
+                <p>点击查看</p></a
+              >
+            </div>
+          </li>
+          <li>
+            <div class="cqh" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <span class="hqc_img"
+                ><a href="#"
+                  ><p>已有 24 种配法</p>
+                  <p>点击查看</p></a
+                ></span
+              >
+              <a class="cqh_lrc" href="#"
+                ><p align="left">拦路雨偏似雪花，饮泣的你冻吗...</p></a
+              >
+            </div>
+            <div class="cqh" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <span class="hqc_img"
+                ><a href="#"
+                  ><p>已有 19 种配法</p>
+                  <p>点击查看</p></a
+                ></span
+              >
+              <a class="cqh_lrc" href="#"
+                ><p align="left">我可以永远笑着扮演你的配角...</p></a
+              >
+            </div>
+            <div class="cqh" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <span class="hqc_img"
+                ><a href="#"
+                  ><p>已有 11 种配法</p>
+                  <p>点击查看</p></a
+                ></span
+              >
+              <a class="cqh_lrc" href="#"
+                ><p align="left">天上没有乌云盖，为什么不见...</p></a
+              >
+            </div>
+            <div class="cqh" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <span class="hqc_img"
+                ><a href="#"
+                  ><p>已有 8 种配法</p>
+                  <p>点击查看</p></a
+                ></span
+              >
+              <a class="cqh_lrc" href="#"
+                ><p align="left">我剪短了我的发，剪断了牵挂...</p></a
+              >
+            </div>
+            <div class="cqh" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <span class="hqc_img"
+                ><a href="#"
+                  ><p>已有 24 种配法</p>
+                  <p>点击查看</p></a
+                ></span
+              >
+              <a class="cqh_lrc" href="#"
+                ><p align="left">拦路雨偏似雪花，饮泣的你冻吗...</p></a
+              >
+            </div>
+            <div class="cqh" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <span class="hqc_img"
+                ><a href="#"
+                  ><p>已有 19 种配法</p>
+                  <p>点击查看</p></a
+                ></span
+              >
+              <a class="cqh_lrc" href="#"
+                ><p align="left">拦路雨偏似雪花，饮泣的你冻吗...</p></a
+              >
+            </div>
+            <div class="cqh" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <span class="hqc_img"
+                ><a href="#"
+                  ><p>已有 11 种配法</p>
+                  <p>点击查看</p></a
+                ></span
+              >
+              <a class="cqh_lrc" href="#"
+                ><p align="left">拦路雨偏似雪花，饮泣的你冻吗...</p></a
+              >
+            </div>
+            <div class="cqh" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <span class="hqc_img"
+                ><a href="#"
+                  ><p>已有 8 种配法</p>
+                  <p>点击查看</p></a
+                ></span
+              >
+              <a class="cqh_lrc" href="#"
+                ><p align="left">拦路雨偏似雪花，饮泣的你冻吗...</p></a
+              >
+            </div>
+            <div class="cqh" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <span class="hqc_img"
+                ><a href="#"
+                  ><p>已有 24 种配法</p>
+                  <p>点击查看</p></a
+                ></span
+              >
+              <a class="cqh_lrc" href="#"
+                ><p align="left">拦路雨偏似雪花，饮泣的你冻吗...</p></a
+              >
+            </div>
+            <div class="cqh" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <span class="hqc_img"
+                ><a href="#"
+                  ><p>已有 19 种配法</p>
+                  <p>点击查看</p></a
+                ></span
+              >
+              <a class="cqh_lrc" href="#"
+                ><p align="left">拦路雨偏似雪花，饮泣的你冻吗...</p></a
+              >
+            </div>
+            <div class="cqh" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <span class="hqc_img"
+                ><a href="#"
+                  ><p>已有 11 种配法</p>
+                  <p>点击查看</p></a
+                ></span
+              >
+              <a class="cqh_lrc" href="#"
+                ><p align="left">拦路雨偏似雪花，饮泣的你冻吗...</p></a
+              >
+            </div>
+            <div class="cqh" align="center">
+              <span class="hqc_lefttop"></span>
+              <span class="hqc_righttop"></span>
+              <span class="hqc_leftbottom"></span>
+              <span class="hqc_rightbottom"></span>
+              <span class="hqc_img"
+                ><a href="#"
+                  ><p>已有 8 种配法</p>
+                  <p>点击查看</p></a
+                ></span
+              >
+              <a class="cqh_lrc" href="#"
+                ><p align="left">拦路雨偏似雪花，饮泣的你冻吗...</p></a
+              >
+            </div>
+          </li>
+        </ul>
+        <a href="#">下一组</a>
+      </aside>
+    </div>
+    <!-- id="container" -->
+
+    <div style="clear: both"></div>
+
+    <style>
+      /***************** footer *****************/
+      footer {
+        width: 960px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 14px;
+        font-family: "微软雅黑";
+        line-height: 50px;
+        background: url(../css/footer-seperator.gif) left top repeat-x;
+        position: relative;
+      }
+      footer a {
+        color: #0ea5e5;
+      }
+    </style>
+    <footer>
+      &copy;2011 <a href="">歌词控</a> 网站设计：<a href="">路过蜻蜓</a>
+    </footer>
+
+    <div id="show_hqc_info">
+      <img
+        src="../images/cihua/37CE763A977E4D5364C2BC3F25025030_500_333.JPEG"
+        width="250px"
+      />
+      <p>求词要求：</p>
+      <p>描述分手后的淡淡忧伤</p>
+    </div>
+    <div id="show_cqh_info">
+      <p class="cqh_lrc_content">
+        我可以永远笑着扮演你的配角，在你的背后自己煎熬。如果你不想要，想别恋要趁早，我没有非要一起到老。
+      </p>
+      <p class="cqh_lrc_author" align="right">—— 十一郎·张宇《趁早》</p>
+      <p>求画要求：</p>
+      <p>雨天，青石路边小站牌，伞下妙龄少女，微湿的发端，半遮的脸</p>
+    </div>
+  </body>
+</html>

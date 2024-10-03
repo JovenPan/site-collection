@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!--[if lt IE 9]>
+      <script src="js/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/base.css" />
+    <style>
+      /***************** header *****************/
+      #header-wrapper {
+        width: 100%;
+        height: 150px;
+        background: url(css/header-bg.png) top center;
+        position: relative;
+      }
+      header {
+        width: 960px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .logo {
+        position: absolute;
+        top: 40px;
+        left: 10px;
+        border: 0;
+      }
+      .link-text {
+        position: absolute;
+        top: 90px;
+        left: 225px;
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 0.1em;
+      }
+      .login-tools {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+        padding-top: 5px;
+      }
+      .login-tools a {
+        margin-right: 20px;
+        color: #333;
+        font-weight: bold;
+        font-size: 12px;
+      }
+      .lrc_scroll {
+        position: absolute;
+        top: 40px;
+        left: 450px;
+        width: 500px;
+        height: 75px;
+      }
+      a.left_button {
+        height: 50px;
+        width: 30px;
+        background: url(css/prev-next-icon.png) 0 0 no-repeat;
+        float: left;
+        display: inline;
+        text-indent: -9999px;
+        margin: 12px 30px 0 0;
+      }
+      a.left_button:hover {
+        background: url(css/prev-next-icon.png) 0 -50px no-repeat;
+      }
+      a.rightt_button {
+        height: 50px;
+        width: 30px;
+        background: url(css/prev-next-icon.png) -30px 0 no-repeat;
+        float: left;
+        display: inline;
+        text-indent: -9999px;
+        margin: 12px 0 0 30px;
+      }
+      a.rightt_button:hover {
+        background: url(css/prev-next-icon.png) -30px -50px no-repeat;
+      }
+      .lrc_scroll .Cont {
+        width: 380px;
+        overflow: hidden;
+        float: left;
+      }
+      .lrc_scroll .ScrCont {
+        width: 10000000px;
+      }
+      .lrc_scroll .Cont .classical-lyrics {
+        width: 380px;
+        float: left;
+        font-size: 16px;
+        font-family: "微软雅黑", "楷体";
+        line-height: 22px;
+      }
+      .classical-lyrics a {
+        color: #f74461;
+      }
+      .classical-lyrics-author {
+        float: right;
+      }
+      .classical-lyrics-author a {
+        color: #0ea5e5;
+      }
+      .lrc_scroll #List1,
+      .lrc_scroll #List2 {
+        float: left;
+      }
+    </style>
+    <script src="js/jquery-1.7.1.js"></script>
+    <script src="js/init.js"></script>
+    <script>
+      $(document).ready(initSearchBox);
+    </script>
+  </head>
+  <body>
+    <div id="header-wrapper">
+      <header>
+        <a class="logo" href=""><img src="images/logo-icon.gif" /></a>
+        <span class="link-text">www.gckong.com</span>
+        <span class="login-tools"
+          ><a href="">注 册</a><a href="">登 录</a></span
+        >
+        <div class="lrc_scroll">
+          <a
+            class="left_button"
+            href="javascript:void(0);"
+            onmousedown="ISL_GoUp()"
+            onmouseup="ISL_StopUp()"
+            onmouseout="ISL_StopUp()"
+            >上一首</a
+          >
+
+          <div class="Cont" id="ISL_Cont">
+            <div class="ScrCont">
+              <div id="List1">
+                <div class="classical-lyrics">
+                  <a href="" title="林夕·汤唯《晚秋》"
+                    >爱不是一个人所能抵抗，错误有你和我一起补偿。等什么，又怎样。晚秋不晚，又何妨。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 林夕·汤唯《晚秋》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="黄伟文·陈奕迅《最佳损友》"
+                    >为何旧知己在最后，变不到老友。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 黄伟文·陈奕迅《最佳损友》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="林夕·王菲《流年》"
+                    >有生之年狭路相逢终不能幸免，手心忽然长出纠缠的曲线，懂事之前情动以后长不过一天，留不住算不出流年。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 林夕·王菲《流年》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="罗大佑《光阴的故事》"
+                    >风车在四季轮回的歌里，它天天的流转。风花雪月的诗句里，我在年年的成长。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 罗大佑《光阴的故事》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="汪峰《当我想你的时候》"
+                    >至少有十年我不曾流泪，至少有十首歌给我安慰。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 汪峰《当我想你的时候》</a>
+                  </p>
+                </div>
+
+                <div class="classical-lyrics">
+                  <a href="" title="林夕·王菲《约定》"
+                    >还记得街灯照出一脸黄，还燃亮那份微温的便档。剪影的你轮廓太好看，凝住眼泪才敢细看。</a
+                  >
+                  <p class="classical-lyrics-author">
+                    <br /><a href="">—— 林夕·王菲《约定》</a>
+                  </p>
+                </div>
+              </div>
+              <div id="List2"></div>
+            </div>
+          </div>
+
+          <a
+            class="rightt_button"
+            href="javascript:void(0);"
+            onmousedown="ISL_GoDown()"
+            onmouseup="ISL_StopDown()"
+            onmouseout="ISL_StopDown()"
+            >下一首</a
+          >
+        </div>
+      </header>
+    </div>
+    <!-- id="header-wrapper" -->
+
+    <script>
+      var Speed = 1; //速度(毫秒)
+      var Space = 20; //每次移动(px)
+      var PageWidth = 380; //翻页宽度
+      var fill = 0; //整体移位
+      var MoveLock = false;
+      var MoveTimeObj;
+      var Comp = 0;
+      var AutoPlayObj = null;
+      GetObj("List2").innerHTML = GetObj("List1").innerHTML;
+      GetObj("ISL_Cont").scrollLeft = fill;
+      GetObj("ISL_Cont").onmouseover = function () {
+        clearInterval(AutoPlayObj);
+      };
+      GetObj("ISL_Cont").onmouseout = function () {
+        AutoPlay();
+      };
+      AutoPlay();
+      function GetObj(objName) {
+        if (document.getElementById) {
+          return eval('document.getElementById("' + objName + '")');
+        } else {
+          return eval("document.all." + objName);
+        }
+      }
+      function AutoPlay() {
+        //自动滚动
+        clearInterval(AutoPlayObj);
+        AutoPlayObj = setInterval("ISL_GoDown();ISL_StopDown();", 8000); //间隔时间
+      }
+      function ISL_GoUp() {
+        //上翻开始
+        if (MoveLock) return;
+        clearInterval(AutoPlayObj);
+        MoveLock = true;
+        MoveTimeObj = setInterval("ISL_ScrUp();", Speed);
+      }
+      function ISL_StopUp() {
+        //上翻停止
+        clearInterval(MoveTimeObj);
+        if ((GetObj("ISL_Cont").scrollLeft % PageWidth) - fill != 0) {
+          Comp = fill - (GetObj("ISL_Cont").scrollLeft % PageWidth);
+          CompScr();
+        } else {
+          MoveLock = false;
+        }
+        AutoPlay();
+      }
+      function ISL_ScrUp() {
+        //上翻动作
+        if (GetObj("ISL_Cont").scrollLeft <= 0) {
+          GetObj("ISL_Cont").scrollLeft =
+            GetObj("ISL_Cont").scrollLeft + GetObj("List1").offsetWidth;
+        }
+        GetObj("ISL_Cont").scrollLeft -= Space;
+      }
+      function ISL_GoDown() {
+        //下翻
+        clearInterval(MoveTimeObj);
+        if (MoveLock) return;
+        clearInterval(AutoPlayObj);
+        MoveLock = true;
+        ISL_ScrDown();
+        MoveTimeObj = setInterval("ISL_ScrDown()", Speed);
+      }
+      function ISL_StopDown() {
+        //下翻停止
+        clearInterval(MoveTimeObj);
+        if ((GetObj("ISL_Cont").scrollLeft % PageWidth) - fill != 0) {
+          Comp = PageWidth - (GetObj("ISL_Cont").scrollLeft % PageWidth) + fill;
+          CompScr();
+        } else {
+          MoveLock = false;
+        }
+        AutoPlay();
+      }
+      function ISL_ScrDown() {
+        //下翻动作
+        if (GetObj("ISL_Cont").scrollLeft >= GetObj("List1").scrollWidth) {
+          GetObj("ISL_Cont").scrollLeft =
+            GetObj("ISL_Cont").scrollLeft - GetObj("List1").scrollWidth;
+        }
+        GetObj("ISL_Cont").scrollLeft += Space;
+      }
+      function CompScr() {
+        var num;
+        if (Comp == 0) {
+          MoveLock = false;
+          return;
+        }
+        if (Comp < 0) {
+          //上翻
+          if (Comp < -Space) {
+            Comp += Space;
+            num = Space;
+          } else {
+            num = -Comp;
+            Comp = 0;
+          }
+          GetObj("ISL_Cont").scrollLeft -= num;
+          setTimeout("CompScr()", Speed);
+        } else {
+          //下翻
+          if (Comp > Space) {
+            Comp -= Space;
+            num = Space;
+          } else {
+            num = Comp;
+            Comp = 0;
+          }
+          GetObj("ISL_Cont").scrollLeft += num;
+          setTimeout("CompScr()", Speed);
+        }
+      }
+    </script>
+
+    <style>
+      /***************** nav *****************/
+      nav {
+        width: 960px;
+        height: 45px;
+        margin: 0 auto;
+        background: url(css/nav-bg.png) top center no-repeat;
+        position: relative;
+      }
+      .search-area {
+        float: right;
+        margin-top: 6px;
+        margin-right: 15px;
+      }
+      .search-box {
+        float: right;
+        width: 200px;
+        height: 28px;
+        border: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+        color: #888;
+        border: 1px solid #ffb2bf;
+        border-left: 0;
+        line-height: 28px;
+      }
+      .search-btn {
+        float: right;
+        text-indent: -9999px;
+        width: 80px;
+        height: 30px;
+        background: url(css/search-btn-bg.png) 0 0 no-repeat;
+      }
+      a.search-btn:hover {
+        background: url(css/search-btn-bg.png) 0 -30px no-repeat;
+      }
+      a.search-type {
+        float: right;
+        width: 70px;
+        height: 30px;
+        line-height: 30px;
+        color: #666;
+        text-indent: 12px;
+        border: 0;
+        background: url(css/search-type-bg.png) 0 0 no-repeat;
+      }
+      a.search-type:hover {
+        text-decoration: none;
+        color: #333;
+        background: url(css/search-type-bg.png) 0 -30px no-repeat;
+      }
+      .nav-text-area {
+        float: left;
+        margin-top: 12px;
+        margin-left: 160px;
+      }
+      .seperator {
+        display: block;
+        float: left;
+        color: #fff;
+        font-weight: bold;
+        margin: 0 10px;
+      }
+      a.nav-text-bk,
+      a.nav-text-ch,
+      a.nav-text-gs {
+        float: left;
+        width: 80px;
+        height: 20px;
+        text-indent: -9999px;
+        background-image: url(css/nav-text-bg.png);
+        background-repeat: no-repeat;
+      }
+      a.nav-text-bk {
+        background-position: 0 0;
+      }
+      a.nav-text-ch {
+        background-position: -80px 0;
+      }
+      a.nav-text-gs {
+        background-position: -160px 0;
+      }
+      a.nav-text-bk:hover {
+        background-position: 0 -20px;
+      }
+      a.nav-text-ch:hover {
+        background-position: -80px -20px;
+      }
+      a.nav-text-gs:hover {
+        background-position: -160px -20px;
+      }
+      .search-types a {
+        display: block;
+        width: 70px;
+        height: 30px;
+        line-height: 30px;
+        color: #888;
+        text-indent: 12px;
+        border-top: 1px solid #eee;
+        background: #fff;
+      }
+      .search-types a:hover {
+        text-decoration: none;
+        color: #333;
+      }
+    </style>
+    <nav>
+      <section class="nav-text-area">
+        <a class="nav-text-bk" href="">歌·百科</a>
+        <span class="seperator">|</span>
+        <a class="nav-text-ch" href="">词画·配</a>
+        <span class="seperator">|</span>
+        <a class="nav-text-gs" href="">故事·锦</a>
+      </section>
+      <div class="search-area">
+        <a class="search-btn" href="">搜索</a>
+        <input class="search-box" type="text" value="那些感动你的歌..." />
+        <a class="search-type" href="javascript:void(0)">百 科</a>
+      </div>
+      <!-- class="search-area" -->
+      <section
+        class="search-types"
+        style="display: none; position: absolute; z-index: 999"
+      >
+        <a href="javascript:void(0)" onclick="selectSearchType(0)">百 科</a>
+        <a href="javascript:void(0)" onclick="selectSearchType(1)">词 画</a>
+        <a href="javascript:void(0)" onclick="selectSearchType(2)">故 事</a>
+      </section>
+    </nav>
+    <script>
+      function selectSearchType(idx) {
+        var searchTypes = ["百 科", "词 画", "故 事"];
+        $("nav .search-type").text(searchTypes[idx]);
+        $("nav .search-types").slideUp("fast");
+      }
+      $(document).ready(function () {
+        var $hiddenMenu = $("nav .search-types");
+        var showMenu = function () {
+          if ($hiddenMenu.is(":visible")) {
+            $hiddenMenu.slideUp("fast");
+            return false;
+          }
+          var pos = $(this).position();
+          var x = pos.left;
+          var y = parseInt(pos.top) + parseInt($(this).height());
+          $hiddenMenu.css({ left: x, top: y });
+          $hiddenMenu.slideDown("slow");
+          return false;
+        };
+
+        $("nav .search-type").hover(showMenu, function () {});
+
+        $("body").click(function () {
+          if ($hiddenMenu.is(":visible")) {
+            $hiddenMenu.slideUp("fast");
+            return false;
+          }
+        });
+      });
+    </script>
+
+    <style>
+      /***************** container *****************/
+      #container {
+        width: 960px;
+        height: 1000px;
+        margin: 0 auto;
+        padding: 10px 0;
+        position: relative;
+      }
+      /***************** main column *****************/
+      .main-column {
+        float: left;
+        width: 610px;
+        margin-left: 5px;
+        border: 1px solid transparent;
+        position: relative;
+      }
+      .main-block {
+        margin-bottom: 20px;
+        border: 10px solid #efeee6;
+        border-top: 0;
+        position: relative;
+        background: #fefdf8;
+      }
+      .main-block h3 {
+        background: #efeee6;
+        font-size: 16px;
+        color: #eb4e66;
+        line-height: 30px;
+        font-weight: bold;
+        font-family: "微软雅黑";
+        text-indent: 0.5em;
+        letter-spacing: 0.2em;
+      }
+      .main-block aside {
+        float: left;
+        width: 35%;
+      }
+      .latest-recommends {
+        float: left;
+        width: 60%;
+        line-height: 30px;
+        font-size: 14px;
+        font-family: "微软雅黑";
+      }
+      .latest-recommends article {
+        margin-bottom: 10px;
+      }
+      .latest-recommends h4 {
+        font-size: 16px;
+        color: #0ea5e5;
+      }
+      .latest-recommends h5 a {
+        color: #f55670;
+      }
+      .cihua-recommends img {
+        width: 98%;
+      }
+      .story-recommends a.user-icon {
+        float: left;
+        margin-right: 15px;
+        margin-top: 8px;
+        width: 67px;
+        height: 67px;
+      }
+      .story-recommends a.user-icon:hover {
+        background: url(images/light_border.png);
+      }
+      .story-recommends .user-img {
+        width: 59px;
+        height: 59px;
+        position: relative;
+        top: 3px;
+        left: 3px;
+        border: 1px solid #d9edfe;
+      }
+      .story-recommends p {
+        line-height: 30px;
+      }
+      .story-recommends a.h5 {
+        color: #f55670;
+      }
+      #marqueebox0,
+      #marqueebox2 {
+        height: 340px;
+        overflow: hidden;
+      }
+      #gbk-recommends {
+        text-align: center;
+        margin-right: 15px;
+      }
+      #gbk-recommends li {
+        margin: 5px 0;
+      }
+      #gbk-recommends li p a {
+        color: #0ea5e5;
+      }
+      a.song-icons {
+        float: left;
+        width: 88px;
+        height: 88px;
+        position: relative;
+        margin: 5px 50px;
+      }
+      a.song-icons:hover {
+        background: url(images/light_border_88_88.png);
+      }
+      a.song-icons img {
+        margin: 0;
+        width: 80px;
+        height: 80px;
+        position: relative;
+        top: 3px;
+        border: 1px solid #d9edfe;
+      }
+      #chp-recommends {
+        margin: 10px 0 0 20px;
+      }
+      #chp-recommends td.text {
+        width: 15px;
+        color: #0ea5e5;
+      }
+      #chp-recommends a {
+        display: block;
+        margin: 0 0 2px 10px;
+      }
+      .half_transparent {
+        position: absolute;
+        bottom: 15px;
+        width: 380px;
+        height: 60px;
+      }
+      .large_chp_recommends {
+        width: 350px;
+        height: 420px;
+        background-color: #f74461;
+        position: relative;
+      }
+      #cihua_lefttop {
+        position: absolute;
+        width: 33px;
+        height: 34px;
+        left: -1px;
+        top: -1px;
+        background: url(images/cihua/border_350_420.png) 0 0 no-repeat;
+      }
+      #cihua_righttop {
+        position: absolute;
+        right: -1px;
+        top: -1px;
+        width: 33px;
+        height: 34px;
+        background: url(images/cihua/border_350_420.png) -33px 0 no-repeat;
+      }
+      #cihua_leftbottom {
+        position: absolute;
+        left: -1px;
+        bottom: -1px;
+        width: 33px;
+        height: 34px;
+        background: url(images/cihua/border_350_420.png) 0 -34px no-repeat;
+      }
+      #cihua_rightbottom {
+        position: absolute;
+        right: -1px;
+        bottom: -1px;
+        width: 33px;
+        height: 34px;
+        background: url(images/cihua/border_350_420.png) -33px -34px no-repeat;
+      }
+      #cihua_pic {
+        margin: 50px 30px;
+        width: 82%;
+        border: 1px solid #f74461;
+      }
+      #cihua_ci {
+        position: absolute;
+        left: 60px;
+        bottom: 70px;
+        width: 50%;
+      }
+      .large_chp_recommends p {
+        color: white;
+        font-size: 9px;
+        line-height: 2em;
+        font-family: "微软雅黑";
+      }
+      .large_chp_recommends p.upline {
+        position: absolute;
+        right: 40px;
+        bottom: 30px;
+      }
+      .large_chp_recommends p.downline {
+        position: absolute;
+        right: 40px;
+        bottom: 10px;
+      }
+      .large_chp_recommends p a {
+        color: white;
+      }
+      .large_chp_recommends p a:hover {
+        color: black;
+        text-decoration: none;
+      }
+      .marquee-section {
+        margin-bottom: 15px;
+      }
+      #gsj-tag {
+        padding: 20px 20px;
+      }
+      #gsj-tag li {
+        float: left;
+        margin: 5px 10px;
+        border: 1px solid #bfbfbf;
+      }
+      #gsj-tag li a {
+        display: block;
+        padding: 2px 8px;
+        background-color: #f7f7f7;
+        color: #999999;
+        text-decoration: none;
+      }
+      #gsj-tag li a:hover {
+        background-color: white;
+        color: #444444;
+      }
+      #v-splitline {
+        position: absolute;
+        height: 350px;
+        width: 1px;
+        left: 190px;
+      }
+      a#tipbox {
+        position: absolute;
+        height: 120px;
+        width: 35px;
+        left: 150px;
+        top: 50px;
+        background: url(images/tipbox.png) 0 0 no-repeat;
+      }
+      a#tipbox:hover {
+        background: url(images/tipbox.png) -35px 0 no-repeat;
+      }
+      .trans-mask {
+        display: block;
+        width: 120px;
+        height: 144px;
+        position: absolute;
+        background: url(images/cihua/trans-mask.png) no-repeat;
+      }
+    </style>
+    <div id="container">
+      <div class="main-column">
+        <section class="main-block">
+          <h3>歌·百科</h3>
+          <aside>
+            <a id="tipbox" href="#"></a>
+            <ul id="gbk-recommends">
+              <li>
+                <a class="song-icons" href="#"
+                  ><img src="images/songs/eason.png"
+                /></a>
+                <p><a href="">陈奕迅 《富士山下》</a></p>
+              </li>
+              <li>
+                <a class="song-icons" href="#"
+                  ><img src="images/songs/twins.png"
+                /></a>
+                <p><a href="">Twins 《下一站天后》</a></p>
+              </li>
+              <li>
+                <a class="song-icons" href="#"
+                  ><img src="images/songs/leslie.png"
+                /></a>
+                <p><a href="">张国荣 《愿你决定》</a></p>
+              </li>
+            </ul>
+          </aside>
+          <div class="latest-recommends">
+            <h4>最新推荐</h4>
+            <div class="marquee-section" id="marqueebox0">
+              <article class="marquee-article">
+                <h5><a href="">林夕谈《富士山下》</a></h5>
+                <p>
+                  其实，你喜欢一个人，就像喜欢富士山。你可以看到它，但是不能搬走它。你有什么方法可以移动一座富士山，回答是，你自己走过去。爱情也如此，逛过就已经足够。其实，你喜欢一个人，就像喜欢富士山。你可以看到它，但是不能搬走它。你有什么方法可以移动一座富士山，回答是，你自己走过去。爱情也如此，逛过就已经足够。
+                </p>
+                <img src="images/splitline.png" width="380px" height="1px" />
+              </article>
+              <article class="marquee-article">
+                <h5><a href="">林夕谈《富士山下》</a></h5>
+                <p>
+                  其实，你喜欢一个人，就像喜欢富士山。你可以看到它，但是不能搬走它。你有什么方法可以移动一座富士山，回答是，你自己走过去。爱情也如此，逛过就已经足够。
+                </p>
+                <img src="images/splitline.png" width="380px" height="1px" />
+              </article>
+              <article class="marquee-article">
+                <h5><a href="">C. Y. Kong谈《浮夸》</a></h5>
+                <p>
+                  This was written the night of April 1st, 2003. It was called
+                  Depression in the 1st place. A feeling of, like I wanted to
+                  ask ''why?'' or ''why does one has to commit suicide''. I
+                  pictured...
+                </p>
+                <img src="images/splitline.png" width="380px" height="1px" />
+              </article>
+              <article class="marquee-article">
+                <h5><a href="">C. Y. Kong谈《浮夸》</a></h5>
+                <p>
+                  This was written the night of April 1st, 2003. It was called
+                  Depression in the 1st place. A feeling of, like I wanted to
+                  ask ''why?'' or ''why does one has to commit suicide''. I
+                  pictured...
+                </p>
+                <img src="images/splitline.png" width="380px" height="1px" />
+              </article>
+            </div>
+            <img class="half_transparent" src="images/half_transparent.png" />
+          </div>
+          <div class="fn-clear"></div>
+        </section>
+        <section class="main-block">
+          <h3>词画·配</h3>
+          <aside>
+            <table id="chp-recommends">
+              <tr>
+                <td class="text">完整词画</td>
+                <td>
+                  <a href="#" class="trans-mask-a"
+                    ><span class="trans-mask" id="trans-mask0"></span
+                    ><img src="images/cihua/small_cihua_120_144.png"
+                  /></a>
+                </td>
+              </tr>
+              <tr>
+                <td class="text">发画求词</td>
+                <td>
+                  <a href="#" class="trans-mask-a"
+                    ><span class="trans-mask" id="trans-mask1"></span
+                    ><img src="images/cihua/small_hua_120_144.png"
+                  /></a>
+                </td>
+              </tr>
+              <tr>
+                <td class="text">发词求画</td>
+                <td>
+                  <a href="#" class="trans-mask-a"
+                    ><span class="trans-mask" id="trans-mask2"></span
+                    ><img src="images/cihua/small_ci_120_144.png"
+                  /></a>
+                </td>
+              </tr>
+            </table>
+          </aside>
+          <div class="latest-recommends cihua-recommends">
+            <h4>最新推荐</h4>
+            <article>
+              <div class="large_chp_recommends">
+                <span id="cihua_lefttop"></span>
+                <span id="cihua_righttop"></span>
+                <span id="cihua_leftbottom"></span>
+                <span id="cihua_rightbottom"></span>
+                <a href="#"
+                  ><img id="cihua_pic" src="images/cihua/pic.png"
+                /></a>
+                <a href="#"><img id="cihua_ci" src="images/cihua/lrc.png" /></a>
+                <p align="right" class="upline">
+                  ——<a href="gcbk.php?id=<?=$row->musicID?>">《黄浦江深》</a
+                  >方文山
+                </p>
+                <p align="right" class="downline">
+                  词/<a href="profile.php?user_id=<?=$row->text_author_id?>"
+                    >苏苏</a
+                  >
+                  画/<a href="profile.php?user_id=<?=$row->photo_author_id?>"
+                    >路过蜻蜓</a
+                  >
+                </p>
+              </div>
+            </article>
+          </div>
+          <div class="fn-clear"></div>
+        </section>
+        <section class="main-block">
+          <h3>故事·锦</h3>
+          <aside>
+            <img id="v-splitline" src="images/v-splitline.png" />
+            <ul id="gsj-tag">
+              <li><a href="#">全部</a></li>
+              <li><a href="#">东京故事</a></li>
+              <li><a href="#">童年</a></li>
+              <li><a href="#">失恋也快乐</a></li>
+              <li><a href="#">夏天</a></li>
+              <li><a href="#">女怨男痴</a></li>
+              <li><a href="#">那些年</a></li>
+              <li><a href="#">缘起缘灭</a></li>
+              <li><a href="#">励志</a></li>
+              <li><a href="#">樱花雨</a></li>
+              <li><a href="#">光阴的故事</a></li>
+              <li><a href="#">那座城池</a></li>
+              <li><a href="#">曾经</a></li>
+              <li><a href="#">原来你也在这里</a></li>
+              <li><a href="#">快乐</a></li>
+              <li><a href="#">其他</a></li>
+            </ul>
+          </aside>
+          <div class="latest-recommends story-recommends">
+            <h4>最新推荐</h4>
+            <div class="marquee-section" id="marqueebox2">
+              <article class="marquee-article">
+                <a class="user-icon" href=""
+                  ><img
+                    class="user-img"
+                    src="images/users/99670.1329741225[1].jpg"
+                /></a>
+                <p>
+                  <a class="h5" href="">残念FYF：如果可以，想为你再唱这首歌</a
+                  ><br />我喜欢，在一张干干净净的白纸上，用0.5的签字笔默写歌词，如是午后，阳光正好，生命安然，此时黑与白相遇，如同当初我与你。
+                </p>
+                <img src="images/splitline.png" width="380px" height="1px" />
+              </article>
+              <article class="marquee-article">
+                <a class="user-icon" href=""
+                  ><img
+                    class="user-img"
+                    src="images/users/91484.1327154896[1].jpg"
+                /></a>
+                <p>
+                  <a class="h5" href=""> 以·有：早开的晚霞</a
+                  ><br />所谓的宽容坚强我做不到啊　往后的寂寞年华怎么去消化
+                  我没有给你翅膀　你为什么要飞翔
+                  剩我　一个人　听他们劝我　你在　天堂
+                </p>
+                <img src="images/splitline.png" width="380px" height="1px" />
+              </article>
+              <article class="marquee-article">
+                <a class="user-icon" href=""
+                  ><img
+                    class="user-img"
+                    src="images/users/99670.1329741225[1].jpg"
+                /></a>
+                <p>
+                  <a class="h5" href="">残念FYF：如果可以，想为你再唱这首歌</a
+                  ><br />我喜欢，在一张干干净净的白纸上，用0.5的签字笔默写歌词，如是午后，阳光正好，生命安然，此时黑与白相遇，如同当初我与你。
+                </p>
+                <img src="images/splitline.png" width="380px" height="1px" />
+              </article>
+              <article class="marquee-article">
+                <a class="user-icon" href=""
+                  ><img
+                    class="user-img"
+                    src="images/users/91484.1327154896[1].jpg"
+                /></a>
+                <p>
+                  <a class="h5" href=""> 以·有：早开的晚霞</a
+                  ><br />所谓的宽容坚强我做不到啊　往后的寂寞年华怎么去消化
+                  我没有给你翅膀　你为什么要飞翔
+                  剩我　一个人　听他们劝我　你在　天堂
+                </p>
+                <img src="images/splitline.png" width="380px" height="1px" />
+              </article>
+            </div>
+            <img class="half_transparent" src="images/half_transparent.png" />
+          </div>
+
+          <script type="text/javascript">
+            $(document).ready(function () {
+              var delay = 3000;
+              $(".marquee-section").each(function () {
+                this.innerHTML += this.innerHTML;
+                var marqueeContainer = this;
+                var firstArticleOffsetTop = this.offsetTop;
+                var scrollStop = false;
+                $(this).hover(
+                  function () {
+                    scrollStop = true;
+                  },
+                  function () {
+                    scrollStop = false;
+                  }
+                );
+                var scrollToNextArticle = function () {
+                  var currentScrollTop = marqueeContainer.scrollTop;
+                  var destScrollTop = currentScrollTop;
+                  var found = false;
+                  $(marqueeContainer)
+                    .find(".marquee-article")
+                    .each(function () {
+                      if (
+                        !found &&
+                        this.offsetTop - firstArticleOffsetTop >
+                          currentScrollTop
+                      ) {
+                        destScrollTop = this.offsetTop - firstArticleOffsetTop;
+                        found = true;
+                      }
+                    });
+                  var animateScroll = function () {
+                    if (!scrollStop) {
+                      marqueeContainer.scrollTop += 1;
+                    }
+                    if (marqueeContainer.scrollTop < destScrollTop) {
+                      setTimeout(animateScroll, 10);
+                    } else {
+                      if (
+                        marqueeContainer.scrollTop >=
+                        marqueeContainer.scrollHeight / 2
+                      ) {
+                        marqueeContainer.scrollTop -=
+                          marqueeContainer.scrollHeight / 2;
+                      }
+                      setTimeout(scrollToNextArticle, delay);
+                    }
+                  };
+                  animateScroll();
+                };
+                setTimeout(scrollToNextArticle, delay);
+              });
+              $(".trans-mask-a").each(function (i) {
+                $(this).hover(
+                  function () {
+                    $("#trans-mask" + i).css("display", "none");
+                  },
+                  function () {
+                    $("#trans-mask" + i).css("display", "block");
+                  }
+                );
+              });
+
+              $("#cihua_pic").hover(
+                function () {
+                  $(this).css("border", "1px solid white");
+                },
+                function () {
+                  $(this).css("border", "1px solid #f74461");
+                }
+              );
+            });
+          </script>
+          <div class="fn-clear"></div>
+        </section>
+      </div>
+      <!-- class="main-column" -->
+
+      <style>
+        /***************** side column *****************/
+        .side-column {
+          float: left;
+          width: 310px;
+          padding-left: 25px;
+          border: 1px solid transparent;
+          background: url(css/seperator-column-bg.jpg) 10px 0 repeat-y;
+          position: relative;
+        }
+        #flash-content {
+          width: 100%;
+          height: 260px;
+        }
+        .side-column h3 {
+          font-size: 16px;
+          color: #eb4e66;
+          line-height: 30px;
+          font-weight: normal;
+          font-family: "微软雅黑";
+          letter-spacing: 0.2em;
+          text-align: center;
+          background: #eae8dd;
+          border: 1px solid #dfdfdf;
+          margin-bottom: 5px;
+        }
+        .user-icons {
+          width: 100%;
+          position: relative;
+        }
+        .user-icons a {
+          float: left;
+          width: 67px;
+          height: 67px;
+          margin: 5px;
+        }
+        .user-icons a img {
+          width: 59px;
+          height: 59px;
+          position: relative;
+          top: 3px;
+          left: 3px;
+          border: 1px solid #d9edfe;
+        }
+      </style>
+      <aside class="side-column">
+        <div id="flash-content"></div>
+        <!-- BEGIN 云歌名 -->
+        <script src="js/swfobject.js"></script>
+        <script>
+          var so = new SWFObject(
+            "images/tagcloud.swf",
+            "tagcloud",
+            "310",
+            "260",
+            "7",
+            "red"
+          );
+          so.addParam("wmode", "transparent");
+          so.addVariable("tcolor", "0xf74461");
+          so.addVariable("tcolor2", "0x00ff00");
+          so.addVariable("hicolor", "0x11b6ff");
+          so.addVariable("tspeed", "100");
+          so.addVariable("distr", "true");
+          so.addVariable("xmlpath", "tagcloud.xml");
+          so.write("flash-content");
+        </script>
+        <!-- END 云歌名 -->
+        <h3>他们·与你常在</h3>
+        <div class="user-icons" id="user-icons"></div>
+        <!-- <object class="user-icons" data="users.html"></object> -->
+        <!-- <iframe class="user-icons" src="users.html"></iframe> -->
+        <script>
+          $(document).ready(function () {
+            // fetch("users.html")
+            //   .then((response) => response.text())
+            //   .then((data) => {
+            //     document.getElementById("user-icons").innerHTML = data;
+            //   })
+            //   .catch((error) => {
+            //     console.error("Error loading fragment:", error);
+            //   });
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "users.html", true);
+            xhr.onreadystatechange = function () {
+              if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById("user-icons").innerHTML =
+                  xhr.responseText;
+              }
+            };
+            xhr.send();
+
+            // $('.user-icons').load('users.html');
+            $(".user_avatar").each(function (i) {
+              $(this).hover(
+                function () {
+                  $(this).css("background", "url(images/light_border.png)");
+                },
+                function () {
+                  $(this).css("background", "none");
+                }
+              );
+            });
+          });
+        </script>
+      </aside>
+    </div>
+    <!-- id="container" -->
+
+    <div style="clear: both"></div>
+
+    <style>
+      /***************** footer *****************/
+      footer {
+        width: 960px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 14px;
+        font-family: "微软雅黑";
+        line-height: 50px;
+        background: url(css/footer-seperator.gif) left top repeat-x;
+        position: relative;
+      }
+      footer a {
+        color: #0ea5e5;
+      }
+    </style>
+    <footer>
+      &copy;2011 <a href="">歌词控</a> 网站设计：<a href="">路过蜻蜓</a>
+    </footer>
+  </body>
+</html>
