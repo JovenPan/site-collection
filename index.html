@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Static Site</title>
+    <title>林晚的小站</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       * {
@@ -10,9 +10,260 @@
         padding: 0;
         font-family: Arial, Helvetica, sans-serif;
       }
+      body {
+        background-color: #eee;
+      }
+      .layout {
+        width: 100%;
+        margin-bottom: 100px;
+        display: flex;
+        justify-content: center;
+
+        .pageWrapper {
+          width: 100%;
+          max-width: 500px;
+
+          .group {
+            width: 100%;
+            margin: 40px 0;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+
+            .groupName {
+              font-size: 16px;
+              font-weight: 700;
+              color: #333;
+            }
+
+            .item {
+              position: relative;
+              width: 100%;
+              height: 100px;
+              margin-top: 20px;
+              border-radius: 10px;
+              box-sizing: border-box;
+              overflow: hidden;
+              background-size: cover;
+              background-position: center top;
+
+              .mask {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                  to top,
+                  rgba(0, 0, 0, 0.7),
+                  rgba(0, 0, 0, 0)
+                );
+                /* background-color: rgba(0, 0, 0, 0.4); */
+              }
+
+              .textWrapper {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .title {
+                  margin-left: 10px;
+                  font-size: 15px;
+                  font-weight: 500;
+                  color: #fff;
+                }
+
+                .time {
+                  margin-right: 10px;
+                  font-size: 12px;
+                  font-weight: 400;
+                  color: #eee;
+                }
+              }
+            }
+          }
+        }
+      }
     </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div class="layout">
+      <div class="pageWrapper">
+        <div class="group">
+          <span class="groupName">歌词控 Demo</span>
+          <div class="item" style="background-image: url(./images/gckong.png)">
+            <a href="./gckong-demo/index.html">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">主页</span>
+              </div>
+            </a>
+          </div>
+          <div
+            class="item"
+            style="background-image: url(./images/gckong_chp.png)"
+          >
+            <a href="./gckong-demo/chp/index.html">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">词画·配</span>
+              </div>
+            </a>
+          </div>
+          <div
+            class="item"
+            style="background-image: url(./images/gckong_ltl.png)"
+          >
+            <a href="./gckong-demo/ltl/index.html">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">聆听·林</span>
+              </div>
+            </a>
+          </div>
+          <div
+            class="item"
+            style="background-image: url(./images/gckong_gcbk.png)"
+          >
+            <a href="./gckong-demo/gcbk/index.html">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">歌词百科</span>
+              </div>
+            </a>
+          </div>
+          <div
+            class="item"
+            style="background-image: url(./images/gckong_ywgc.png)"
+          >
+            <a href="./gckong-demo/ywgc/index.html">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">鹦鹉歌词</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="group">
+          <span class="groupName">白纸黑字</span>
+          <div
+            class="item"
+            style="background-image: url(./images/bzhz_welcome.png)"
+          >
+            <a href="./bzhz/welcome/index.html">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">欢迎屏</span>
+              </div>
+            </a>
+          </div>
+          <div
+            class="item"
+            style="background-image: url(./images/bzhz_download.png)"
+          >
+            <a href="./bzhz/download/index.html">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">下载页</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="group">
+          <span class="groupName">全景画</span>
+          <div
+            class="item"
+            style="background-image: url(./images/panorama.png)"
+          >
+            <a href="./panorama/index.html">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">原型 Demo</span>
+              </div>
+            </a>
+          </div>
+          <div
+            class="item"
+            style="background-image: url(./images/panorama_tao.png)"
+          >
+            <a href="./panorama/index.html?page=tao">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">仿淘宝造物节</span>
+              </div>
+            </a>
+          </div>
+          <div
+            class="item"
+            style="background-image: url(./images/panorama_anta.png)"
+          >
+            <a href="./panorama/index.html?page=anta">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">仿安踏广告</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="group">
+          <span class="groupName">喜帖</span>
+          <div
+            class="item"
+            style="background-image: url(./images/wedding_invitation.png)"
+          >
+            <a href="./wedding-invitation/index.html">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">杭州版本</span>
+              </div>
+            </a>
+          </div>
+          <div
+            class="item"
+            style="background-image: url(./images/wedding_invitation.png)"
+          >
+            <a href="./wedding-invitation/index.html?location=hubei">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">荆州版本</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="group">
+          <span class="groupName">爱心代码</span>
+          <div
+            class="item"
+            style="background-image: url(./images/love_code.png)"
+          >
+            <a href="./love-code/index.html">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">love code</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="group">
+          <span class="groupName">哥哥 11 年纪念动画</span>
+          <div class="item" style="background-image: url(./images/leslie.png)">
+            <a href="./leslie/index.html">
+              <div class="mask"></div>
+              <div class="textWrapper">
+                <span class="title">Leslie</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
