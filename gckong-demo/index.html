@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <title>歌词控 Demo</title>
     <!--[if lt IE 9]>
       <script src="js/html5.js"></script>
     <![endif]-->
@@ -1095,18 +1096,9 @@
         <!-- END 云歌名 -->
         <h3>他们·与你常在</h3>
         <div class="user-icons" id="user-icons"></div>
-        <!-- <object class="user-icons" data="users.html"></object> -->
-        <!-- <iframe class="user-icons" src="users.html"></iframe> -->
         <script>
           $(document).ready(function () {
-            // fetch("users.html")
-            //   .then((response) => response.text())
-            //   .then((data) => {
-            //     document.getElementById("user-icons").innerHTML = data;
-            //   })
-            //   .catch((error) => {
-            //     console.error("Error loading fragment:", error);
-            //   });
+            // $('.user-icons').load('users.html');
 
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "users.html", true);
@@ -1114,21 +1106,20 @@
               if (xhr.readyState === 4 && xhr.status === 200) {
                 document.getElementById("user-icons").innerHTML =
                   xhr.responseText;
+
+                $(".user_avatar").each(function (i) {
+                  $(this).hover(
+                    function () {
+                      $(this).css("background", "url(images/light_border.png)");
+                    },
+                    function () {
+                      $(this).css("background", "none");
+                    }
+                  );
+                });
               }
             };
             xhr.send();
-
-            // $('.user-icons').load('users.html');
-            $(".user_avatar").each(function (i) {
-              $(this).hover(
-                function () {
-                  $(this).css("background", "url(images/light_border.png)");
-                },
-                function () {
-                  $(this).css("background", "none");
-                }
-              );
-            });
           });
         </script>
       </aside>

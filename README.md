@@ -3,13 +3,13 @@
 静态站点集锦，均为已构建，或可直接访问的页面
 
 - /wedding-invitation 喜帖
-  - 杭州版本 /index.html 
-  - 桃花版本 /index.html?location=hubei 
+  - / 杭州版本 
+  - /?location=hubei 桃花版本
 - /love-code 爱心代码
-- /pannorama 全景画
-  - 原型Demo /index.html
-  - 仿淘宝造物节 /index.html?page=tao
-  - 仿安踏广告 /index.html?page=anta
+- /panorama 全景画
+  - / 原型 Demo
+  - /?page=tao 仿淘宝造物节
+  - /?page=anta 仿安踏广告
 - /bzhz 白纸黑字
   - /welcome 欢迎屏
   - /download 下载页
