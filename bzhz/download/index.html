@@ -175,7 +175,7 @@
 
         let touchStartHandler = function (event) {
           // 移除触摸开始事件监听器，避免重复触发
-          document.removeEventListener("touchstart", touchStartHandler);
+          document.removeEventListener("gesturestart", touchStartHandler);
           // 请求设备运动传感器访问权限相关代码
           DeviceMotionEvent.requestPermission()
             .then((state) => {
@@ -196,7 +196,7 @@
               alert(`Error: ${err}`);
             });
         };
-        document.addEventListener("touchstart", touchStartHandler);
+        document.addEventListener("gesturestart", touchStartHandler);
 
         // 屏幕旋转时，重新定位
         $(window).on("orientationchange", function () {
