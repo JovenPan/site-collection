@@ -162,7 +162,7 @@
             <p>大家都在玩的打赌APP</p>
           </div>
         </div>
-        <p id="requestPermission">允许使用陀螺仪</p>
+        <p id="requestPermission" style="display: none">允许使用陀螺仪</p>
         <a class="btn" href="#">下载</a>
       </div>
     </div>
@@ -174,37 +174,43 @@
       $(function () {
         initStyle();
 
-        let touchStartHandler = function (event) {
-          // 移除触摸开始事件监听器，避免重复触发
-          // document.removeEventListener("gesturestart", touchStartHandler);
-          // 请求设备运动传感器访问权限相关代码
-          DeviceMotionEvent.requestPermission()
-            .then((state) => {
-              if ("granted" === state) {
-                $("#scene").parallax({
-                  limitX: $(window).width() / 2,
-                  limitY: $(window).height() / 2,
-                  invertX: false,
-                  invertY: false,
-                  scalarX: 20,
-                  scalarY: 20,
-                });
-              } else {
-                alert(`Apply permission state: ${state}`);
-              }
-            })
-            .catch((err) => {
-              alert(`Error: ${err}`);
-            });
-        };
-        // document.addEventListener("gesturestart", touchStartHandler);
-        $("#requestPermission").click(touchStartHandler);
+        if (typeof DeviceMotionEvent.requestPermission === "function") {
+          $("#requestPermission").show();
+          $("#requestPermission").click(function (event) {
+            // 请求设备运动传感器访问权限相关代码
+            DeviceMotionEvent.requestPermission()
+              .then((state) => {
+                if ("granted" === state) {
+                  initParallax();
+                } else {
+                  alert(`Apply permission state: ${state}`);
+                }
+              })
+              .catch((err) => {
+                alert(`Error: ${err}`);
+              });
+
+            this.hide();
+          });
+        } else {
+          initParallax();
+        }
 
         // 屏幕旋转时，重新定位
         $(window).on("orientationchange", function () {
           initStyle();
         });
 
+        function initParallax() {
+          $("#scene").parallax({
+            limitX: $(window).width() / 2,
+            limitY: $(window).height() / 2,
+            invertX: false,
+            invertY: false,
+            scalarX: 20,
+            scalarY: 20,
+          });
+        }
         function initStyle() {
           var girl = $(".girl"),
             slogan = $(".slogan"),
