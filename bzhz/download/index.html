@@ -162,7 +162,8 @@
             <p>大家都在玩的打赌APP</p>
           </div>
         </div>
-        <a class="btn" href="./install/app-debug2015-8-25.apk">下载</a>
+        <p id="requestPermission">允许使用陀螺仪</p>
+        <a class="btn" href="#">下载</a>
       </div>
     </div>
 
@@ -175,7 +176,7 @@
 
         let touchStartHandler = function (event) {
           // 移除触摸开始事件监听器，避免重复触发
-          document.removeEventListener("gesturestart", touchStartHandler);
+          // document.removeEventListener("gesturestart", touchStartHandler);
           // 请求设备运动传感器访问权限相关代码
           DeviceMotionEvent.requestPermission()
             .then((state) => {
@@ -196,7 +197,8 @@
               alert(`Error: ${err}`);
             });
         };
-        document.addEventListener("gesturestart", touchStartHandler);
+        // document.addEventListener("gesturestart", touchStartHandler);
+        $("#requestPermission").click(touchStartHandler);
 
         // 屏幕旋转时，重新定位
         $(window).on("orientationchange", function () {
