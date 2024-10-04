@@ -1,97 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no"
+    />
 
-  <title>璐姐想和你打个赌...</title>
+    <title>璐姐想和你打个赌...</title>
 
-  <link rel="stylesheet" href="./css/base.css">
-  <link rel="stylesheet" href="./css/welcome.css">
-</head>
-<body>
-  <div class="nav">
-    <i class="current"></i>
-    <i></i>
-    <i></i>
-  </div>
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/welcome.css" />
+  </head>
+  <body>
+    <div class="nav">
+      <i class="current"></i>
+      <i></i>
+      <i></i>
+    </div>
 
-  <div id='mySwipe' class='swipe'>
-    <div class='swipe-wrap'>
-      
-      <div class="container bet">
-       <div class="wrap">
-         <div class="content">
-           <img class="avatar" src="./img/welcome/avatar_mini_720.jpg">
-           <p class="title"><span class="name">璐姐</span></p>
-           <p class="bet-content">我打赌，你不会进入下一屏</p>
-           <p class="chip">
-            <img src="./img/chip.png">
-            如果你赢了，给你看一张我不穿衣服的照片
-           </p>
-           <div class="btn-wrap">
-             <a class="btn" data-role="bet-btn" href="javascript:void(0);">赌一把</a>
-           </div>
-         </div>
-       </div>
-      </div>
+    <div id="mySwipe" class="swipe">
+      <div class="swipe-wrap">
+        <div class="container bet">
+          <div class="wrap">
+            <div class="content">
+              <img class="avatar" src="./img/welcome/avatar_mini_720.jpg" />
+              <p class="title"><span class="name">璐姐</span></p>
+              <p class="bet-content">我打赌，你不会进入下一屏</p>
+              <p class="chip">
+                <img src="./img/chip.png" />
+                如果你赢了，给你看一张我不穿衣服的照片
+              </p>
+              <div class="btn-wrap">
+                <a class="btn" data-role="bet-btn" href="javascript:void(0);"
+                  >赌一把</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="container win">
-       <div class="wrap">
-         <div class="content">
-           <p class="title">恭喜你，赢了该赌约！</p>
-           <p class="tip"><img class="avatar" src="./img/welcome/avatar_mini_720.jpg"><span class="name">璐姐</span>需兑现:</p>
-           <p class="chip">"给你看一张我不穿衣服的照片"</p>
-           <a class="btn" data-role="ask-for-btn" href="javascript:void(0);">索取</a>
-         </div>
-       </div>
-      </div>
+        <div class="container win">
+          <div class="wrap">
+            <div class="content">
+              <p class="title">恭喜你，赢了该赌约！</p>
+              <p class="tip">
+                <img
+                  class="avatar"
+                  src="./img/welcome/avatar_mini_720.jpg"
+                /><span class="name">璐姐</span>需兑现:
+              </p>
+              <p class="chip">"给你看一张我不穿衣服的照片"</p>
+              <a class="btn" data-role="ask-for-btn" href="javascript:void(0);"
+                >索取</a
+              >
+            </div>
+          </div>
+        </div>
 
-      <div class="container cash">
-        <div class="wrap" id="cash-wrap">
-          <div class="content">
-            <p class="title"><span class="name">璐姐</span>向你兑现:</p>
-            <div class="chip"></div>
-              <a class="share" data-role="share" href="javascript:void(0);">分享赌约到朋友圈</a>
-              <a class="btn" data-role="enter-btn" href="javascript:void(0);">进入APP</a>
+        <div class="container cash">
+          <div class="wrap" id="cash-wrap">
+            <div class="content">
+              <p class="title"><span class="name">璐姐</span>向你兑现:</p>
+              <div class="chip"></div>
+              <a class="share" data-role="share" href="javascript:void(0);"
+                >分享赌约到朋友圈</a
+              >
+              <a class="btn" data-role="enter-btn" href="javascript:void(0);"
+                >进入APP</a
+              >
+            </div>
           </div>
         </div>
       </div>
-
     </div>
-  </div>
 
-  <script src="./js/jquery.min.js"></script>
-  <script src="./js/swipe.min.js"></script>
-  <script>
-  $(function(){
-    window.canSwipe = false;
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/swipe.min.js"></script>
+    <script>
+      $(function () {
+        window.canSwipe = false;
 
-    var nav = $('.nav i');
+        var nav = $(".nav i");
 
-    window.mySwipe = $('#mySwipe').Swipe({
-      continuous: false,
-      callback: function(index, element) {
-        nav.removeClass('current');
-        nav.eq(index).addClass('current');
-      }
-   }).data('Swipe');
+        window.mySwipe = $("#mySwipe")
+          .Swipe({
+            continuous: false,
+            callback: function (index, element) {
+              nav.removeClass("current");
+              nav.eq(index).addClass("current");
+            },
+          })
+          .data("Swipe");
 
-    $('[data-role=bet-btn]').click(function(){
-      mySwipe.next();
-    });
+        $("[data-role=bet-btn]").click(function () {
+          mySwipe.next();
+        });
 
-    $('[data-role=ask-for-btn]').click(function(){
-      $('.nav').show();
-      mySwipe.next();
-      window.canSwipe = true;
-    });
+        $("[data-role=ask-for-btn]").click(function () {
+          $(".nav").show();
+          mySwipe.next();
+          window.canSwipe = true;
+        });
 
-    $('[data-role=share]').click(function(){
+        /* $('[data-role=share]').click(function(){
       if( isAndroid() ){
         window.androidActivity.shareToWeixin();
       } else if( isiOS() ){
-        //document.location = 'ios://gotoLogin';
+        document.location = 'ios://gotoLogin';
       }
     });
 
@@ -101,38 +117,37 @@
       } else if( isiOS() ){
         document.location = 'ios://gotoLogin';
       }
-    });
+    }); */
 
-    // 高度不够时，补齐页面高度
-    if( $('body').height() < $(window).height() ){
-      $('body').css('height', $(window).height());
-    }
+        // 高度不够时，补齐页面高度
+        if ($("body").height() < $(window).height()) {
+          $("body").css("height", $(window).height());
+        }
 
-    // 屏幕旋转时，重新计算页面高度
-    $(window).on('orientationchange', function(){
-      $('body').css('height', $(window).height());
-    });
+        // 屏幕旋转时，重新计算页面高度
+        $(window).on("orientationchange", function () {
+          $("body").css("height", $(window).height());
+        });
 
-    var wrap = $('#cash-wrap'),
-        height = wrap.height(),
-        top = height/2+10;
+        var wrap = $("#cash-wrap"),
+          height = wrap.height(),
+          top = height / 2 + 10;
 
-    wrap.css('margin-top', '-'+top+'px');
+        wrap.css("margin-top", "-" + top + "px");
 
-    // 判断客户端
-    function isAndroid(){
-      var u = navigator.userAgent;
+        // 判断客户端
+        function isAndroid() {
+          var u = navigator.userAgent;
 
-      return u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
-    }
+          return u.indexOf("Android") > -1 || u.indexOf("Linux") > -1;
+        }
 
-    function isiOS(){
-      var u = navigator.userAgent;
-      
-      return !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-    }
+        function isiOS() {
+          var u = navigator.userAgent;
 
-  });
-  </script>
-</body>
+          return !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        }
+      });
+    </script>
+  </body>
 </html>

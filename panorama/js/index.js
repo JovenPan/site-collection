@@ -295,9 +295,14 @@ var App = {
         container.updateT(),
         requestAnimationFrame(actiondh);
     }
-    window.ontouchmove = function (e) {
-      e.preventDefault();
-    };
+
+    document.addEventListener(
+      "ontouchmove",
+      function (event) {
+        event.preventDefault();
+      },
+      { passive: false }
+    );
 
     const _initOrienter = () => {
       //重力感应
