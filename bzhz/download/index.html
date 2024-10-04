@@ -189,24 +189,34 @@
         initStyle();
 
         if (typeof DeviceMotionEvent.requestPermission === "function") {
-          $("#requestPermission").show();
-          $("#requestPermission").click(function (event) {
-            // 请求设备运动传感器访问权限相关代码
-            DeviceMotionEvent.requestPermission()
-              .then((state) => {
-                if ("granted" === state) {
-                  initParallax();
-                } else {
-                  alert(`Apply permission state: ${state}`);
-                }
-              })
-              .catch((err) => {
-                alert(`Error: ${err}`);
-              });
+          // 需要授权
 
-            $(this).hide();
-          });
+          if (localStorage.getItem("deviceMotionPermission") === "true") {
+            // 已授权，直接调用
+            initParallax();
+          } else {
+            // 未授权，先请求授权
+            $("#requestPermission").show();
+            $("#requestPermission").click(function (event) {
+              // 请求设备运动传感器访问权限相关代码
+              DeviceMotionEvent.requestPermission()
+                .then((state) => {
+                  if ("granted" === state) {
+                    initParallax();
+                    localStorage.setItem("deviceMotionPermission", "true");
+                  } else {
+                    alert(`Apply permission state: ${state}`);
+                  }
+                })
+                .catch((err) => {
+                  alert(`Error: ${err}`);
+                });
+
+              $(this).hide();
+            });
+          }
         } else {
+          // 不需要授权，直接调用
           initParallax();
         }
 
