@@ -174,7 +174,8 @@
         initStyle();
 
         let count = 0;
-        $(window).on("mousemove", function () {
+
+        document.ontouchstart = function () {
           if (count === 0) {
             count++;
 
@@ -197,7 +198,7 @@
                 alert(`Error: ${err}`);
               });
           }
-        });
+        };
 
         // 屏幕旋转时，重新定位
         $(window).on("orientationchange", function () {
