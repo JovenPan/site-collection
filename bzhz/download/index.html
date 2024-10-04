@@ -48,6 +48,19 @@
         opacity: 0;
       }
 
+      .requestPermission {
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 80px;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.6);
+        height: 32px;
+        line-height: 32px;
+        padding: 0 20px;
+        border-radius: 16px;
+      }
+
       .footer {
         position: fixed;
         left: 0;
@@ -150,6 +163,8 @@
       </ul>
     </div>
 
+    <p id="requestPermission" class="requestPermission">点击允许使用陀螺仪</p>
+
     <div class="footer">
       <div class="top">
         <img src="./img/home/Curve@3x.png" />
@@ -162,7 +177,6 @@
             <p>大家都在玩的打赌APP</p>
           </div>
         </div>
-        <p id="requestPermission" style="display: none">允许使用陀螺仪</p>
         <a class="btn" href="#">下载</a>
       </div>
     </div>
@@ -190,7 +204,7 @@
                 alert(`Error: ${err}`);
               });
 
-            this.hide();
+            $(this).hide();
           });
         } else {
           initParallax();
