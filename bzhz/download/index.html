@@ -173,32 +173,30 @@
       $(function () {
         initStyle();
 
-        let count = 0;
-
-        document.ontouchstart = function () {
-          if (count === 0) {
-            count++;
-
-            DeviceMotionEvent.requestPermission()
-              .then((state) => {
-                if ("granted" === state) {
-                  $("#scene").parallax({
-                    limitX: $(window).width() / 2,
-                    limitY: $(window).height() / 2,
-                    invertX: false,
-                    invertY: false,
-                    scalarX: 20,
-                    scalarY: 20,
-                  });
-                } else {
-                  alert(`Apply permission state: ${state}`);
-                }
-              })
-              .catch((err) => {
-                alert(`Error: ${err}`);
-              });
-          }
+        let touchStartHandler = function (event) {
+          // 移除触摸开始事件监听器，避免重复触发
+          document.removeEventListener("touchstart", touchStartHandler);
+          // 请求设备运动传感器访问权限相关代码
+          DeviceMotionEvent.requestPermission()
+            .then((state) => {
+              if ("granted" === state) {
+                $("#scene").parallax({
+                  limitX: $(window).width() / 2,
+                  limitY: $(window).height() / 2,
+                  invertX: false,
+                  invertY: false,
+                  scalarX: 20,
+                  scalarY: 20,
+                });
+              } else {
+                alert(`Apply permission state: ${state}`);
+              }
+            })
+            .catch((err) => {
+              alert(`Error: ${err}`);
+            });
         };
+        document.addEventListener("touchstart", touchStartHandler);
 
         // 屏幕旋转时，重新定位
         $(window).on("orientationchange", function () {
