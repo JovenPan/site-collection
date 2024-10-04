@@ -8,7 +8,6 @@
     />
     <meta name="x5-fullscreen" content="true" />
     <meta name="full-screen" content="yes" />
-    <meta name="motion-request-full-access" content="yes" />
     <title>白纸黑字</title>
 
     <link rel="stylesheet" href="./css/base.css" />
@@ -174,14 +173,24 @@
       $(function () {
         initStyle();
 
-        $("#scene").parallax({
-          limitX: $(window).width() / 2,
-          limitY: $(window).height() / 2,
-          invertX: false,
-          invertY: false,
-          scalarX: 20,
-          scalarY: 20,
-        });
+        DeviceMotionEvent.requestPermission()
+          .then((state) => {
+            if ("granted" === state) {
+              $("#scene").parallax({
+                limitX: $(window).width() / 2,
+                limitY: $(window).height() / 2,
+                invertX: false,
+                invertY: false,
+                scalarX: 20,
+                scalarY: 20,
+              });
+            } else {
+              alert(`Apply permission state: ${state}`);
+            }
+          })
+          .catch((err) => {
+            alert(`Error: ${err}`);
+          });
 
         // 屏幕旋转时，重新定位
         $(window).on("orientationchange", function () {
