@@ -173,24 +173,31 @@
       $(function () {
         initStyle();
 
-        DeviceMotionEvent.requestPermission()
-          .then((state) => {
-            if ("granted" === state) {
-              $("#scene").parallax({
-                limitX: $(window).width() / 2,
-                limitY: $(window).height() / 2,
-                invertX: false,
-                invertY: false,
-                scalarX: 20,
-                scalarY: 20,
+        let count = 0;
+        $(window).on("mousemove", function () {
+          if (count === 0) {
+            count++;
+
+            DeviceMotionEvent.requestPermission()
+              .then((state) => {
+                if ("granted" === state) {
+                  $("#scene").parallax({
+                    limitX: $(window).width() / 2,
+                    limitY: $(window).height() / 2,
+                    invertX: false,
+                    invertY: false,
+                    scalarX: 20,
+                    scalarY: 20,
+                  });
+                } else {
+                  alert(`Apply permission state: ${state}`);
+                }
+              })
+              .catch((err) => {
+                alert(`Error: ${err}`);
               });
-            } else {
-              alert(`Apply permission state: ${state}`);
-            }
-          })
-          .catch((err) => {
-            alert(`Error: ${err}`);
-          });
+          }
+        });
 
         // 屏幕旋转时，重新定位
         $(window).on("orientationchange", function () {
