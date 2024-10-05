@@ -6,8 +6,8 @@
 
 - /gckong-demo 歌词控静态 Demo
   - / 主页
-  - /chp 词画配
-  - /ltl 聆听林
+  - /chp 词画·配
+  - /ltl 聆听·林
   - /gcbk 歌词百科
   - /ywgc 鹦鹉歌词
 - /bzhz 白纸黑字
@@ -21,7 +21,7 @@
   - / 杭州版本 
   - /?location=hubei 桃花版本
 - /love-code 爱心代码
-- /leslie 哥哥11周年纪念动画
+- /leslie 哥哥纪念动画
 
 ## 截图
 - chrome 打开对应页面，打开开发者工具

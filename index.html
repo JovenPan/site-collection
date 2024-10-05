@@ -14,19 +14,23 @@
     <script id="listTemplate" type="text/x-handlebars-template">
       {{#each list}}
         <div class="group">
-          <span class="title">{{this.title}}</span>
+          <div class="titleWrapper">
+            <span class="title">{{this.title}}</span>
+            <span class="time">{{this.time}}</span>
+          </div>
           {{#each this.items}}
-            <div
-              class="item"
-              style="background-image: url(./assets/images/{{this.coverImg}})"
-            >
-              <a href="{{this.url}}">
+            <a href="{{this.url}}">
+              <div
+                class="item"
+                style="background-image: url(./assets/images/tiny/{{this.coverImg}})"
+              >
+
                 <div class="mask"></div>
                 <div class="textWrapper">
                   <span class="name">{{this.name}}</span>
                 </div>
-              </a>
-            </div>
+              </div>
+            </a>
           {{/each}}
         </div>
       {{/each}}
@@ -44,7 +48,8 @@
       var data = {
         list: [
           {
-            title: "歌词控 Demo",
+            title: "歌词控 demo",
+            time: "2011年",
             items: [
               {
                 name: "主页",
@@ -64,7 +69,7 @@
                 remoteUrl: "./gckong-demo/ltl",
                 localUrl: "./gckong-demo/ltl/index.html",
               },
-              {
+              /* {
                 name: "歌词百科",
                 coverImg: "gckong_gcbk.png",
                 remoteUrl: "./gckong-demo/gcbk",
@@ -75,11 +80,12 @@
                 coverImg: "gckong_ywgc.png",
                 remoteUrl: "./gckong-demo/ywgc",
                 localUrl: "./gckong-demo/ywgc/index.html",
-              },
+              }, */
             ],
           },
           {
-            title: "白纸黑字",
+            title: "白纸黑字 app",
+            time: "2015年",
             items: [
               {
                 name: "欢迎屏",
@@ -96,10 +102,23 @@
             ],
           },
           {
-            title: "全景画",
+            title: "林晚的家",
+            time: "2024年",
             items: [
               {
-                name: "原型 Demo",
+                name: "Realsee VR",
+                coverImg: "realsee_vr.png",
+                remoteUrl: "./realsee-vr",
+                localUrl: "./realsee-vr/index.html",
+              },
+            ],
+          },
+          {
+            title: "全景画",
+            time: "2017年",
+            items: [
+              {
+                name: "原型 demo",
                 coverImg: "panorama.png",
                 remoteUrl: "./panorama",
                 localUrl: "./panorama/index.html",
@@ -120,6 +139,7 @@
           },
           {
             title: "喜帖",
+            time: "2017年",
             items: [
               {
                 name: "杭州版本",
@@ -137,6 +157,7 @@
           },
           {
             title: "爱心代码",
+            time: "2022年",
             items: [
               {
                 name: "Heart",
@@ -148,6 +169,7 @@
           },
           {
             title: "哥哥纪念动画",
+            time: "2014年",
             items: [
               {
                 name: "Leslie",

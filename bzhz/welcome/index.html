@@ -103,21 +103,23 @@
           window.canSwipe = true;
         });
 
-        /* $('[data-role=share]').click(function(){
-      if( isAndroid() ){
-        window.androidActivity.shareToWeixin();
-      } else if( isiOS() ){
-        document.location = 'ios://gotoLogin';
-      }
-    });
+        $("[data-role=share]").click(function () {
+          alert("app 下架啦，分享不了啦");
+          /* if (isAndroid()) {
+            window.androidActivity.shareToWeixin();
+          } else if (isiOS()) {
+            document.location = "ios://gotoLogin";
+          } */
+        });
 
-    $('[data-role=enter-btn]').click(function(){
-      if( isAndroid() ){
-        window.androidActivity.goToLoginActivity();
-      } else if( isiOS() ){
-        document.location = 'ios://gotoLogin';
-      }
-    }); */
+        $("[data-role=enter-btn]").click(function () {
+          alert("app 下架啦，进去不了啦");
+          /* if (isAndroid()) {
+            window.androidActivity.goToLoginActivity();
+          } else if (isiOS()) {
+            document.location = "ios://gotoLogin";
+          } */
+        });
 
         // 高度不够时，补齐页面高度
         if ($("body").height() < $(window).height()) {
