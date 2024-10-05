@@ -4,22 +4,23 @@
 
 ## 目录
 
-- /gckong-demo 歌词控静态 Demo
+- /gckong-demo 歌词控 demo
   - / 主页
   - /chp 词画·配
   - /ltl 聆听·林
   - /gcbk 歌词百科
   - /ywgc 鹦鹉歌词
-- /bzhz 白纸黑字
+- /bzhz 白纸黑字 App
   - /welcome 欢迎屏
   - /download 下载页
+- /realsee-vr 林晚的家 
 - /panorama 全景画
-  - / 原型 Demo
+  - / 原型 demo
   - /?page=tao 仿淘宝造物节
   - /?page=anta 仿安踏广告
 - /wedding-invitation 喜帖
   - / 杭州版本 
-  - /?location=hubei 桃花版本
+  - /?location=hubei 荆州版本
 - /love-code 爱心代码
 - /leslie 哥哥纪念动画
 
