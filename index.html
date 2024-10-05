@@ -16,7 +16,9 @@
         <div class="group">
           <div class="titleWrapper">
             <span class="title">{{this.title}}</span>
-            <span class="time">{{this.time}}</span>
+            {{#if this.time}}
+              <span class="time">{{this.time}}</span>
+            {{/if}}
           </div>
           {{#each this.items}}
             <a href="{{this.url}}">
@@ -24,10 +26,18 @@
                 class="item"
                 style="background-image: url(./assets/images/tiny/{{this.coverImg}})"
               >
-
                 <div class="mask"></div>
+                {{#if this.iconImg}}
+                  <div
+                    class="icon"
+                    style="background-image: url(./assets/images/{{this.iconImg}})"
+                  ></div>
+                {{/if}}
                 <div class="textWrapper">
                   <span class="name">{{this.name}}</span>
+                  {{#if this.time}}
+                    <span class="time">{{this.time}}</span>
+                  {{/if}}
                 </div>
               </div>
             </a>
@@ -96,6 +106,7 @@
               {
                 name: "下载页",
                 coverImg: "bzhz_download.png",
+                iconImg: "icon-motion.png",
                 remoteUrl: "./bzhz/download",
                 localUrl: "./bzhz/download/index.html",
               },
@@ -108,6 +119,7 @@
               {
                 name: "Realsee VR",
                 coverImg: "realsee_vr.png",
+                iconImg: "icon-vr.png",
                 remoteUrl: "./realsee-vr",
                 localUrl: "./realsee-vr/index.html",
               },
@@ -120,18 +132,21 @@
               {
                 name: "原型 demo",
                 coverImg: "panorama.png",
+                iconImg: "icon-360.png",
                 remoteUrl: "./panorama",
                 localUrl: "./panorama/index.html",
               },
               {
                 name: "仿淘宝造物节",
                 coverImg: "panorama_tao.png",
+                iconImg: "icon-360.png",
                 remoteUrl: "./panorama?page=tao",
                 localUrl: "./panorama/index.html?page=tao",
               },
               {
                 name: "仿安踏广告",
                 coverImg: "panorama_anta.png",
+                iconImg: "icon-360.png",
                 remoteUrl: "./panorama?page=anta",
                 localUrl: "./panorama/index.html?page=anta",
               },
