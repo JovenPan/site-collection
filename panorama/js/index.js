@@ -316,7 +316,10 @@ var App = {
       o2.init();
     };
 
-    if (typeof DeviceMotionEvent.requestPermission === "function") {
+    if (
+      "DeviceMotionEvent" in window &&
+      typeof DeviceMotionEvent.requestPermission === "function"
+    ) {
       // 需要授权
 
       // if (localStorage.getItem("deviceMotionPermission") === "true") {
