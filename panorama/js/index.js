@@ -319,32 +319,32 @@ var App = {
     if (typeof DeviceMotionEvent.requestPermission === "function") {
       // 需要授权
 
-      if (localStorage.getItem("deviceMotionPermission") === "true") {
-        // 已授权，直接调用
-        _initOrienter();
-      } else {
-        // 未授权，先请求授权
-        const element = document.getElementById("requestPermission");
-        element.style.display = "block";
+      // if (localStorage.getItem("deviceMotionPermission") === "true") {
+      //   // 已授权，直接调用（不太准确，requestPermission 权限后一段时间后会失效）
+      //   _initOrienter();
+      // } else {
+      // 未授权，先请求授权
+      const element = document.getElementById("requestPermission");
+      element.style.display = "block";
 
-        element.addEventListener("click", function () {
-          // 请求设备运动传感器访问权限相关代码
-          DeviceMotionEvent.requestPermission()
-            .then((state) => {
-              if ("granted" === state) {
-                _initOrienter();
-                localStorage.setItem("deviceMotionPermission", "true");
-              } else {
-                alert(`Apply permission state: ${state}`);
-              }
-            })
-            .catch((err) => {
-              alert(`Error: ${err}`);
-            });
+      element.addEventListener("click", function () {
+        // 请求设备运动传感器访问权限相关代码
+        DeviceMotionEvent.requestPermission()
+          .then((state) => {
+            if ("granted" === state) {
+              _initOrienter();
+              // localStorage.setItem("deviceMotionPermission", "true");
+            } else {
+              alert(`Apply permission state: ${state}`);
+            }
+          })
+          .catch((err) => {
+            alert(`Error: ${err}`);
+          });
 
-          element.style.display = "none";
-        });
-      }
+        element.style.display = "none";
+      });
+      // }
     } else {
       // 不需要授权，直接调用
       _initOrienter();

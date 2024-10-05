@@ -177,7 +177,7 @@
             <p>大家都在玩的打赌APP</p>
           </div>
         </div>
-        <a class="btn" href="javascript:alert('app 下架啦，下载不了啦');"
+        <a class="btn" href="javascript:alert('App 下架啦，下载不了啦');"
           >下载</a
         >
       </div>
@@ -193,30 +193,30 @@
         if (typeof DeviceMotionEvent.requestPermission === "function") {
           // 需要授权
 
-          if (localStorage.getItem("deviceMotionPermission") === "true") {
-            // 已授权，直接调用
-            initParallax();
-          } else {
-            // 未授权，先请求授权
-            $("#requestPermission").show();
-            $("#requestPermission").click(function (event) {
-              // 请求设备运动传感器访问权限相关代码
-              DeviceMotionEvent.requestPermission()
-                .then((state) => {
-                  if ("granted" === state) {
-                    initParallax();
-                    localStorage.setItem("deviceMotionPermission", "true");
-                  } else {
-                    alert(`Apply permission state: ${state}`);
-                  }
-                })
-                .catch((err) => {
-                  alert(`Error: ${err}`);
-                });
+          // if (localStorage.getItem("deviceMotionPermission") === "true") {
+          //   // 已授权，直接调用（不太准确，requestPermission 权限后一段时间后会失效）
+          //   initParallax();
+          // } else {
+          // 未授权，先请求授权
+          $("#requestPermission").show();
+          $("#requestPermission").click(function (event) {
+            // 请求设备运动传感器访问权限相关代码
+            DeviceMotionEvent.requestPermission()
+              .then((state) => {
+                if ("granted" === state) {
+                  initParallax();
+                  // localStorage.setItem("deviceMotionPermission", "true");
+                } else {
+                  alert(`Apply permission state: ${state}`);
+                }
+              })
+              .catch((err) => {
+                alert(`Error: ${err}`);
+              });
 
-              $(this).hide();
-            });
-          }
+            $(this).hide();
+          });
+          // }
         } else {
           // 不需要授权，直接调用
           initParallax();
