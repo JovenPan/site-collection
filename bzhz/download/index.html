@@ -212,10 +212,11 @@
             DeviceMotionEvent.requestPermission()
               .then((state) => {
                 if ("granted" === state) {
-                  initParallax();
+                  initParallax(); // 这时才能正常监听到 DeviceMotionEvent
                   // localStorage.setItem("deviceMotionPermission", "true");
                 } else {
                   alert(`Apply permission state: ${state}`);
+                  initParallax(); // 依然完成初始化，只舍弃重力感应功能
                 }
               })
               .catch((err) => {
