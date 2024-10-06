@@ -1164,6 +1164,10 @@
             alert(`sound ${i} canplay ${e}`);
           });
 
+          snd.bind("error", function (e) {
+            alert(`sound ${i} error ${e}`);
+          });
+
           soundObjs.push(snd);
         }
         /* 为 <img> 添加 flag */
