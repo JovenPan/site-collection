@@ -779,7 +779,6 @@
         ];
         /* 在这里定义声音文件, 不再使用 <audio> */
         var soundUrls = [
-          "./audio/win",
           "./audio/zhe-me-yuan-na-me-jin",
           "./audio/i-am-leslie",
           "./audio/zhui",
@@ -1205,8 +1204,8 @@
           snd.bind("waiting", function (e) {
             alert(`sound ${i} waiting ${JSON.stringify(e)}`);
           });
-
-          //   snd.play();
+          // important: iOS 上只会触发到 loadedmetadata 事件，需要调用 .play() 方法后才触发后续的 loadeddata、canplay、canplaythrough 事件
+          snd.play();
 
           soundObjs.push(snd);
           //   }
