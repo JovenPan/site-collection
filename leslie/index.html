@@ -1146,10 +1146,10 @@
         var soundObjs = [];
         for (var i = 0; i < soundUrls.length; i++) {
           var snd = new buzz.sound(soundUrls[i], {
-            formats: ["ogg", "mp3"],
-            preload: true,
-            autoplay: false,
-            loop: false,
+            formats: ["mp3", "ogg"],
+            // preload: true,
+            // autoplay: false,
+            // loop: false,
           });
           snd.bind("canplaythrough", function (e) {
             alert(`sound ${i} canplaythrough ${e}`);
