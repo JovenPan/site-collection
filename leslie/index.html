@@ -45,17 +45,27 @@
         padding-top: 50px;
       }
 
-      #startPlay {
+      #startWrapper {
         position: absolute;
         left: 35%;
         top: 50%;
         transform: translate(-50%, -50%);
-        background-color: rgba(255, 255, 255, 0.8);
+        z-index: 100;
+
+        .tips {
+          margin-top: 20px;
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 12px;
+        }
+      }
+      #startPlay {
+        width: 124px;
         height: 42px;
         line-height: 42px;
         padding: 0 30px;
+        box-sizing: border-box;
         border-radius: 21px;
-        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.8);
         cursor: pointer;
       }
 
@@ -532,7 +542,10 @@
       </p>
     </div>
 
-    <div id="startPlay">开始观看</div>
+    <div id="startWrapper">
+      <div id="startPlay">开始观看</div>
+      <p class="tips">* 建议在横屏模式下观看</p>
+    </div>
 
     <div class="reveal">
       <div class="slides">
@@ -1132,7 +1145,7 @@
       var soundObjs = [];
 
       $("#startPlay").click(function () {
-        $(this).hide();
+        $("#startWrapper").hide();
 
         // important: iOS 上必须在用户交互之后再创建 buzz
         for (var i = 0; i < soundUrls.length; i++) {
