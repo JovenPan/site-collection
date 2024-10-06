@@ -779,7 +779,7 @@
         ];
         /* 在这里定义声音文件, 不再使用 <audio> */
         var soundUrls = [
-          "./audio/zhe-me-yuan-na-me-jin",
+          //   "./audio/zhe-me-yuan-na-me-jin",
           "./audio/i-am-leslie",
           "./audio/zhui",
           "./audio/gai-bian-yi-sheng",
@@ -1145,7 +1145,7 @@
           const i = 0;
           //   for (var i = 0; i < soundUrls.length; i++) {
           var snd = new buzz.sound(soundUrls[i], {
-            formats: ["mp3"],
+            formats: ["ogg", "mp3"],
             preload: true,
             autoplay: false,
             loop: false,
