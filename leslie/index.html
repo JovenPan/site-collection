@@ -767,547 +767,559 @@
 
     <!-- TODO 这一块需要你补充 -->
     <script>
-      $("#pic11").css("height", $(window).height());
-      $("#pic12").css("height", $(window).height());
-      $("#pic13").css("height", $(window).height());
+      try {
+        $("#pic11").css("height", $(window).height());
+        $("#pic12").css("height", $(window).height());
+        $("#pic13").css("height", $(window).height());
 
-      /* 在这里定义每个Sldie的停留时间 */
-      var slideDurations = [
-        8000, 4000, 11000, 28000, 44000, 3500, 16000, 8000, 25000, 16000, 20000,
-        4000, 2000, 4000, 29000, 48000,
-      ];
-      /* 在这里定义声音文件, 不再使用 <audio> */
-      var soundUrls = [
-        "./audio/zhe-me-yuan-na-me-jin",
-        "./audio/i-am-leslie",
-        "./audio/zhui",
-        "./audio/gai-bian-yi-sheng",
-        "./audio/chang-ge",
+        /* 在这里定义每个Sldie的停留时间 */
+        var slideDurations = [
+          8000, 4000, 11000, 28000, 44000, 3500, 16000, 8000, 25000, 16000,
+          20000, 4000, 2000, 4000, 29000, 48000,
+        ];
+        /* 在这里定义声音文件, 不再使用 <audio> */
+        var soundUrls = [
+          "./audio/zhe-me-yuan-na-me-jin",
+          "./audio/i-am-leslie",
+          "./audio/zhui",
+          "./audio/gai-bian-yi-sheng",
+          "./audio/chang-ge",
 
-        "./audio/a-fei-zheng-zhuan",
-        "./audio/hong",
-        "./audio/wei-lai",
-        "./audio/wo",
-        "./audio/love-like-magic",
+          "./audio/a-fei-zheng-zhuan",
+          "./audio/hong",
+          "./audio/wei-lai",
+          "./audio/wo",
+          "./audio/love-like-magic",
 
-        "./audio/zui-leng-yi-tian",
-        "./audio/ba-wang-1",
-        "./audio/ba-wang-2",
-        "./audio/ba-wang-3",
-        "./audio/dang-ai",
+          "./audio/zui-leng-yi-tian",
+          "./audio/ba-wang-1",
+          "./audio/ba-wang-2",
+          "./audio/ba-wang-3",
+          "./audio/dang-ai",
 
-        "./audio/zhe-xie-nian-lai",
-      ];
-      function onSlideIn(i) {
-        if (i == 0) {
-          setTimeout(function () {
-            $("#section0-txt1").fadeIn(1000).show();
-          }, 2000);
-          setTimeout(function () {
-            $("#section0-txt1").fadeOut(4000);
-          }, 4000);
-        } else if (i == 2) {
-          setTimeout(function () {
-            $("#section2-txt1").fadeIn(2000).show();
-          }, 1000);
-          setTimeout(function () {
-            $("#section2-txt2").fadeIn(2000).show();
-          }, 3000);
-          setTimeout(function () {
-            $("#section2-txt3").fadeIn(2000).show();
-          }, 6000);
-          setTimeout(function () {
-            $("#section2-div1 p").fadeOut(1000);
-          }, 10000);
-        } else if (i == 3) {
-          $("#section3-txt1").fadeIn(1000).show();
-          setTimeout(function () {
-            $("#section3-txt1").fadeOut(1000);
-          }, 2000);
-          setTimeout(function () {
-            $("#section3-txt2").fadeIn(1000).show();
-          }, 3000);
-          setTimeout(function () {
-            $("#section3-txt2").fadeOut(1000);
-          }, 6000);
-          setTimeout(function () {
-            $("#section3-txt3").fadeIn(1000).show();
-          }, 7000);
-          setTimeout(function () {
-            $("#section3-txt3").fadeOut(1000);
-          }, 9000);
-          setTimeout(function () {
-            $("#section3-txt4").fadeIn(1000).show();
-          }, 10000);
-          setTimeout(function () {
-            $("#section3-txt4").fadeOut(1000);
-          }, 11000);
-          setTimeout(function () {
-            $("#section3-txt5").fadeIn(1000).show();
-          }, 12000);
-          setTimeout(function () {
-            $("#section3-txt5").fadeOut(1000);
-          }, 14000);
-          //Thanks
-          setTimeout(function () {
-            $("#section3-txt6").fadeIn(500).show();
-          }, 16000);
-          setTimeout(function () {
-            $("#section3-txt7").fadeIn(500).show();
-          }, 17000);
-          setTimeout(function () {
-            $("#section3-txt8").fadeIn(500).show();
-          }, 18000);
-          setTimeout(function () {
-            $("#section3-txt9").fadeIn(500).show();
-          }, 18500);
-          setTimeout(function () {
-            $("#section3-txt6").fadeOut(500);
-            $("#section3-txt7").fadeOut(500);
-            $("#section3-txt8").fadeOut(500);
-            $("#section3-txt9").fadeOut(500);
-          }, 19000);
-          setTimeout(function () {
-            $("#section3-txt10").fadeIn(1000).show();
-          }, 19500);
-          setTimeout(function () {
-            $("#section3-txt10").fadeOut(1000);
-          }, 21000);
-          setTimeout(function () {
-            $("#section3-txt11").fadeIn(1000).show();
-          }, 22000);
-          setTimeout(function () {
-            $("#section3-txt12").fadeIn(1000).show();
-          }, 24000);
-          setTimeout(function () {
-            $("#section3-txt11").fadeOut(1000);
-            $("#section3-txt12").fadeOut(1000);
-          }, 27000);
-        } else if (i == 4) {
-          setTimeout(function () {
-            $("#section4-txt1").fadeIn().css("color", "#1d94e1");
-          }, 500);
-          setTimeout(function () {
-            $("#section4-txt1").css("color", "#666");
-            $("#section4-txt2").fadeIn().css("color", "#1d94e1");
-          }, 2000);
-          setTimeout(function () {
-            $("#section4-txt2").css("color", "#666");
-            $("#section4-txt3").fadeIn().css("color", "#1d94e1");
-          }, 3500);
-          setTimeout(function () {
-            $("#section4-txt3").css("color", "#666");
-            $("#section4-txt4").fadeIn().css("color", "#1d94e1");
-          }, 7000);
-          setTimeout(function () {
-            $("#section4-txt4").css("color", "#666");
-            $("#section4-txt5").fadeIn().css("color", "#1d94e1");
-          }, 10000);
-          setTimeout(function () {
-            $("#section4-txt5").css("color", "#666");
-            $("#section4-txt6").fadeIn().css("color", "#1d94e1");
-          }, 12000);
-          setTimeout(function () {
-            $("#section4-txt6").css("color", "#666");
-            $("#section4-txt7").fadeIn().css("color", "#1d94e1");
-          }, 14000);
-          setTimeout(function () {
-            $("#section4-txt7").css("color", "#666");
-            $("#section4-txt8").fadeIn().css("color", "#1d94e1");
-          }, 16000);
-          setTimeout(function () {
-            $("#section4-txt8").css("color", "#666");
-            $("#section4-txt9").fadeIn().css("color", "#1d94e1");
-          }, 22000);
-          setTimeout(function () {
-            $("#section4-txt9").css("color", "#666");
-            $("#section4-txt10").fadeIn().css("color", "#1d94e1");
-          }, 24000);
-          setTimeout(function () {
-            $("#section4-txt10").css("color", "#666");
-            $("#section4-txt11").fadeIn().css("color", "#1d94e1");
-          }, 28000);
-          setTimeout(function () {
-            $("#section4-txt11").css("color", "#aaa");
-            $("#section4-txt12").fadeIn().css("color", "#1d94e1");
-          }, 30000);
-          setTimeout(function () {
-            $("#section4-txt12").css("color", "#666");
-            $("#section4-txt13").fadeIn().css("color", "#1d94e1");
-          }, 32000);
-          setTimeout(function () {
-            $("#section4-txt13").css("color", "#666");
-            $("#section4-txt14").fadeIn().css("color", "#1d94e1");
-          }, 34000);
-          setTimeout(function () {
-            $("#section4-txt14").css("color", "#666");
-            $("#section4-txt15").fadeIn().css("color", "#1d94e1");
-          }, 38000);
-          setTimeout(function () {
-            $("#section4-txt15").css("color", "#666");
-            $("#section4-txt16").fadeIn().css("color", "#1d94e1");
-          }, 41000);
-          setTimeout(function () {
-            $("#section4-txt16").css("color", "#666");
-          }, 43000);
-          setTimeout(function () {
-            $("#section4-div1 p").fadeOut(500);
-          }, 43500);
-        } else if (i == 6) {
-          setTimeout(function () {
-            $("#section6-txt1").fadeIn(1000);
-          }, 1000);
-          setTimeout(function () {
-            $("#section6-txt2").fadeIn(2000);
-          }, 4000);
-          setTimeout(function () {
-            $("#section6-txt3").fadeIn(2000);
-          }, 8000);
-          setTimeout(function () {
-            $("#section6-div1 p").fadeOut(2000);
-          }, 10000);
-        } else if (i == 7) {
-          setTimeout(function () {
-            $("#section7-txt1").fadeIn(2000);
-          }, 12000);
-          setTimeout(function () {
-            $("#section7-txt2").fadeIn(2000);
-          }, 14000);
-          setTimeout(function () {
-            $("#section7-txt3").fadeIn(2000);
-          }, 16000);
-          setTimeout(function () {
-            $("#section7-txt4").fadeIn(3000);
-          }, 18000);
-          setTimeout(function () {
-            $("#gckong").fadeIn(2000);
-          }, 21000);
-          /* setTimeout(function () {
+          "./audio/zhe-xie-nian-lai",
+        ];
+        function onSlideIn(i) {
+          if (i == 0) {
+            setTimeout(function () {
+              $("#section0-txt1").fadeIn(1000).show();
+            }, 2000);
+            setTimeout(function () {
+              $("#section0-txt1").fadeOut(4000);
+            }, 4000);
+          } else if (i == 2) {
+            setTimeout(function () {
+              $("#section2-txt1").fadeIn(2000).show();
+            }, 1000);
+            setTimeout(function () {
+              $("#section2-txt2").fadeIn(2000).show();
+            }, 3000);
+            setTimeout(function () {
+              $("#section2-txt3").fadeIn(2000).show();
+            }, 6000);
+            setTimeout(function () {
+              $("#section2-div1 p").fadeOut(1000);
+            }, 10000);
+          } else if (i == 3) {
+            $("#section3-txt1").fadeIn(1000).show();
+            setTimeout(function () {
+              $("#section3-txt1").fadeOut(1000);
+            }, 2000);
+            setTimeout(function () {
+              $("#section3-txt2").fadeIn(1000).show();
+            }, 3000);
+            setTimeout(function () {
+              $("#section3-txt2").fadeOut(1000);
+            }, 6000);
+            setTimeout(function () {
+              $("#section3-txt3").fadeIn(1000).show();
+            }, 7000);
+            setTimeout(function () {
+              $("#section3-txt3").fadeOut(1000);
+            }, 9000);
+            setTimeout(function () {
+              $("#section3-txt4").fadeIn(1000).show();
+            }, 10000);
+            setTimeout(function () {
+              $("#section3-txt4").fadeOut(1000);
+            }, 11000);
+            setTimeout(function () {
+              $("#section3-txt5").fadeIn(1000).show();
+            }, 12000);
+            setTimeout(function () {
+              $("#section3-txt5").fadeOut(1000);
+            }, 14000);
+            //Thanks
+            setTimeout(function () {
+              $("#section3-txt6").fadeIn(500).show();
+            }, 16000);
+            setTimeout(function () {
+              $("#section3-txt7").fadeIn(500).show();
+            }, 17000);
+            setTimeout(function () {
+              $("#section3-txt8").fadeIn(500).show();
+            }, 18000);
+            setTimeout(function () {
+              $("#section3-txt9").fadeIn(500).show();
+            }, 18500);
+            setTimeout(function () {
+              $("#section3-txt6").fadeOut(500);
+              $("#section3-txt7").fadeOut(500);
+              $("#section3-txt8").fadeOut(500);
+              $("#section3-txt9").fadeOut(500);
+            }, 19000);
+            setTimeout(function () {
+              $("#section3-txt10").fadeIn(1000).show();
+            }, 19500);
+            setTimeout(function () {
+              $("#section3-txt10").fadeOut(1000);
+            }, 21000);
+            setTimeout(function () {
+              $("#section3-txt11").fadeIn(1000).show();
+            }, 22000);
+            setTimeout(function () {
+              $("#section3-txt12").fadeIn(1000).show();
+            }, 24000);
+            setTimeout(function () {
+              $("#section3-txt11").fadeOut(1000);
+              $("#section3-txt12").fadeOut(1000);
+            }, 27000);
+          } else if (i == 4) {
+            setTimeout(function () {
+              $("#section4-txt1").fadeIn().css("color", "#1d94e1");
+            }, 500);
+            setTimeout(function () {
+              $("#section4-txt1").css("color", "#666");
+              $("#section4-txt2").fadeIn().css("color", "#1d94e1");
+            }, 2000);
+            setTimeout(function () {
+              $("#section4-txt2").css("color", "#666");
+              $("#section4-txt3").fadeIn().css("color", "#1d94e1");
+            }, 3500);
+            setTimeout(function () {
+              $("#section4-txt3").css("color", "#666");
+              $("#section4-txt4").fadeIn().css("color", "#1d94e1");
+            }, 7000);
+            setTimeout(function () {
+              $("#section4-txt4").css("color", "#666");
+              $("#section4-txt5").fadeIn().css("color", "#1d94e1");
+            }, 10000);
+            setTimeout(function () {
+              $("#section4-txt5").css("color", "#666");
+              $("#section4-txt6").fadeIn().css("color", "#1d94e1");
+            }, 12000);
+            setTimeout(function () {
+              $("#section4-txt6").css("color", "#666");
+              $("#section4-txt7").fadeIn().css("color", "#1d94e1");
+            }, 14000);
+            setTimeout(function () {
+              $("#section4-txt7").css("color", "#666");
+              $("#section4-txt8").fadeIn().css("color", "#1d94e1");
+            }, 16000);
+            setTimeout(function () {
+              $("#section4-txt8").css("color", "#666");
+              $("#section4-txt9").fadeIn().css("color", "#1d94e1");
+            }, 22000);
+            setTimeout(function () {
+              $("#section4-txt9").css("color", "#666");
+              $("#section4-txt10").fadeIn().css("color", "#1d94e1");
+            }, 24000);
+            setTimeout(function () {
+              $("#section4-txt10").css("color", "#666");
+              $("#section4-txt11").fadeIn().css("color", "#1d94e1");
+            }, 28000);
+            setTimeout(function () {
+              $("#section4-txt11").css("color", "#aaa");
+              $("#section4-txt12").fadeIn().css("color", "#1d94e1");
+            }, 30000);
+            setTimeout(function () {
+              $("#section4-txt12").css("color", "#666");
+              $("#section4-txt13").fadeIn().css("color", "#1d94e1");
+            }, 32000);
+            setTimeout(function () {
+              $("#section4-txt13").css("color", "#666");
+              $("#section4-txt14").fadeIn().css("color", "#1d94e1");
+            }, 34000);
+            setTimeout(function () {
+              $("#section4-txt14").css("color", "#666");
+              $("#section4-txt15").fadeIn().css("color", "#1d94e1");
+            }, 38000);
+            setTimeout(function () {
+              $("#section4-txt15").css("color", "#666");
+              $("#section4-txt16").fadeIn().css("color", "#1d94e1");
+            }, 41000);
+            setTimeout(function () {
+              $("#section4-txt16").css("color", "#666");
+            }, 43000);
+            setTimeout(function () {
+              $("#section4-div1 p").fadeOut(500);
+            }, 43500);
+          } else if (i == 6) {
+            setTimeout(function () {
+              $("#section6-txt1").fadeIn(1000);
+            }, 1000);
+            setTimeout(function () {
+              $("#section6-txt2").fadeIn(2000);
+            }, 4000);
+            setTimeout(function () {
+              $("#section6-txt3").fadeIn(2000);
+            }, 8000);
+            setTimeout(function () {
+              $("#section6-div1 p").fadeOut(2000);
+            }, 10000);
+          } else if (i == 7) {
+            setTimeout(function () {
+              $("#section7-txt1").fadeIn(2000);
+            }, 12000);
+            setTimeout(function () {
+              $("#section7-txt2").fadeIn(2000);
+            }, 14000);
+            setTimeout(function () {
+              $("#section7-txt3").fadeIn(2000);
+            }, 16000);
+            setTimeout(function () {
+              $("#section7-txt4").fadeIn(3000);
+            }, 18000);
+            setTimeout(function () {
+              $("#gckong").fadeIn(2000);
+            }, 21000);
+            /* setTimeout(function () {
             window.location = "http://www.gckong.com/chat";
           }, 25000); */
-        } else if (i == 9) {
-          $("#section9-txt1").fadeIn(1000);
-          setTimeout(function () {
-            $("#section9-txt2").fadeIn(1000);
-          }, 3000);
-          setTimeout(function () {
-            $("#section9-txt3").fadeIn(1000);
-          }, 8000);
-          setTimeout(function () {
-            $("#section9-txt4").fadeIn(1000);
-          }, 12000);
-          setTimeout(function () {
-            $("#section9-div1 p").fadeOut(1000);
-          }, 15000);
-        } else if (i == 8) {
-          setTimeout(function () {
-            $("#section8-txt1").fadeIn(2000);
-          }, 3000);
-          setTimeout(function () {
-            $("#section8-txt2").fadeIn(4000);
-          }, 6000);
-          setTimeout(function () {
-            $("#section8-txt3").fadeIn(3000);
-          }, 14000);
-          setTimeout(function () {
-            $("#section8-txt4").fadeIn(2000);
-          }, 20000);
-          setTimeout(function () {
-            $("#section8-div1 p").fadeOut(1000);
-          }, 24000);
-        } else if (i == 10) {
-          $("#section10-txt1").fadeIn(1000);
-          setTimeout(function () {
-            $("#section10-txt2").fadeIn(1000);
-          }, 6000);
-          setTimeout(function () {
-            $("#section10-txt3").fadeIn(1000);
-          }, 11000);
-          setTimeout(function () {
-            $("#section10-txt4").fadeIn(1000);
-          }, 16000);
-          setTimeout(function () {
-            $("#section10-div1 p").fadeOut(1000);
-          }, 19000);
-        } else if (i == 14) {
-          $("#section14-txt1").fadeIn(2000);
-          setTimeout(function () {
-            $("#section14-txt1").fadeOut(500);
-          }, 3000);
-          setTimeout(function () {
-            $("#section14-txt2").fadeIn(2000);
-          }, 4000);
-          setTimeout(function () {
-            $("#section14-txt2").fadeOut(500);
-          }, 7000);
-          setTimeout(function () {
-            $("#section14-txt3").fadeIn(1000);
-          }, 8000);
-          setTimeout(function () {
-            $("#section14-txt3").fadeOut(1000);
-          }, 9000);
-          setTimeout(function () {
-            $("#section14-txt4").fadeIn(2000);
-          }, 10000);
-          setTimeout(function () {
-            $("#section14-txt4").fadeOut(500);
-          }, 14000);
-          setTimeout(function () {
-            $("#section14-txt5").fadeIn(2000);
-          }, 15000);
-          setTimeout(function () {
-            $("#section14-txt5").fadeOut(500);
-          }, 18000);
-          setTimeout(function () {
-            $("#section14-txt6").fadeIn(2000);
-          }, 19000);
-          setTimeout(function () {
-            $("#section14-txt6").fadeOut(500);
-          }, 22000);
-          setTimeout(function () {
-            $("#section14-txt7").fadeIn(2000);
-          }, 23000);
-          setTimeout(function () {
-            $("#section14-txt7").fadeOut(2000);
-          }, 27000);
-        } else if (i == 15) {
-          setTimeout(function () {
-            $("#section15-pic1").fadeIn(3000);
-          }, 1000);
-          setTimeout(function () {
-            $("#section15-pic2").fadeIn(3000);
-          }, 5000);
-          setTimeout(function () {
-            $("#section15-pic3").fadeIn(3000);
-          }, 10000);
-          setTimeout(function () {
-            $("#section15-pic4").fadeIn(3000);
-          }, 15000);
-          setTimeout(function () {
-            $("#section15-pic5").fadeIn(3000);
-          }, 20000);
-          setTimeout(function () {
-            $("#section15-pic6").fadeIn(3000);
-          }, 25000);
-          setTimeout(function () {
-            $("#section15-pic7").fadeIn(3000);
-          }, 30000);
-          setTimeout(function () {
-            $("#section15-pic8").fadeIn(1000);
-          }, 35000);
-          setTimeout(function () {
-            $("#section15-pic9").fadeIn(3000);
-          }, 40000);
-          setTimeout(function () {
-            $("#section15-txt1").fadeIn(1000);
-          }, 32000);
-          setTimeout(function () {
-            $("#section15-txt1").fadeOut(500);
-          }, 35000);
-          setTimeout(function () {
-            $("#section15-txt2").fadeIn(1000);
-          }, 36000);
-          setTimeout(function () {
-            $("#section15-txt2").fadeOut(500);
-          }, 40000);
-          setTimeout(function () {
-            $("#section15-txt3").fadeIn(1000);
-          }, 41000);
-          setTimeout(function () {
-            $("#section15-txt3").fadeOut(500);
-          }, 43000);
-          setTimeout(function () {
-            $("#section15-txt4").fadeIn(1000);
-          }, 44000);
-          setTimeout(function () {
-            $("#section15-divq p").fadeOut(1000);
-          }, 47000);
+          } else if (i == 9) {
+            $("#section9-txt1").fadeIn(1000);
+            setTimeout(function () {
+              $("#section9-txt2").fadeIn(1000);
+            }, 3000);
+            setTimeout(function () {
+              $("#section9-txt3").fadeIn(1000);
+            }, 8000);
+            setTimeout(function () {
+              $("#section9-txt4").fadeIn(1000);
+            }, 12000);
+            setTimeout(function () {
+              $("#section9-div1 p").fadeOut(1000);
+            }, 15000);
+          } else if (i == 8) {
+            setTimeout(function () {
+              $("#section8-txt1").fadeIn(2000);
+            }, 3000);
+            setTimeout(function () {
+              $("#section8-txt2").fadeIn(4000);
+            }, 6000);
+            setTimeout(function () {
+              $("#section8-txt3").fadeIn(3000);
+            }, 14000);
+            setTimeout(function () {
+              $("#section8-txt4").fadeIn(2000);
+            }, 20000);
+            setTimeout(function () {
+              $("#section8-div1 p").fadeOut(1000);
+            }, 24000);
+          } else if (i == 10) {
+            $("#section10-txt1").fadeIn(1000);
+            setTimeout(function () {
+              $("#section10-txt2").fadeIn(1000);
+            }, 6000);
+            setTimeout(function () {
+              $("#section10-txt3").fadeIn(1000);
+            }, 11000);
+            setTimeout(function () {
+              $("#section10-txt4").fadeIn(1000);
+            }, 16000);
+            setTimeout(function () {
+              $("#section10-div1 p").fadeOut(1000);
+            }, 19000);
+          } else if (i == 14) {
+            $("#section14-txt1").fadeIn(2000);
+            setTimeout(function () {
+              $("#section14-txt1").fadeOut(500);
+            }, 3000);
+            setTimeout(function () {
+              $("#section14-txt2").fadeIn(2000);
+            }, 4000);
+            setTimeout(function () {
+              $("#section14-txt2").fadeOut(500);
+            }, 7000);
+            setTimeout(function () {
+              $("#section14-txt3").fadeIn(1000);
+            }, 8000);
+            setTimeout(function () {
+              $("#section14-txt3").fadeOut(1000);
+            }, 9000);
+            setTimeout(function () {
+              $("#section14-txt4").fadeIn(2000);
+            }, 10000);
+            setTimeout(function () {
+              $("#section14-txt4").fadeOut(500);
+            }, 14000);
+            setTimeout(function () {
+              $("#section14-txt5").fadeIn(2000);
+            }, 15000);
+            setTimeout(function () {
+              $("#section14-txt5").fadeOut(500);
+            }, 18000);
+            setTimeout(function () {
+              $("#section14-txt6").fadeIn(2000);
+            }, 19000);
+            setTimeout(function () {
+              $("#section14-txt6").fadeOut(500);
+            }, 22000);
+            setTimeout(function () {
+              $("#section14-txt7").fadeIn(2000);
+            }, 23000);
+            setTimeout(function () {
+              $("#section14-txt7").fadeOut(2000);
+            }, 27000);
+          } else if (i == 15) {
+            setTimeout(function () {
+              $("#section15-pic1").fadeIn(3000);
+            }, 1000);
+            setTimeout(function () {
+              $("#section15-pic2").fadeIn(3000);
+            }, 5000);
+            setTimeout(function () {
+              $("#section15-pic3").fadeIn(3000);
+            }, 10000);
+            setTimeout(function () {
+              $("#section15-pic4").fadeIn(3000);
+            }, 15000);
+            setTimeout(function () {
+              $("#section15-pic5").fadeIn(3000);
+            }, 20000);
+            setTimeout(function () {
+              $("#section15-pic6").fadeIn(3000);
+            }, 25000);
+            setTimeout(function () {
+              $("#section15-pic7").fadeIn(3000);
+            }, 30000);
+            setTimeout(function () {
+              $("#section15-pic8").fadeIn(1000);
+            }, 35000);
+            setTimeout(function () {
+              $("#section15-pic9").fadeIn(3000);
+            }, 40000);
+            setTimeout(function () {
+              $("#section15-txt1").fadeIn(1000);
+            }, 32000);
+            setTimeout(function () {
+              $("#section15-txt1").fadeOut(500);
+            }, 35000);
+            setTimeout(function () {
+              $("#section15-txt2").fadeIn(1000);
+            }, 36000);
+            setTimeout(function () {
+              $("#section15-txt2").fadeOut(500);
+            }, 40000);
+            setTimeout(function () {
+              $("#section15-txt3").fadeIn(1000);
+            }, 41000);
+            setTimeout(function () {
+              $("#section15-txt3").fadeOut(500);
+            }, 43000);
+            setTimeout(function () {
+              $("#section15-txt4").fadeIn(1000);
+            }, 44000);
+            setTimeout(function () {
+              $("#section15-divq p").fadeOut(1000);
+            }, 47000);
+          }
         }
-      }
-      function onSlideOut() {
-        Reveal.next();
+        function onSlideOut() {
+          Reveal.next();
+        }
+      } catch (err) {
+        alert(`script1: ${JSON.stringify(err)}`);
       }
     </script>
 
     <!-- 这一块不用管 -->
     <script>
-      let userAgreePlay = false;
+      try {
+        let userAgreePlay = false;
 
-      $("#startPlay").click(function () {
-        userAgreePlay = true;
-        $(this).hide();
-      });
+        $("#startPlay").click(function () {
+          userAgreePlay = true;
+          $(this).hide();
+        });
 
-      var soundObjs = [];
-      for (var i = 0; i < soundUrls.length; i++) {
-        var snd = new buzz.sound(soundUrls[i], {
-          formats: ["ogg", "mp3"],
-          preload: true,
-          autoplay: false,
-          loop: false,
-        });
-        snd.bind("canplaythrough", function (e) {
-          this.isReady = true;
-        });
-        soundObjs.push(snd);
-      }
-      /* 为 <img> 添加 flag */
-      $(function () {
-        $("img").prop("isReady", true);
-      });
-      function tryPlay(i) {
-        var $img = $("img#pic" + i);
-        var imgReady = $img.prop("isReady");
-        var snd = soundObjs[i];
-        var sndReady = snd.isReady;
-        if (userAgreePlay && imgReady && sndReady) {
-          console.log("tryPlay ok   : " + i);
-          snd.play();
-          onSlideIn(i);
-          setTimeout("onSlideOut()", slideDurations[i]);
-        } else {
-          if (!imgReady) {
-            console.log("img not ready");
-          }
-          if (!sndReady) {
-            console.log("snd not ready");
-          }
-          console.log("tryPlay retry: " + i);
-          setTimeout("tryPlay(" + i + ")", 200); // retry till ready
+        var soundObjs = [];
+        for (var i = 0; i < soundUrls.length; i++) {
+          var snd = new buzz.sound(soundUrls[i], {
+            formats: ["ogg", "mp3"],
+            preload: true,
+            autoplay: false,
+            loop: false,
+          });
+          snd.bind("canplaythrough", function (e) {
+            this.isReady = true;
+          });
+          soundObjs.push(snd);
         }
+        /* 为 <img> 添加 flag */
+        $(function () {
+          $("img").prop("isReady", true);
+        });
+        function tryPlay(i) {
+          var $img = $("img#pic" + i);
+          var imgReady = $img.prop("isReady");
+          var snd = soundObjs[i];
+          var sndReady = snd.isReady;
+          if (userAgreePlay && imgReady && sndReady) {
+            console.log("tryPlay ok   : " + i);
+            snd.play();
+            onSlideIn(i);
+            setTimeout("onSlideOut()", slideDurations[i]);
+          } else {
+            if (!imgReady) {
+              console.log("img not ready");
+            }
+            if (!sndReady) {
+              console.log("snd not ready");
+            }
+            console.log("tryPlay retry: " + i);
+            setTimeout("tryPlay(" + i + ")", 200); // retry till ready
+          }
+        }
+      } catch (err) {
+        alert(`script2: ${JSON.stringify(err)}`);
       }
     </script>
 
     <script>
-      Reveal.addEventListener(
-        "section0",
-        function () {
-          tryPlay(0);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section1",
-        function () {
-          tryPlay(1);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section2",
-        function () {
-          tryPlay(2);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section3",
-        function () {
-          tryPlay(3);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section4",
-        function () {
-          tryPlay(4);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section5",
-        function () {
-          tryPlay(5);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section6",
-        function () {
-          tryPlay(6);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section7",
-        function () {
-          tryPlay(7);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section8",
-        function () {
-          tryPlay(8);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section9",
-        function () {
-          tryPlay(9);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section10",
-        function () {
-          tryPlay(10);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section11",
-        function () {
-          tryPlay(11);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section12",
-        function () {
-          tryPlay(12);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section13",
-        function () {
-          tryPlay(13);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section14",
-        function () {
-          tryPlay(14);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section15",
-        function () {
-          tryPlay(15);
-        },
-        false
-      );
+      try {
+        Reveal.addEventListener(
+          "section0",
+          function () {
+            tryPlay(0);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section1",
+          function () {
+            tryPlay(1);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section2",
+          function () {
+            tryPlay(2);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section3",
+          function () {
+            tryPlay(3);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section4",
+          function () {
+            tryPlay(4);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section5",
+          function () {
+            tryPlay(5);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section6",
+          function () {
+            tryPlay(6);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section7",
+          function () {
+            tryPlay(7);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section8",
+          function () {
+            tryPlay(8);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section9",
+          function () {
+            tryPlay(9);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section10",
+          function () {
+            tryPlay(10);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section11",
+          function () {
+            tryPlay(11);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section12",
+          function () {
+            tryPlay(12);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section13",
+          function () {
+            tryPlay(13);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section14",
+          function () {
+            tryPlay(14);
+          },
+          false
+        );
+        Reveal.addEventListener(
+          "section15",
+          function () {
+            tryPlay(15);
+          },
+          false
+        );
 
-      Reveal.initialize({
-        controls: false,
-        progress: false,
-        history: true,
-        center: true,
-        keyboard: false,
-        width: $(window).width(),
-        height: $(window).height(),
-        minScale: 1,
-        maxScale: 1,
+        Reveal.initialize({
+          controls: false,
+          progress: false,
+          history: true,
+          center: true,
+          keyboard: false,
+          width: $(window).width(),
+          height: $(window).height(),
+          minScale: 1,
+          maxScale: 1,
 
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || "fade",
-      });
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          transition: Reveal.getQueryHash().transition || "fade",
+        });
 
-      Reveal.configure({ autoSlide: 0 });
+        Reveal.configure({ autoSlide: 0 });
+      } catch (err) {
+        alert(`script3: ${JSON.stringify(err)}`);
+      }
     </script>
   </body>
 </html>
