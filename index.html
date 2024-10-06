@@ -10,7 +10,6 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="./assets/css/index.css" />
-    <script src="./assets/js/handlebars-4.7.7.min.js"></script>
   </head>
   <body>
     <div class="layout">
@@ -28,8 +27,8 @@
           {{#each this.items}}
             <a href="{{this.url}}">
               <div
-                class="item"
-                style="background-image: url(./assets/images/tiny/{{this.coverImg}})"
+                class="item lozad"
+                data-background="./assets/images/tiny/{{this.coverImg}}"
               >
                 <div class="mask"></div>
                 {{#if this.iconImg}}
@@ -50,6 +49,8 @@
         </div>
       {{/each}}
     </script>
+    <script src="./assets/js/handlebars-4.7.7.min.js"></script>
+    <script src="./assets/js/lozad-1.16.0.min.js"></script>
     <script>
       function formate(data) {
         data.list.forEach((group) => {
@@ -211,6 +212,15 @@
       // 渲染模板并将结果插入到指定容器中
       var html = template(data);
       document.getElementById("pageWrapper").innerHTML = html;
+
+      // 图片懒加载
+      const observer = lozad(".lozad", {
+        rootMargin: "100px 0px",
+        load: function (el) {
+          el.style.backgroundImage = `url(${el.dataset.background})`;
+        },
+      });
+      observer.observe();
     </script>
   </body>
 </html>
