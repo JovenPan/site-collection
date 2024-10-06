@@ -779,7 +779,7 @@
         ];
         /* 在这里定义声音文件, 不再使用 <audio> */
         var soundUrls = [
-          //   "./audio/zhe-me-yuan-na-me-jin",
+          "./audio/zhe-me-yuan-na-me-jin",
           "./audio/i-am-leslie",
           "./audio/zhui",
           "./audio/gai-bian-yi-sheng",
@@ -1142,74 +1142,75 @@
         $("#startPlay").click(function () {
           userAgreePlay = true;
           $(this).hide();
-          const i = 0;
-          //   for (var i = 0; i < soundUrls.length; i++) {
-          var snd = new buzz.sound(soundUrls[i], {
-            formats: ["ogg", "mp3"],
-            preload: true,
-            autoplay: false,
-            loop: false,
-          });
-
-          snd.bind("abort", function (e) {
-            alert(`sound ${i} abort ${JSON.stringify(e)}`);
-            this.isReady = true;
-          });
-          snd.bind("canplay", function (e) {
-            alert(`sound ${i} canplay ${JSON.stringify(e)}`);
-          });
-          snd.bind("canplaythrough", function (e) {
-            alert(`sound ${i} canplaythrough ${JSON.stringify(e)}`);
-            this.isReady = true;
-          });
-          snd.bind("dataunavailable", function (e) {
-            alert(`sound ${i} dataunavailable ${JSON.stringify(e)}`);
-            this.isReady = true;
-          });
-          snd.bind("durationchange", function (e) {
-            alert(`sound ${i} durationchange ${JSON.stringify(e)}`);
-            this.isReady = true;
-          });
-          snd.bind("emptied", function (e) {
-            alert(`sound ${i} emptied ${JSON.stringify(e)}`);
-            this.isReady = true;
-          });
-          snd.bind("empty", function (e) {
-            alert(`sound ${i} empty ${JSON.stringify(e)}`);
-            this.isReady = true;
-          });
-          snd.bind("ended", function (e) {
-            alert(`sound ${i} ended ${JSON.stringify(e)}`);
-            this.isReady = true;
-            snd.bind("error", function (e) {
-              alert(`sound ${i} error ${JSON.stringify(e)}`);
-            });
-          });
-          snd.bind("sourceerror", function (e) {
-            alert(`sound ${i} sourceerror ${JSON.stringify(e)}`);
-            this.isReady = true;
-          });
-          snd.bind("loadeddata", function (e) {
-            alert(`sound ${i} loadeddata ${JSON.stringify(e)}`);
-          });
-          snd.bind("loadedmetadata", function (e) {
-            alert(`sound ${i} loadedmetadata ${JSON.stringify(e)}`);
-          });
-          snd.bind("loadstart", function (e) {
-            alert(`sound ${i} loadstart ${JSON.stringify(e)}`);
-          });
-          snd.bind("suspend", function (e) {
-            alert(`sound ${i} suspend ${JSON.stringify(e)}`);
-          });
-          snd.bind("waiting", function (e) {
-            alert(`sound ${i} waiting ${JSON.stringify(e)}`);
-          });
-          // important: iOS 上只会触发到 loadedmetadata 事件，需要调用 .play() 方法后才触发后续的 loadeddata、canplay、canplaythrough 事件
-          snd.play();
-
-          soundObjs.push(snd);
-          //   }
         });
+
+        const i = 0;
+        //   for (var i = 0; i < soundUrls.length; i++) {
+        var snd = new buzz.sound(soundUrls[i], {
+          formats: ["ogg", "mp3"],
+          preload: true,
+          autoplay: false,
+          loop: false,
+        });
+
+        snd.bind("abort", function (e) {
+          alert(`sound ${i} abort ${JSON.stringify(e)}`);
+          this.isReady = true;
+        });
+        snd.bind("canplay", function (e) {
+          alert(`sound ${i} canplay ${JSON.stringify(e)}`);
+        });
+        snd.bind("canplaythrough", function (e) {
+          alert(`sound ${i} canplaythrough ${JSON.stringify(e)}`);
+          this.isReady = true;
+        });
+        snd.bind("dataunavailable", function (e) {
+          alert(`sound ${i} dataunavailable ${JSON.stringify(e)}`);
+          this.isReady = true;
+        });
+        snd.bind("durationchange", function (e) {
+          alert(`sound ${i} durationchange ${JSON.stringify(e)}`);
+          this.isReady = true;
+        });
+        snd.bind("emptied", function (e) {
+          alert(`sound ${i} emptied ${JSON.stringify(e)}`);
+          this.isReady = true;
+        });
+        snd.bind("empty", function (e) {
+          alert(`sound ${i} empty ${JSON.stringify(e)}`);
+          this.isReady = true;
+        });
+        snd.bind("ended", function (e) {
+          alert(`sound ${i} ended ${JSON.stringify(e)}`);
+          this.isReady = true;
+          snd.bind("error", function (e) {
+            alert(`sound ${i} error ${JSON.stringify(e)}`);
+          });
+        });
+        snd.bind("sourceerror", function (e) {
+          alert(`sound ${i} sourceerror ${JSON.stringify(e)}`);
+          this.isReady = true;
+        });
+        snd.bind("loadeddata", function (e) {
+          alert(`sound ${i} loadeddata ${JSON.stringify(e)}`);
+        });
+        snd.bind("loadedmetadata", function (e) {
+          alert(`sound ${i} loadedmetadata ${JSON.stringify(e)}`);
+        });
+        snd.bind("loadstart", function (e) {
+          alert(`sound ${i} loadstart ${JSON.stringify(e)}`);
+        });
+        snd.bind("suspend", function (e) {
+          alert(`sound ${i} suspend ${JSON.stringify(e)}`);
+        });
+        snd.bind("waiting", function (e) {
+          alert(`sound ${i} waiting ${JSON.stringify(e)}`);
+        });
+        // important: iOS 上只会触发到 loadedmetadata 事件，需要调用 .play() 方法后才触发后续的 loadeddata、canplay、canplaythrough 事件
+        snd.play();
+
+        soundObjs.push(snd);
+        //   }
 
         /* 为 <img> 添加 flag */
         $(function () {
