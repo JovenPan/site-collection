@@ -28,7 +28,8 @@
             <a href="{{this.url}}">
               <div
                 class="item lozad"
-                data-background="./assets/images/tiny/{{this.coverImg}}"
+                data-background-image="./assets/images/tiny/{{this.coverImg}}"
+                data-background-position-y="{{this.backgroundPositionY}}"
               >
                 <div class="mask"></div>
                 {{#if this.iconImg}}
@@ -70,30 +71,35 @@
               {
                 name: "主页",
                 coverImg: "gckong.png",
+                backgroundPositionY: "top",
                 remoteUrl: "./gckong-demo",
                 localUrl: "./gckong-demo/index.html",
               },
               {
                 name: "词画·配",
                 coverImg: "gckong_chp.png",
+                backgroundPositionY: "top",
                 remoteUrl: "./gckong-demo/chp",
                 localUrl: "./gckong-demo/chp/index.html",
               },
               {
                 name: "聆听·林",
                 coverImg: "gckong_ltl.png",
+                backgroundPositionY: "top",
                 remoteUrl: "./gckong-demo/ltl",
                 localUrl: "./gckong-demo/ltl/index.html",
               },
               /* {
                 name: "歌词百科",
                 coverImg: "gckong_gcbk.png",
+                backgroundPositionY: "top",
                 remoteUrl: "./gckong-demo/gcbk",
                 localUrl: "./gckong-demo/gcbk/index.html",
               },
               {
                 name: "鹦鹉歌词",
                 coverImg: "gckong_ywgc.png",
+                backgroundPositionY: "top",
                 remoteUrl: "./gckong-demo/ywgc",
                 localUrl: "./gckong-demo/ywgc/index.html",
               }, */
@@ -106,12 +112,14 @@
               {
                 name: "欢迎屏",
                 coverImg: "bzhz_welcome.png",
+                backgroundPositionY: "top",
                 remoteUrl: "./bzhz/welcome",
                 localUrl: "./bzhz/welcome/index.html",
               },
               {
                 name: "下载页",
                 coverImg: "bzhz_download.png",
+                backgroundPositionY: "center",
                 iconImg: "icon-motion.png",
                 remoteUrl: "./bzhz/download",
                 localUrl: "./bzhz/download/index.html",
@@ -125,6 +133,7 @@
               {
                 name: "Realsee VR",
                 coverImg: "realsee_vr.png",
+                backgroundPositionY: "center",
                 iconImg: "icon-vr.png",
                 remoteUrl: "./realsee-vr",
                 localUrl: "./realsee-vr/index.html",
@@ -138,6 +147,7 @@
               {
                 name: "原型 demo",
                 coverImg: "panorama.png",
+                backgroundPositionY: "top",
                 iconImg: "icon-360.png",
                 remoteUrl: "./panorama",
                 localUrl: "./panorama/index.html",
@@ -145,6 +155,7 @@
               {
                 name: "仿淘宝造物节",
                 coverImg: "panorama_tao.png",
+                backgroundPositionY: "top",
                 iconImg: "icon-360.png",
                 remoteUrl: "./panorama?page=tao",
                 localUrl: "./panorama/index.html?page=tao",
@@ -152,6 +163,7 @@
               {
                 name: "仿安踏广告",
                 coverImg: "panorama_anta.png",
+                backgroundPositionY: "top",
                 iconImg: "icon-360.png",
                 remoteUrl: "./panorama?page=anta",
                 localUrl: "./panorama/index.html?page=anta",
@@ -165,12 +177,14 @@
               {
                 name: "杭州版本",
                 coverImg: "wedding_invitation.png",
+                backgroundPositionY: "top",
                 remoteUrl: "./wedding-invitation",
                 localUrl: "./wedding-invitation/index.html",
               },
               {
                 name: "荆州版本",
                 coverImg: "wedding_invitation.png",
+                backgroundPositionY: "top",
                 remoteUrl: "./wedding-invitation?location=hubei",
                 localUrl: "./wedding-invitation/index.html?location=hubei",
               },
@@ -183,6 +197,7 @@
               {
                 name: "Heart",
                 coverImg: "love_code.png",
+                backgroundPositionY: "top",
                 remoteUrl: "./love-code",
                 localUrl: "./love-code/index.html",
               },
@@ -195,6 +210,7 @@
               {
                 name: "Leslie",
                 coverImg: "leslie.png",
+                backgroundPositionY: "center",
                 remoteUrl: "./leslie",
                 localUrl: "./leslie/index.html",
               },
@@ -217,7 +233,8 @@
       const observer = lozad(".lozad", {
         rootMargin: "100px 0px",
         load: function (el) {
-          el.style.backgroundImage = `url(${el.dataset.background})`;
+          el.style.backgroundImage = `url(${el.dataset.backgroundImage})`;
+          el.style.backgroundPositionY = `${el.dataset.backgroundPositionY}`;
         },
       });
       observer.observe();

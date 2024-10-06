@@ -50,7 +50,7 @@ body {
         box-sizing: border-box;
         overflow: hidden;
         background-size: cover;
-        background-position: center top;
+        background-position: center;
         background-color: #eee;
 
         .mask {
