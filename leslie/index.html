@@ -1146,14 +1146,24 @@
         var soundObjs = [];
         for (var i = 0; i < soundUrls.length; i++) {
           var snd = new buzz.sound(soundUrls[i], {
-            formats: ["mp3"],
+            formats: ["ogg", "mp3"],
             preload: true,
             autoplay: false,
             loop: false,
           });
           snd.bind("canplaythrough", function (e) {
+            alert(`sound ${i} canplaythrough ${e}`);
             this.isReady = true;
           });
+
+          snd.bind("loadstart", function (e) {
+            alert(`sound ${i} loadstart ${e}`);
+          });
+
+          snd.bind("canplay", function (e) {
+            alert(`sound ${i} canplay ${e}`);
+          });
+
           soundObjs.push(snd);
         }
         /* 为 <img> 添加 flag */
@@ -1167,18 +1177,18 @@
           var sndReady = snd.isReady;
           if (userAgreePlay && imgReady && sndReady) {
             console.log("tryPlay ok   : " + i);
-            alert("tryPlay ok   : " + i);
+            // alert("tryPlay ok   : " + i);
             snd.play();
             onSlideIn(i);
             setTimeout("onSlideOut()", slideDurations[i]);
           } else {
             if (!imgReady) {
               console.log("img not ready");
-              alert("img not ready");
+              //   alert("img not ready");
             }
             if (!sndReady) {
               console.log("snd not ready");
-              alert("snd not ready");
+              //   alert("snd not ready");
             }
             console.log("tryPlay retry: " + i);
             // alert("tryPlay retry: " + i);
