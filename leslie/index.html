@@ -1136,40 +1136,41 @@
     <!-- 这一块不用管 -->
     <script>
       try {
+        var soundObjs = [];
         let userAgreePlay = false;
 
         $("#startPlay").click(function () {
           userAgreePlay = true;
           $(this).hide();
+
+          for (var i = 0; i < soundUrls.length; i++) {
+            var snd = new buzz.sound(soundUrls[i], {
+              formats: ["mp3", "ogg"],
+              // preload: true,
+              // autoplay: false,
+              // loop: false,
+            });
+            snd.bind("canplaythrough", function (e) {
+              alert(`sound ${i} canplaythrough ${e}`);
+              this.isReady = true;
+            });
+
+            snd.bind("loadstart", function (e) {
+              alert(`sound ${i} loadstart ${e}`);
+            });
+
+            snd.bind("canplay", function (e) {
+              alert(`sound ${i} canplay ${e}`);
+            });
+
+            snd.bind("error", function (e) {
+              alert(`sound ${i} error ${e}`);
+            });
+
+            soundObjs.push(snd);
+          }
         });
 
-        var soundObjs = [];
-        for (var i = 0; i < soundUrls.length; i++) {
-          var snd = new buzz.sound(soundUrls[i], {
-            formats: ["mp3", "ogg"],
-            // preload: true,
-            // autoplay: false,
-            // loop: false,
-          });
-          snd.bind("canplaythrough", function (e) {
-            alert(`sound ${i} canplaythrough ${e}`);
-            this.isReady = true;
-          });
-
-          snd.bind("loadstart", function (e) {
-            alert(`sound ${i} loadstart ${e}`);
-          });
-
-          snd.bind("canplay", function (e) {
-            alert(`sound ${i} canplay ${e}`);
-          });
-
-          snd.bind("error", function (e) {
-            alert(`sound ${i} error ${e}`);
-          });
-
-          soundObjs.push(snd);
-        }
         /* 为 <img> 添加 flag */
         $(function () {
           $("img").prop("isReady", true);
@@ -1178,7 +1179,7 @@
           var $img = $("img#pic" + i);
           var imgReady = $img.prop("isReady");
           var snd = soundObjs[i];
-          var sndReady = snd.isReady;
+          var sndReady = snd?.isReady;
           if (userAgreePlay && imgReady && sndReady) {
             console.log("tryPlay ok   : " + i);
             // alert("tryPlay ok   : " + i);
