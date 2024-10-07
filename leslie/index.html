@@ -1197,118 +1197,15 @@
     </script>
 
     <script>
-      Reveal.addEventListener(
-        "section0",
-        function () {
-          tryPlay(0);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section1",
-        function () {
-          tryPlay(1);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section2",
-        function () {
-          tryPlay(2);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section3",
-        function () {
-          tryPlay(3);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section4",
-        function () {
-          tryPlay(4);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section5",
-        function () {
-          tryPlay(5);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section6",
-        function () {
-          tryPlay(6);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section7",
-        function () {
-          tryPlay(7);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section8",
-        function () {
-          tryPlay(8);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section9",
-        function () {
-          tryPlay(9);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section10",
-        function () {
-          tryPlay(10);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section11",
-        function () {
-          tryPlay(11);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section12",
-        function () {
-          tryPlay(12);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section13",
-        function () {
-          tryPlay(13);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section14",
-        function () {
-          tryPlay(14);
-        },
-        false
-      );
-      Reveal.addEventListener(
-        "section15",
-        function () {
-          tryPlay(15);
-        },
-        false
-      );
+      for (let i = 0; i < 16; i++) {
+        Reveal.addEventListener(
+          `section${i}`,
+          function () {
+            tryPlay(i);
+          },
+          false
+        );
+      }
 
       Reveal.initialize({
         controls: false,
