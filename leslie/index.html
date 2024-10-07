@@ -73,6 +73,7 @@
       }
 
       #fullscreenButton {
+        display: none;
         position: absolute;
         right: 20px;
         top: 20px;
@@ -80,6 +81,7 @@
         width: 20px;
         height: 20px;
         background-size: contain;
+        transition: all 1s;
 
         &.expand {
           background-image: url(./icon/full-screen-enter.png);
@@ -87,7 +89,11 @@
 
         &.compress {
           background-image: url(./icon/full-screen-exit.png);
-          opacity: 0.2;
+          opacity: 0;
+
+          &:hover {
+            opacity: 1;
+          }
         }
       }
 
@@ -804,63 +810,65 @@
     <![endif]-->
 
     <script>
-      alert(document.fullscreenEnabled);
-      var fullscreenButton = $("#fullscreenButton");
-      var isFullscreen = false;
+      if (document.fullscreenEnabled) {
+        var fullscreenButton = $("#fullscreenButton");
+        fullscreenButton.show();
+        var isFullscreen = false;
 
-      // 进入全屏
-      function enterFullscreen() {
-        var elem = document.documentElement;
-        if (elem.requestFullscreen) {
-          elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) {
-          elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) {
-          elem.msRequestFullscreen();
-        } else if (elem.mozRequestFullScreen) {
-          elem.mozRequestFullScreen();
+        // 进入全屏
+        function enterFullscreen() {
+          var elem = document.documentElement;
+          if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+          } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+          } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+          } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+          }
         }
-      }
-      // 退出全屏
-      function exitFullscreen() {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) {
-          document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-          document.msExitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-          document.mozCancelFullScreen();
+        // 退出全屏
+        function exitFullscreen() {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          }
         }
-      }
-      // 更新全屏状态
-      function updateFullscreen(type) {
-        if (type == "enter") {
-          isFullscreen = true;
-          fullscreenButton.removeClass("expand").addClass("compress");
-        } else if (type == "exit") {
-          isFullscreen = false;
-          fullscreenButton.removeClass("compress").addClass("expand");
+        // 更新全屏状态
+        function updateFullscreen(type) {
+          if (type == "enter") {
+            isFullscreen = true;
+            fullscreenButton.removeClass("expand").addClass("compress");
+          } else if (type == "exit") {
+            isFullscreen = false;
+            fullscreenButton.removeClass("compress").addClass("expand");
+          }
         }
-      }
 
-      fullscreenButton.click(function () {
-        if (!isFullscreen) {
-          enterFullscreen();
-          updateFullscreen("enter");
-        } else {
-          exitFullscreen();
-          updateFullscreen("exit");
-        }
-      });
+        fullscreenButton.click(function () {
+          if (!isFullscreen) {
+            enterFullscreen();
+            updateFullscreen("enter");
+          } else {
+            exitFullscreen();
+            updateFullscreen("exit");
+          }
+        });
 
-      document.addEventListener("fullscreenchange", function () {
-        if (document.fullscreenElement) {
-          updateFullscreen("enter");
-        } else {
-          updateFullscreen("exit");
-        }
-      });
+        document.addEventListener("fullscreenchange", function () {
+          if (document.fullscreenElement) {
+            updateFullscreen("enter");
+          } else {
+            updateFullscreen("exit");
+          }
+        });
+      }
     </script>
 
     <script>
