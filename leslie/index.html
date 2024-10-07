@@ -1232,10 +1232,18 @@
       // buzz 音频设置
       var soundObjs = [];
 
-      // 在竖屏下，才提示“建议在横屏模式下观看”
-      if (window.innerHeight > window.innerWidth) {
-        $("#startTips").show();
+      const startTips = $("#startTips");
+      function updateStartTips() {
+        // 在竖屏下，才提示“建议在横屏模式下观看”
+        if (window.innerHeight > window.innerWidth) {
+          startTips.show();
+        } else {
+          startTips.hide();
+        }
       }
+
+      updateStartTips();
+      window.addEventListener("resize", updateStartTips, false);
 
       $("#startPlay").click(function () {
         $("#startWrapper").hide();
