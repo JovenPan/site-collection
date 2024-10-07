@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="./css/reveal.min.css" />
     <link rel="stylesheet" href="./css/theme/default.css" id="theme" />
+
     <link
       rel="shortcut icon"
       href="../assets/ico/favicon.ico"
@@ -68,6 +69,25 @@
           margin-top: 20px;
           color: rgba(255, 255, 255, 0.8);
           font-size: 12px;
+        }
+      }
+
+      #fullscreenButton {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        z-index: 100;
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+
+        &.expand {
+          background-image: url(./icon/full-screen-enter.png);
+        }
+
+        &.compress {
+          background-image: url(./icon/full-screen-exit.png);
+          opacity: 0.2;
         }
       }
 
@@ -550,6 +570,8 @@
       <p id="startTips">* 建议在横屏模式下观看</p>
     </div>
 
+    <div id="fullscreenButton" class="expand"></div>
+
     <div class="reveal">
       <div class="slides">
         <section data-background="./img/0.jpg" data-state="section0">
@@ -780,6 +802,65 @@
         $("#alert").show();
       </script>
     <![endif]-->
+
+    <script>
+      var fullscreenButton = $("#fullscreenButton");
+      var isFullscreen = false;
+
+      // 进入全屏
+      function enterFullscreen() {
+        var elem = document.documentElement;
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+          elem.mozRequestFullScreen();
+        }
+      }
+      // 退出全屏
+      function exitFullscreen() {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        }
+      }
+      // 更新全屏状态
+      function updateFullscreen(type) {
+        if (type == "enter") {
+          isFullscreen = true;
+          fullscreenButton.removeClass("expand").addClass("compress");
+        } else if (type == "exit") {
+          isFullscreen = false;
+          fullscreenButton.removeClass("compress").addClass("expand");
+        }
+      }
+
+      fullscreenButton.click(function () {
+        if (!isFullscreen) {
+          enterFullscreen();
+          updateFullscreen("enter");
+        } else {
+          exitFullscreen();
+          updateFullscreen("exit");
+        }
+      });
+
+      document.addEventListener("fullscreenchange", function () {
+        if (document.fullscreenElement) {
+          updateFullscreen("enter");
+        } else {
+          updateFullscreen("exit");
+        }
+      });
+    </script>
 
     <script>
       // 所有的配置信息
