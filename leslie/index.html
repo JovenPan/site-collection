@@ -52,21 +52,23 @@
         transform: translate(-50%, -50%);
         z-index: 100;
 
-        .tips {
+        #startPlay {
+          width: 124px;
+          height: 42px;
+          line-height: 42px;
+          padding: 0 30px;
+          box-sizing: border-box;
+          border-radius: 21px;
+          background-color: rgba(255, 255, 255, 0.8);
+          cursor: pointer;
+        }
+
+        #startTips {
+          display: none;
           margin-top: 20px;
           color: rgba(255, 255, 255, 0.8);
           font-size: 12px;
         }
-      }
-      #startPlay {
-        width: 124px;
-        height: 42px;
-        line-height: 42px;
-        padding: 0 30px;
-        box-sizing: border-box;
-        border-radius: 21px;
-        background-color: rgba(255, 255, 255, 0.8);
-        cursor: pointer;
       }
 
       #section0-txt1,
@@ -534,17 +536,18 @@
   <body>
     <div id="alert">
       <p>
-        浏览器太老，请升级浏览器后再观看。<br />或者您可以使用chrome、firefox等高级浏览器。<br /><a
+        浏览器太老，请升级浏览器后再观看。<br />或者您可以使用 Chrome、Firefox
+        等高级浏览器。<br /><a
           id="down-chrome"
           href="http://www.google.cn/intl/zh-CN/chrome/browser/?installdataindex=chinabookmarkcontrol&brand=CHUN"
-          >下载chrome</a
+          >下载 Chrome</a
         >
       </p>
     </div>
 
     <div id="startWrapper">
       <div id="startPlay">开始观看</div>
-      <p class="tips">* 建议在横屏模式下观看</p>
+      <p id="startTips">* 建议在横屏模式下观看</p>
     </div>
 
     <div class="reveal">
@@ -755,7 +758,7 @@
             <p id="section7-txt1">十一年了</p>
             <p id="section7-txt2">欠我们的好歌和电影</p>
             <p id="section7-txt3">什么时候还？</p>
-            <p id="section7-txt4">Miss you so much , Leslie</p>
+            <p id="section7-txt4">Miss you so much, Leslie</p>
             <p id="gckong">
               <a id="go-to-chat" href="http://www.gckong.com/">歌词控</a>出品
               ©2014
@@ -779,6 +782,8 @@
     <![endif]-->
 
     <script>
+      // 所有的配置信息
+
       $("#pic11").css("height", $(window).height());
       $("#pic12").css("height", $(window).height());
       $("#pic13").css("height", $(window).height());
@@ -811,6 +816,7 @@
         "./audio/zhe-xie-nian-lai",
       ];
       function onSlideIn(i) {
+        // 定义文字动画
         if (i == 0) {
           setTimeout(function () {
             $("#section0-txt1").fadeIn(1000).show();
@@ -1142,12 +1148,18 @@
     </script>
 
     <script>
+      // buzz 音频设置
       var soundObjs = [];
+
+      // 在竖屏下，才提示“建议在横屏模式下观看”
+      if (window.innerHeight > window.innerWidth) {
+        $("#startTips").show();
+      }
 
       $("#startPlay").click(function () {
         $("#startWrapper").hide();
 
-        // important: iOS 上必须在用户交互之后再创建 buzz
+        // Important: iOS 上必须在用户交互之后再创建 buzz
         for (var i = 0; i < soundUrls.length; i++) {
           var snd = new buzz.sound(soundUrls[i], {
             formats: ["ogg", "mp3"],
@@ -1156,7 +1168,7 @@
             loop: false,
           });
 
-          // important: iOS 上只会触发到 loadedmetadata 事件，需要调用 .play() 方法后才触发后续的 loadeddata、canplay、canplaythrough 事件
+          // Important: iOS 上只会触发到 loadedmetadata 事件，需要调用 .play() 方法后才触发后续的 loadeddata、canplay、canplaythrough 事件
           /* snd.bind("canplaythrough", function (e) {
               this.isReady = true;
             }); */
@@ -1175,6 +1187,7 @@
       });
 
       function tryPlay(i) {
+        // soundObjs 为空数组，说明用户还没有点击“开始观看”
         if (!soundObjs.length) {
           setTimeout("tryPlay(" + i + ")", 200);
           return;
@@ -1185,7 +1198,7 @@
         var snd = soundObjs[i];
         var sndReady = snd.isReady;
         if (imgReady && sndReady) {
-          console.log("tryPlay ok   : " + i);
+          console.log("tryPlay ok: " + i);
           snd.play();
           onSlideIn(i);
           setTimeout("onSlideOut()", slideDurations[i]);
@@ -1197,6 +1210,7 @@
     </script>
 
     <script>
+      // Reveal 幻灯片设置
       for (let i = 0; i < 16; i++) {
         Reveal.addEventListener(
           `section${i}`,
