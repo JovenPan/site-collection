@@ -747,7 +747,7 @@
         </section>
 
         <section
-          data-background-color="rgb(64, 99, 73)"
+          data-background-color="rgb(46, 70, 48)"
           data-background-image="./img/5.jpg"
           data-background-size="contain"
           data-state="section5"
@@ -798,7 +798,7 @@
         </section>
 
         <section
-          data-background="#000"
+          data-background="rgb(41, 58, 37)"
           data-state="section15"
           style="padding: 0"
         >
@@ -863,6 +863,15 @@
     <![endif]-->
 
     <script>
+      function updateBWBJ() {
+        $("#pic11").css("height", $(window).height()).css("width", "auto");
+        $("#pic12").css("height", $(window).height()).css("width", "auto");
+        $("#pic13").css("height", $(window).height()).css("width", "auto");
+      }
+      updateBWBJ();
+
+      // window.addEventListener("resize", updateBWBJ, false);
+
       if (document.fullscreenEnabled) {
         var fullscreenButton = $("#fullscreenButton");
         fullscreenButton.show();
@@ -922,14 +931,8 @@
           }
         });
       }
-    </script>
 
-    <script>
       // 所有的配置信息
-
-      $("#pic11").css("height", $(window).height());
-      $("#pic12").css("height", $(window).height());
-      $("#pic13").css("height", $(window).height());
 
       /* 在这里定义每个Sldie的停留时间 */
       var slideDurations = [
