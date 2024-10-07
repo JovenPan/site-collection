@@ -195,7 +195,9 @@
       $(function () {
         initStyle();
 
+        // 如果协议头不是 https，即使调用 DeviceMotionEvent.requestPermission，返回的也是 denied（授权失败），所以没必要做授权
         if (
+          location.protocol == "https:" &&
           "DeviceMotionEvent" in window &&
           typeof DeviceMotionEvent.requestPermission === "function"
         ) {
