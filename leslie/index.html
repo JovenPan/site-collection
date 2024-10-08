@@ -265,10 +265,13 @@
       }
 
       #section15-div1 {
-        position: relative;
+        position: absolute;
+        right: 0;
+        top: 0;
         width: 1366px;
-        height: 741px;
+        height: 717px;
         background: url(./img/15.png) 0 0 no-repeat;
+        transform-origin: right top;
       }
       #section15-div1 div {
         position: absolute;
@@ -328,7 +331,7 @@
         height: 245px;
         background-position: 0 -1400px;
         right: 16px;
-        bottom: 24px;
+        bottom: 0;
       }
       #section15-div1 #section15-pic8 {
         position: absolute;
@@ -336,7 +339,7 @@
         height: 283px;
         background-position: -900px -717px;
         left: 276px;
-        bottom: 26px;
+        bottom: 0;
       }
       #section15-div1 #section15-pic9 {
         position: absolute;
@@ -781,9 +784,10 @@
         </section>
 
         <section
-          data-background="rgb(41, 58, 37)"
+          data-background="rgb(5, 5, 3)"
           data-state="section15"
           style="padding: 0"
+          id="section15"
         >
           <div id="section15-div1">
             <div id="section15-pic1"></div>
@@ -846,6 +850,21 @@
     <![endif]-->
 
     <script>
+      function updateSection15() {
+        $("#section15").css({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+        $("#section15-div1").css(
+          "transform",
+          `scale(${window.innerHeight / 717})`
+        );
+      }
+
+      updateSection15();
+
+      window.addEventListener("resize", updateSection15, false);
+
       if (document.fullscreenEnabled) {
         var fullscreenButton = $("#fullscreenButton");
         fullscreenButton.show();
