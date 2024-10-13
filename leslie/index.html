@@ -108,7 +108,7 @@
       #section9-div1 p,
       #section10-div1 p,
       #section14-div1 p,
-      #section15-div1 p {
+      .section15 p {
         font: normal 18px/36px 微软雅黑, arial;
       }
 
@@ -189,11 +189,9 @@
         left: 660px;
       }
 
-      #section4-div1 {
-        margin-right: -300px;
-      }
       #section4-div1 p {
         line-height: 34px;
+        transition: all 1s;
       }
       #section4-div1 span {
         display: none;
@@ -349,11 +347,12 @@
         left: 264px;
         top: 0;
       }
-      #section15-div1 p {
+      .section15 p {
         display: none;
         position: absolute;
         left: 100px;
-        top: 150px;
+        top: 50%;
+        transform: translateY(-65%);
         line-height: 22px;
       }
 
@@ -730,9 +729,10 @@
         </section>
 
         <section
-          data-background-color="rgb(46, 70, 48)"
-          data-background-image="./img/5.jpg"
+          data-background="url(./img/5.jpg), linear-gradient(to right, rgb(64, 96, 81), rgb(61, 54, 42))"
+          data-background-repeat="no-repeat"
           data-background-size="contain"
+          data-background-position="center"
           data-state="section5"
         >
           <img id="pic5" class="backgroundImage" src="./img/5.jpg" />
@@ -766,9 +766,10 @@
         </section>
 
         <section
-          data-background-color="rgb(47, 39, 38)"
-          data-background-image="./img/14.jpg"
+          data-background="url(./img/14.jpg), linear-gradient(to right, rgb(59, 48, 46), rgb(92, 78, 82))"
+          data-background-repeat="no-repeat"
           data-background-size="auto 100%"
+          data-background-position="center"
           data-state="section14"
         >
           <div id="section14-div1">
@@ -784,10 +785,10 @@
         </section>
 
         <section
-          data-background="rgb(5, 5, 3)"
+          class="section15"
+          data-background-image="./img/15-bg.jpg"
+          data-background-size="100% 100%"
           data-state="section15"
-          style="padding: 0"
-          id="section15"
         >
           <div id="section15-div1">
             <div id="section15-pic1"></div>
@@ -799,19 +800,18 @@
             <div id="section15-pic7"></div>
             <div id="section15-pic8"></div>
             <div id="section15-pic9"></div>
-            <p id="section15-txt1">
-              投<br />入<br />过<br /><br />怀<br />念<br />过<br /><br />忘<br />掉<br />过
-            </p>
-            <p id="section15-txt2">
-              这<br />角<br />色<br /><br />要<br />几<br />多<br /><br />有<br />几<br />多
-            </p>
-            <p id="section15-txt3">
-              任<br />何<br />样<br />子<br />都<br />可
-            </p>
-            <p id="section15-txt4">
-              似<br />雪<br />片<br />掠<br />过<br />星<br />河
-            </p>
           </div>
+
+          <p id="section15-txt1">
+            投<br />入<br />过<br /><br />怀<br />念<br />过<br /><br />忘<br />掉<br />过
+          </p>
+          <p id="section15-txt2">
+            这<br />角<br />色<br /><br />要<br />几<br />多<br /><br />有<br />几<br />多
+          </p>
+          <p id="section15-txt3">任<br />何<br />样<br />子<br />都<br />可</p>
+          <p id="section15-txt4">
+            似<br />雪<br />片<br />掠<br />过<br />星<br />河
+          </p>
 
           <img id="pic15" class="backgroundImage" src="./img/15.png" />
         </section>
@@ -850,8 +850,17 @@
     <![endif]-->
 
     <script>
-      function updateSection15() {
-        $("#section15").css({
+      function updateSection() {
+        $("#section4-div1").css({
+          transform: `translate(20%, ${
+            Math.min(
+              $("#section4-div1").parent().height(),
+              window.innerHeight
+            ) / 2
+          }px)`,
+        });
+
+        $(".section15").css({
           width: window.innerWidth,
           height: window.innerHeight,
         });
@@ -861,9 +870,9 @@
         );
       }
 
-      updateSection15();
+      updateSection();
 
-      window.addEventListener("resize", updateSection15, false);
+      window.addEventListener("resize", updateSection, false);
 
       if (document.fullscreenEnabled) {
         var fullscreenButton = $("#fullscreenButton");
@@ -1041,72 +1050,29 @@
             $("#section3-txt12").fadeOut(1000);
           }, 27000);
         } else if (i == 4) {
-          setTimeout(function () {
-            $("#section4-txt1").fadeIn().css("color", "#1d94e1");
-          }, 500);
-          setTimeout(function () {
-            $("#section4-txt1").css("color", "#666");
-            $("#section4-txt2").fadeIn().css("color", "#1d94e1");
-          }, 2000);
-          setTimeout(function () {
-            $("#section4-txt2").css("color", "#666");
-            $("#section4-txt3").fadeIn().css("color", "#1d94e1");
-          }, 3500);
-          setTimeout(function () {
-            $("#section4-txt3").css("color", "#666");
-            $("#section4-txt4").fadeIn().css("color", "#1d94e1");
-          }, 7000);
-          setTimeout(function () {
-            $("#section4-txt4").css("color", "#666");
-            $("#section4-txt5").fadeIn().css("color", "#1d94e1");
-          }, 10000);
-          setTimeout(function () {
-            $("#section4-txt5").css("color", "#666");
-            $("#section4-txt6").fadeIn().css("color", "#1d94e1");
-          }, 12000);
-          setTimeout(function () {
-            $("#section4-txt6").css("color", "#666");
-            $("#section4-txt7").fadeIn().css("color", "#1d94e1");
-          }, 14000);
-          setTimeout(function () {
-            $("#section4-txt7").css("color", "#666");
-            $("#section4-txt8").fadeIn().css("color", "#1d94e1");
-          }, 16000);
-          setTimeout(function () {
-            $("#section4-txt8").css("color", "#666");
-            $("#section4-txt9").fadeIn().css("color", "#1d94e1");
-          }, 22000);
-          setTimeout(function () {
-            $("#section4-txt9").css("color", "#666");
-            $("#section4-txt10").fadeIn().css("color", "#1d94e1");
-          }, 24000);
-          setTimeout(function () {
-            $("#section4-txt10").css("color", "#666");
-            $("#section4-txt11").fadeIn().css("color", "#1d94e1");
-          }, 28000);
-          setTimeout(function () {
-            $("#section4-txt11").css("color", "#aaa");
-            $("#section4-txt12").fadeIn().css("color", "#1d94e1");
-          }, 30000);
-          setTimeout(function () {
-            $("#section4-txt12").css("color", "#666");
-            $("#section4-txt13").fadeIn().css("color", "#1d94e1");
-          }, 32000);
-          setTimeout(function () {
-            $("#section4-txt13").css("color", "#666");
-            $("#section4-txt14").fadeIn().css("color", "#1d94e1");
-          }, 34000);
-          setTimeout(function () {
-            $("#section4-txt14").css("color", "#666");
-            $("#section4-txt15").fadeIn().css("color", "#1d94e1");
-          }, 38000);
-          setTimeout(function () {
-            $("#section4-txt15").css("color", "#666");
-            $("#section4-txt16").fadeIn().css("color", "#1d94e1");
-          }, 41000);
-          setTimeout(function () {
-            $("#section4-txt16").css("color", "#666");
-          }, 43000);
+          const arr = [
+            500, 2000, 3500, 7000, 10000, 12000, 14000, 16000, 22000, 24000,
+            28000, 30000, 32000, 34000, 38000, 41000, 43000,
+          ];
+          arr.map((delay, index) => {
+            setTimeout(() => {
+              if (index === 0) {
+                $("#section4-txt1").fadeIn().css("color", "#1d94e1");
+              } else if (index === arr.length - 1) {
+                $("#section4-txt16").css("color", "#666");
+              } else {
+                $(`#section4-txt${index}`).css("color", "#666");
+                $(`#section4-txt${index + 1}`)
+                  .fadeIn()
+                  .css("color", "#1d94e1");
+                $("#section4-div1 p").css(
+                  "transform",
+                  `translateY(-${34 * index}px)`
+                );
+              }
+            }, delay);
+          });
+
           setTimeout(function () {
             $("#section4-div1 p").fadeOut(500);
           }, 43500);
@@ -1276,9 +1242,6 @@
           setTimeout(function () {
             $("#section15-txt4").fadeIn(1000);
           }, 44000);
-          setTimeout(function () {
-            $("#section15-divq p").fadeOut(1000);
-          }, 47000);
         }
       }
       function onSlideOut() {
