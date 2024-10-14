@@ -510,7 +510,7 @@ for (let i = 0; i < 16; i++) {
 Reveal.initialize({
   controls: false,
   progress: false,
-  history: true,
+  history: false,
   center: true,
   keyboard: false,
   touch: false,
