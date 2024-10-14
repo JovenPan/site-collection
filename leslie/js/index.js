@@ -38,9 +38,11 @@ function updateRender() {
     }px)`,
   });
 
-  $("[data-state=section15]").css({
-    width: window.innerWidth,
-    height: window.innerHeight,
+  $("[data-state=section3],[data-state=section15]").each(function () {
+    $(this).css({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
   });
 
   if (screenType === "landscape") {

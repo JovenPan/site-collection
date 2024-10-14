@@ -144,6 +144,12 @@ body[data-screen="landscape"] {
     text-align: left;
     transform: translateX(-50px);
   }
+
+  #section3-div1 {
+    left: 50%;
+    top: 50%;
+    margin-top: -100px;
+  }
 }
 
 body[data-screen="portrait"] {
@@ -212,6 +218,11 @@ body[data-screen="portrait"] {
       text-shadow: none;
     }
   }
+
+  #section3-div1 {
+    left: 30px;
+    top: 50px;
+  }
 }
 
 #section0-txt1 {
@@ -228,51 +239,35 @@ body[data-screen="portrait"] {
 }
 
 #section3-div1 {
-  position: relative;
+  position: absolute;
   width: 100%;
-  height: 600px;
 }
 #section3-div1 p {
   display: none;
+  /* display: block; */
   position: absolute;
   color: #666;
   text-shadow: 1px 1px 2px #eee;
 }
-#section3-txt1,
-#section3-txt2,
-#section3-txt3,
-#section3-txt4,
-#section3-txt5 {
-  top: 200px;
-  left: 700px;
-}
-#section3-txt6 {
-  top: 200px;
-  left: 600px;
-}
+
 #section3-txt7 {
-  top: 200px;
-  left: 670px;
+  margin-left: 70px;
 }
 #section3-txt8 {
-  top: 200px;
-  left: 735px;
+  margin-left: 135px;
 }
 #section3-txt9 {
-  top: 200px;
-  left: 800px;
+  margin-left: 200px;
 }
 #section3-txt10 {
-  top: 200px;
-  left: 690px;
+  margin-left: 90px;
 }
 #section3-txt11 {
-  top: 200px;
-  left: 600px;
+  transform: translateX(50px);
 }
 #section3-txt12 {
-  top: 250px;
-  left: 660px;
+  margin-top: 50px;
+  margin-left: 60px;
 }
 
 #section4-div1 p {
@@ -434,61 +429,18 @@ body[data-screen="portrait"] {
 
 @keyframes section3-animation1 {
   0% {
-    transform: rotate(20deg);
-    top: 300px;
-    left: 900px;
+    transform: rotate(20deg) translate(200px, 100px);
   }
   100% {
-    transform: rotate(0deg);
-    top: 200px;
-    left: 700px;
   }
 }
-@-webkit-keyframes section3-animation1 {
-  0% {
-    -webkit-transform: rotate(20deg);
-    top: 300px;
-    left: 900px;
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-    top: 200px;
-    left: 700px;
-  }
-}
-@-moz-keyframes section3-animation1 {
-  0% {
-    -moz-transform: rotate(20deg);
-    top: 300px;
-    left: 900px;
-  }
-  100% {
-    -moz-transform: rotate(0deg);
-    top: 200px;
-    left: 700px;
-  }
-}
-@-o-keyframes section3-animation1 {
-  0% {
-    -o-transform: rotate(20deg);
-    top: 300px;
-    left: 900px;
-  }
-  100% {
-    -o-transform: rotate(0deg);
-    top: 200px;
-    left: 700px;
-  }
-}
+
 #section3-txt1,
 #section3-txt2,
 #section3-txt3,
 #section3-txt4,
 #section3-txt5 {
   animation: section3-animation1 0.8s;
-  -webkit-animation: section3-animation1 0.8s;
-  -moz-animation: section3-animation1 0.8s;
-  -o-animation: section3-animation1 0.8s;
 }
 
 @keyframes section3-animation2 {
@@ -499,115 +451,33 @@ body[data-screen="portrait"] {
     transform: scale(1, 1);
   }
 }
-@-webkit-keyframes section3-animation2 {
-  0% {
-    -webkit-transform: scale(10, 10);
-  }
-  100% {
-    -webkit-transform: scale(1, 1);
-  }
-}
-@-moz-keyframes section3-animation2 {
-  0% {
-    -moz-transform: scale(10, 10);
-  }
-  100% {
-    -moz-transform: scale(1, 1);
-  }
-}
-@-o-keyframes section3-animation2 {
-  0% {
-    -o-transform: scale(10, 10);
-  }
-  100% {
-    -o-transform: scale(1, 1);
-  }
-}
 #section3-txt6,
 #section3-txt7,
 #section3-txt8,
 #section3-txt9,
 #section3-txt10 {
   animation: section3-animation2 0.5s;
-  -webkit-animation: section3-animation2 0.5s;
-  -moz-animation: section3-animation2 0.5s;
-  -o-animation: section3-animation2 0.5s;
 }
 
 @keyframes section3-animation3 {
   0% {
-    left: 500px;
+    transform: translateX(0);
   }
   100% {
-    left: 600px;
-  }
-}
-@-webkit-keyframes section3-animation3 {
-  0% {
-    left: 500px;
-  }
-  100% {
-    left: 600px;
-  }
-}
-@-moz-keyframes section3-animation3 {
-  0% {
-    left: 500px;
-  }
-  100% {
-    left: 600px;
-  }
-}
-@-o-keyframes section3-animation3 {
-  0% {
-    left: 500px;
-  }
-  100% {
-    left: 600px;
+    transform: translateX(50px);
   }
 }
 #section3-txt11 {
   animation: section3-animation3 3s;
-  -webkit-animation: section3-animation3 3s;
-  -moz-animation: section3-animation3 3s;
-  -o-animation: section3-animation3 3s;
 }
 
 @keyframes section3-animation4 {
   0% {
-    left: 760px;
+    transform: translateX(50px);
   }
   100% {
-    left: 660px;
-  }
-}
-@-webkit-keyframes section3-animation4 {
-  0% {
-    left: 760px;
-  }
-  100% {
-    left: 660px;
-  }
-}
-@-moz-keyframes section3-animation4 {
-  0% {
-    left: 760px;
-  }
-  100% {
-    left: 660px;
-  }
-}
-@-o-keyframes section3-animation4 {
-  0% {
-    left: 760px;
-  }
-  100% {
-    left: 660px;
   }
 }
 #section3-txt12 {
   animation: section3-animation4 3s;
-  -webkit-animation: section3-animation4 3s;
-  -moz-animation: section3-animation4 3s;
-  -o-animation: section3-animation4 3s;
 }
