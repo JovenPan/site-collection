@@ -118,6 +118,9 @@ body[data-screen="landscape"] {
     #section4-txt11 {
       color: #aaa;
     }
+    .active {
+      color: #1d94e1 !important;
+    }
   }
 
   #section14-div1 {
@@ -138,26 +141,45 @@ body[data-screen="landscape"] {
 
 body[data-screen="portrait"] {
   /* 这里添加适用于竖屏模式的样式 */
+  #section0-txt1 {
+    text-shadow: 1px 1px 4px #000;
+  }
 
   #section1-div1 {
     transform: translate(40%, -50%);
   }
 
-  #section10-div1 p {
-    text-shadow: 1px 1px 2px #999;
+  #section2-div1 {
+    margin-top: 80px;
   }
 
-  #section6-div1 p {
-    text-shadow: 1px 1px 2px #000;
+  #section10-div1 p {
+    text-shadow: 1px 1px 4px #000;
+  }
+
+  #section8-div1 {
+    margin-top: 80px;
+  }
+
+  #section6-div1 {
+    margin-top: 80px;
+
+    p {
+      text-shadow: 1px 1px 4px #000;
+    }
   }
 
   #section4-div1 p {
     span {
       color: #fff;
-      /* text-shadow: 1px 1px 1px #999; */
+      text-shadow: 1px 1px 4px #000;
     }
     #section4-txt11 {
       color: #ccc;
+    }
+    .active {
+      color: #035f9c !important;
+      text-shadow: 1px 1px 2px #fff;
     }
   }
 
@@ -168,14 +190,16 @@ body[data-screen="portrait"] {
   }
 
   .section15 p {
-    left: 100px;
+    left: 20px;
     top: 50%;
-    transform: translateY(5%);
+    transform: translateY(-90%);
   }
 
   #section7-div1 {
+    margin-top: 100px;
+
     p {
-      text-shadow: 1px 1px 1px #999;
+      text-shadow: 1px 1px 4px #000;
     }
     #gckong {
       text-shadow: none;
@@ -184,14 +208,11 @@ body[data-screen="portrait"] {
 }
 
 #section0-txt1 {
-  /* display: none; */
-  display: block;
+  display: none;
+  /* display: block; */
   color: #eee;
 }
 
-#section2-div1 {
-  margin-top: 80px;
-}
 #section2-div1 p {
   display: none;
   /* display: block; */
@@ -258,8 +279,6 @@ body[data-screen="portrait"] {
 }
 
 #section6-div1 {
-  margin-top: 80px;
-
   p {
     display: none;
     /* display: block; */
@@ -270,7 +289,6 @@ body[data-screen="portrait"] {
 #section7-div1 {
   width: 314px;
   margin: 0 auto;
-  margin-top: 80px;
   text-align: left;
 }
 #section7-div1 p {
@@ -290,10 +308,6 @@ body[data-screen="portrait"] {
 }
 #gckong a:hover {
   text-decoration: underline;
-}
-
-#section8-div1 {
-  margin-top: 80px;
 }
 
 #section8-div1 p {

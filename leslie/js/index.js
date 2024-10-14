@@ -27,7 +27,7 @@ function updateRender() {
   // “section7 欠我们的好歌和电影”
   $("[data-state=section7]").attr(
     "data-background-position",
-    screenType == "landscape" ? "center" : "85% center"
+    screenType == "landscape" ? "center" : "80% center"
   );
 
   // “有一句英文很好”
@@ -238,20 +238,14 @@ function onSlideIn(i) {
     arr.map((delay, index) => {
       setTimeout(() => {
         if (index === 0) {
-          $("#section4-txt1").fadeIn().css("color", "#1d94e1");
+          $("#section4-txt1").fadeIn().addClass("active");
         } else if (index === arr.length - 1) {
-          $("#section4-txt16").css(
-            "color",
-            window.innerWidth > window.innerHeight ? "#666" : "#fff"
-          );
+          $("#section4-txt16").removeClass("active");
         } else {
-          $(`#section4-txt${index}`).css(
-            "color",
-            window.innerWidth > window.innerHeight ? "#666" : "#fff"
-          );
+          $(`#section4-txt${index}`).removeClass("active");
           $(`#section4-txt${index + 1}`)
             .fadeIn()
-            .css("color", "#1d94e1");
+            .addClass("active");
           $section4.css("transform", `translateY(-${34 * index}px)`);
         }
       }, delay);
