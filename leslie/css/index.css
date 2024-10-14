@@ -137,6 +137,13 @@ body[data-screen="landscape"] {
     top: 50%;
     transform: translateY(-65%);
   }
+
+  #section7-div1 {
+    width: 314px;
+    margin: 0 auto;
+    text-align: left;
+    transform: translateX(-50px);
+  }
 }
 
 body[data-screen="portrait"] {
@@ -196,7 +203,7 @@ body[data-screen="portrait"] {
   }
 
   #section7-div1 {
-    margin-top: 100px;
+    margin-top: 150px;
 
     p {
       text-shadow: 1px 1px 4px #000;
@@ -286,11 +293,6 @@ body[data-screen="portrait"] {
   }
 }
 
-#section7-div1 {
-  width: 314px;
-  margin: 0 auto;
-  text-align: left;
-}
 #section7-div1 p {
   display: none;
   /* display: block; */
@@ -300,7 +302,7 @@ body[data-screen="portrait"] {
 #section7-div1 #gckong {
   font-size: 12px;
   color: #666;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 #gckong a {
   color: #0ea5e5;
