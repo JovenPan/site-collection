@@ -263,7 +263,7 @@ body[data-screen="portrait"] {
   margin-left: 90px;
 }
 #section3-txt11 {
-  transform: translateX(50px);
+  transform: translateX(30px);
 }
 #section3-txt12 {
   margin-top: 50px;
@@ -464,7 +464,7 @@ body[data-screen="portrait"] {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(50px);
+    transform: translateX(30px);
   }
 }
 #section3-txt11 {
