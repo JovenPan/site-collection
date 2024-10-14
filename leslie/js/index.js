@@ -56,7 +56,7 @@ updateRender();
 
 window.addEventListener("resize", updateRender, false);
 
-if (document.fullscreenEnabled) {
+/* if (document.fullscreenEnabled) {
   var fullscreenButton = $("#fullscreenButton");
   fullscreenButton.show();
   var isFullscreen = false;
@@ -114,7 +114,7 @@ if (document.fullscreenEnabled) {
       updateFullscreen("exit");
     }
   });
-}
+} */
 
 // 所有的配置信息
 

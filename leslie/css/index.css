@@ -45,7 +45,7 @@
   }
 }
 
-#fullscreenButton {
+/* #fullscreenButton {
   display: none;
   position: absolute;
   right: 20px;
@@ -68,7 +68,7 @@
       opacity: 1;
     }
   }
-}
+} */
 
 #section0-txt1,
 #section1-div1 p,
