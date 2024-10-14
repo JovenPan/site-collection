@@ -1,3 +1,11 @@
+.reveal .slides > section {
+  padding: 0;
+}
+
+.reveal p {
+  margin: 0;
+}
+
 #alert {
   display: none;
   width: 100%;
@@ -176,8 +184,8 @@ body[data-screen="portrait"] {
 }
 
 #section0-txt1 {
-  display: none;
-  /* display: block; */
+  /* display: none; */
+  display: block;
   color: #eee;
 }
 
