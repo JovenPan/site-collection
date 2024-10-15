@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>林晚的小游戏</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      href="../assets/ico/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../assets/css/index.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <div class="pageWrapper" id="pageWrapper"></div>
+    </div>
+    <script id="listTemplate" type="text/x-handlebars-template">
+      {{#each list}}
+        <div class="group">
+          <div class="titleWrapper">
+            <span class="title">{{this.title}}</span>
+            {{#if this.time}}
+              <span class="time">{{this.time}}</span>
+            {{/if}}
+          </div>
+          {{#each this.items}}
+            <a href="{{this.url}}">
+              <div
+                class="item lozad"
+                data-background-image="./assets/images/tiny/{{this.coverImg}}"
+                data-background-position-y="{{this.backgroundPositionY}}"
+              >
+                <div class="mask"></div>
+                {{#if this.iconImg}}
+                  <div
+                    class="icon"
+                    style="background-image: url(./assets/images/{{this.iconImg}})"
+                  ></div>
+                {{/if}}
+                <div class="textWrapper">
+                  <span class="name">{{this.name}}</span>
+                  {{#if this.time}}
+                    <span class="time">{{this.time}}</span>
+                  {{/if}}
+                </div>
+              </div>
+            </a>
+          {{/each}}
+        </div>
+      {{/each}}
+    </script>
+    <script src="../assets/js/handlebars-4.7.7.min.js"></script>
+    <script src="../assets/js/lozad-1.16.0.min.js"></script>
+    <script>
+      function formate(data) {
+        if (!location.host) {
+          data.list.forEach((group) => {
+            group.items.forEach((item) => {
+              item.url = `${item.url}/index.html`;
+            });
+          });
+        }
+      }
+
+      // 准备数据
+      var data = {
+        list: [
+          {
+            title: "英雄大作战",
+            // time: "2019年",
+            items: [
+              {
+                name: "Evowars",
+                time: "2019-01-20",
+                coverImg: "evowars.png",
+                backgroundPositionY: "top",
+                url: "./evowars",
+              },
+            ],
+          },
+          {
+            title: "智商在哪儿",
+            // time: "2018年",
+            items: [
+              {
+                name: "脸书版本",
+                time: "2018-05-16",
+                coverImg: "unbelievable.png",
+                backgroundPositionY: "top",
+                iconImg: "icon-motion.png",
+                url: "./unbelievable/facebook",
+              },
+              {
+                name: "微信版本",
+                time: "2018-05-16",
+                coverImg: "unbelievable.png",
+                backgroundPositionY: "bottom",
+                url: "./unbelievable/wechat",
+              },
+            ],
+          },
+          {
+            title: "小鸡过桥",
+            // time: "2018年",
+            items: [
+              {
+                name: "Chicken Run",
+                time: "2018-05-09",
+                coverImg: "chicken-run.png",
+                backgroundPositionY: "bottom",
+                url: "./chicken-run",
+              },
+            ],
+          },
+          {
+            title: "读心术",
+            // time: "2018年",
+            items: [
+              {
+                name: "Mind Reader",
+                time: "2018-06-15",
+                coverImg: "mind-reader.png",
+                backgroundPositionY: "top",
+                url: "./mind-reader",
+              },
+            ],
+          },
+          {
+            title: "生死忍者",
+            // time: "2018年",
+            items: [
+              {
+                name: "Walk Wall",
+                time: "2018-06-18",
+                coverImg: "walk-wall.png",
+                backgroundPositionY: "center",
+                url: "./walk-wall",
+              },
+            ],
+          },
+          {
+            title: "钢琴",
+            // time: "2018年",
+            items: [
+              {
+                name: "Piano1900 (未完成游戏)",
+                time: "2018-06-05",
+                coverImg: "piano1900.png",
+                backgroundPositionY: "bottom",
+                url: "./piano1900",
+              },
+            ],
+          },
+        ],
+      };
+
+      formate(data);
+
+      // 获取模板
+      var source = document.getElementById("listTemplate").innerHTML;
+      // 编译模板
+      var template = Handlebars.compile(source);
+      // 渲染模板并将结果插入到指定容器中
+      var html = template(data);
+      document.getElementById("pageWrapper").innerHTML = html;
+
+      // 图片懒加载
+      const observer = lozad(".lozad", {
+        rootMargin: "100px 0px",
+        load: function (el) {
+          el.style.backgroundImage = `url(${el.dataset.backgroundImage})`;
+          el.style.backgroundPositionY = `${el.dataset.backgroundPositionY}`;
+        },
+      });
+      observer.observe();
+    </script>
+  </body>
+</html>
