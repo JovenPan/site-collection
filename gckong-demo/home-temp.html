@@ -9,8 +9,325 @@
       href="../assets/ico/favicon.ico"
       type="image/x-icon"
     />
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        background: url(./css/body-bg.jpg) repeat;
+      }
+
+      body[data-screen="landscape"] {
+        /* 这里添加适用于横屏模式的样式 */
+        .lrc_scroll {
+          width: 600px;
+        }
+        .lrc_scroll .Cont {
+          width: 480px;
+        }
+        .lrc_scroll .Cont .classical-lyrics {
+          width: 480px;
+        }
+      }
+
+      body[data-screen="portrait"] {
+        /* 这里添加适用于竖屏模式的样式 */
+        .lrc_scroll {
+          width: 380px;
+        }
+        .lrc_scroll .Cont {
+          width: 260px;
+        }
+
+        .lrc_scroll .Cont .classical-lyrics {
+          width: 260px;
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .footer {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        color: #aaa;
+        a {
+          color: #aaa;
+        }
+      }
+
+      .lrc_scroll {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 75px;
+      }
+      a.left_button {
+        height: 50px;
+        width: 30px;
+        background: url(css/prev-next-icon.png) 0 0 no-repeat;
+        float: left;
+        display: inline;
+        text-indent: -9999px;
+        margin: 12px 30px 0 0;
+      }
+      a.left_button:hover {
+        background: url(css/prev-next-icon.png) 0 -50px no-repeat;
+      }
+      a.rightt_button {
+        height: 50px;
+        width: 30px;
+        background: url(css/prev-next-icon.png) -30px 0 no-repeat;
+        float: left;
+        display: inline;
+        text-indent: -9999px;
+        margin: 12px 0 0 30px;
+      }
+      a.rightt_button:hover {
+        background: url(css/prev-next-icon.png) -30px -50px no-repeat;
+      }
+      .lrc_scroll .Cont {
+        overflow: hidden;
+        float: left;
+      }
+      .lrc_scroll .ScrCont {
+        width: 10000000px;
+      }
+      .lrc_scroll .Cont .classical-lyrics {
+        float: left;
+        font-size: 16px;
+        font-family: "微软雅黑", "楷体";
+        line-height: 22px;
+      }
+      .classical-lyrics a {
+        color: #f74461;
+      }
+      .classical-lyrics-author {
+        float: right;
+      }
+      .classical-lyrics-author a {
+        color: #0ea5e5;
+      }
+      .lrc_scroll #List1,
+      .lrc_scroll #List2 {
+        float: left;
+      }
+    </style>
+    <script src="js/jquery-1.7.1.js"></script>
   </head>
   <body>
-    欢迎来到 gckong!
+    <div class="lrc_scroll">
+      <a
+        class="left_button"
+        href="javascript:void(0);"
+        onmousedown="ISL_GoUp()"
+        onmouseup="ISL_StopUp()"
+        onmouseout="ISL_StopUp()"
+        >上一首</a
+      >
+
+      <div class="Cont" id="ISL_Cont">
+        <div class="ScrCont">
+          <div id="List1">
+            <div class="classical-lyrics">
+              <a href="" title="林夕·汤唯《晚秋》"
+                >爱不是一个人所能抵抗，错误有你和我一起补偿。等什么，又怎样。晚秋不晚，又何妨。</a
+              >
+              <p class="classical-lyrics-author">
+                <br /><a href="">—— 林夕·汤唯《晚秋》</a>
+              </p>
+            </div>
+
+            <div class="classical-lyrics">
+              <a href="" title="黄伟文·陈奕迅《最佳损友》"
+                >为何旧知己在最后，变不到老友。</a
+              >
+              <p class="classical-lyrics-author">
+                <br /><a href="">—— 黄伟文·陈奕迅《最佳损友》</a>
+              </p>
+            </div>
+
+            <div class="classical-lyrics">
+              <a href="" title="林夕·王菲《流年》"
+                >有生之年狭路相逢终不能幸免，手心忽然长出纠缠的曲线，懂事之前情动以后长不过一天，留不住算不出流年。</a
+              >
+              <p class="classical-lyrics-author">
+                <br /><a href="">—— 林夕·王菲《流年》</a>
+              </p>
+            </div>
+
+            <div class="classical-lyrics">
+              <a href="" title="罗大佑《光阴的故事》"
+                >风车在四季轮回的歌里，它天天的流转。风花雪月的诗句里，我在年年的成长。</a
+              >
+              <p class="classical-lyrics-author">
+                <br /><a href="">—— 罗大佑《光阴的故事》</a>
+              </p>
+            </div>
+
+            <div class="classical-lyrics">
+              <a href="" title="汪峰《当我想你的时候》"
+                >至少有十年我不曾流泪，至少有十首歌给我安慰。</a
+              >
+              <p class="classical-lyrics-author">
+                <br /><a href="">—— 汪峰《当我想你的时候》</a>
+              </p>
+            </div>
+
+            <div class="classical-lyrics">
+              <a href="" title="林夕·王菲《约定》"
+                >还记得街灯照出一脸黄，还燃亮那份微温的便档。剪影的你轮廓太好看，凝住眼泪才敢细看。</a
+              >
+              <p class="classical-lyrics-author">
+                <br /><a href="">—— 林夕·王菲《约定》</a>
+              </p>
+            </div>
+          </div>
+          <div id="List2"></div>
+        </div>
+      </div>
+
+      <a
+        class="rightt_button"
+        href="javascript:void(0);"
+        onmousedown="ISL_GoDown()"
+        onmouseup="ISL_StopDown()"
+        onmouseout="ISL_StopDown()"
+        >下一首</a
+      >
+    </div>
+
+    <div class="footer">
+      <p>&copy;2011-2024 gckong.com</p>
+      <a href="https://beian.miit.gov.cn" target="_blank"
+        >浙ICP备2024127577号</a
+      >
+    </div>
+
+    <script>
+      // 竖屏 portrait；横屏 landscape
+      const screenType =
+        window.innerWidth > window.innerHeight ? "landscape" : "portrait";
+      $("body").attr("data-screen", screenType);
+
+      var Speed = 1; //速度(毫秒)
+      var Space = 20; //每次移动(px)
+      var PageWidth = screenType == "landscape" ? 480 : 260; //翻页宽度
+      var fill = 0; //整体移位
+      var MoveLock = false;
+      var MoveTimeObj;
+      var Comp = 0;
+      var AutoPlayObj = null;
+      GetObj("List2").innerHTML = GetObj("List1").innerHTML;
+      GetObj("ISL_Cont").scrollLeft = fill;
+      GetObj("ISL_Cont").onmouseover = function () {
+        clearInterval(AutoPlayObj);
+      };
+      GetObj("ISL_Cont").onmouseout = function () {
+        AutoPlay();
+      };
+      AutoPlay();
+      function GetObj(objName) {
+        if (document.getElementById) {
+          return eval('document.getElementById("' + objName + '")');
+        } else {
+          return eval("document.all." + objName);
+        }
+      }
+      function AutoPlay() {
+        //自动滚动
+        clearInterval(AutoPlayObj);
+        AutoPlayObj = setInterval("ISL_GoDown();ISL_StopDown();", 8000); //间隔时间
+      }
+      function ISL_GoUp() {
+        //上翻开始
+        if (MoveLock) return;
+        clearInterval(AutoPlayObj);
+        MoveLock = true;
+        MoveTimeObj = setInterval("ISL_ScrUp();", Speed);
+      }
+      function ISL_StopUp() {
+        //上翻停止
+        clearInterval(MoveTimeObj);
+        if ((GetObj("ISL_Cont").scrollLeft % PageWidth) - fill != 0) {
+          Comp = fill - (GetObj("ISL_Cont").scrollLeft % PageWidth);
+          CompScr();
+        } else {
+          MoveLock = false;
+        }
+        AutoPlay();
+      }
+      function ISL_ScrUp() {
+        //上翻动作
+        if (GetObj("ISL_Cont").scrollLeft <= 0) {
+          GetObj("ISL_Cont").scrollLeft =
+            GetObj("ISL_Cont").scrollLeft + GetObj("List1").offsetWidth;
+        }
+        GetObj("ISL_Cont").scrollLeft -= Space;
+      }
+      function ISL_GoDown() {
+        //下翻
+        clearInterval(MoveTimeObj);
+        if (MoveLock) return;
+        clearInterval(AutoPlayObj);
+        MoveLock = true;
+        ISL_ScrDown();
+        MoveTimeObj = setInterval("ISL_ScrDown()", Speed);
+      }
+      function ISL_StopDown() {
+        //下翻停止
+        clearInterval(MoveTimeObj);
+        if ((GetObj("ISL_Cont").scrollLeft % PageWidth) - fill != 0) {
+          Comp = PageWidth - (GetObj("ISL_Cont").scrollLeft % PageWidth) + fill;
+          CompScr();
+        } else {
+          MoveLock = false;
+        }
+        AutoPlay();
+      }
+      function ISL_ScrDown() {
+        //下翻动作
+        if (GetObj("ISL_Cont").scrollLeft >= GetObj("List1").scrollWidth) {
+          GetObj("ISL_Cont").scrollLeft =
+            GetObj("ISL_Cont").scrollLeft - GetObj("List1").scrollWidth;
+        }
+        GetObj("ISL_Cont").scrollLeft += Space;
+      }
+      function CompScr() {
+        var num;
+        if (Comp == 0) {
+          MoveLock = false;
+          return;
+        }
+        if (Comp < 0) {
+          //上翻
+          if (Comp < -Space) {
+            Comp += Space;
+            num = Space;
+          } else {
+            num = -Comp;
+            Comp = 0;
+          }
+          GetObj("ISL_Cont").scrollLeft -= num;
+          setTimeout("CompScr()", Speed);
+        } else {
+          //下翻
+          if (Comp > Space) {
+            Comp -= Space;
+            num = Space;
+          } else {
+            num = Comp;
+            Comp = 0;
+          }
+          GetObj("ISL_Cont").scrollLeft += num;
+          setTimeout("CompScr()", Speed);
+        }
+      }
+    </script>
   </body>
 </html>
