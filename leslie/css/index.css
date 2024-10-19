@@ -1,10 +1,10 @@
-.reveal .slides > section {
+/* .reveal .slides > section {
   padding: 0;
 }
 
 .reveal p {
   margin: 0;
-}
+} */
 
 #alert {
   display: none;
@@ -317,8 +317,8 @@ body[data-screen="portrait"] {
 }
 
 #section10-div1 p {
-  display: none;
-  /* display: block; */
+  /* display: none; */
+  display: block;
 }
 
 #section14-div1 {
