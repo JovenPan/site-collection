@@ -1,10 +1,10 @@
-/* .reveal .slides > section {
+.reveal .slides > section {
   padding: 0;
 }
 
 .reveal p {
   margin: 0;
-} */
+}
 
 #alert {
   display: none;
@@ -95,6 +95,7 @@ body[data-screen="landscape"] {
   /* 这里添加适用于横屏模式的样式 */
   #section0-txt1 {
     transform: translate(-10%, 0);
+    margin-top: -54px;
   }
 
   #section1-div1 {
@@ -103,11 +104,21 @@ body[data-screen="landscape"] {
   }
 
   #section10-div1 {
+    margin-top: -72px;
     margin-left: -400px;
   }
 
   #section8-div1 {
+    margin-top: -72px;
     margin-left: -200px;
+  }
+
+  #section6-div1 {
+    margin-top: -54px;
+  }
+
+  #section9-div1 {
+    margin-top: -72px;
   }
 
   #section4-div1 p {
@@ -141,6 +152,7 @@ body[data-screen="landscape"] {
   #section7-div1 {
     width: 314px;
     margin: 0 auto;
+    margin-top: -80px;
     text-align: left;
     transform: translateX(-50px);
   }
@@ -206,13 +218,13 @@ body[data-screen="portrait"] {
   }
 
   #section7-div1 {
-    margin-top: 150px;
+    margin-top: 50px;
 
     p {
       text-shadow: 1px 1px 4px #000;
     }
     #gckong {
-      text-shadow: none;
+      text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.5);
     }
   }
 
@@ -316,9 +328,11 @@ body[data-screen="portrait"] {
   color: #eee;
 }
 
-#section10-div1 p {
-  /* display: none; */
-  display: block;
+#section10-div1 {
+  p {
+    display: none;
+    /* display: block; */
+  }
 }
 
 #section14-div1 {
