@@ -95,7 +95,7 @@ body[data-screen="landscape"] {
   /* 这里添加适用于横屏模式的样式 */
   #section0-txt1 {
     transform: translate(-10%, 0);
-    margin-top: -54px;
+    margin-top: -36px;
   }
 
   #section1-div1 {
@@ -104,21 +104,21 @@ body[data-screen="landscape"] {
   }
 
   #section10-div1 {
-    margin-top: -72px;
+    margin-top: -54px;
     margin-left: -400px;
   }
 
   #section8-div1 {
-    margin-top: -72px;
+    margin-top: -54px;
     margin-left: -200px;
   }
 
   #section6-div1 {
-    margin-top: -54px;
+    margin-top: -36px;
   }
 
   #section9-div1 {
-    margin-top: -72px;
+    margin-top: -54px;
   }
 
   #section4-div1 p {
@@ -152,7 +152,7 @@ body[data-screen="landscape"] {
   #section7-div1 {
     width: 314px;
     margin: 0 auto;
-    margin-top: -80px;
+    margin-top: -54px;
     text-align: left;
     transform: translateX(-50px);
   }
