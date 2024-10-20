@@ -213,20 +213,41 @@ var App = {
       time = 0;
 
     var onTouchStart = function (t) {
-      (firstDir = ""), (t = t.changedTouches[0]);
+      (firstDir = ""),
+        (t = t.changedTouches
+          ? t.changedTouches[0]
+          : {
+              clientX: t.clientX,
+              clientY: t.clientY,
+            });
 
       originTouchPos.x = oldTouchPos.x = newTouchPos.x = t.clientX;
       originTouchPos.y = oldTouchPos.y = newTouchPos.y = t.clientY;
       originTime = oldTime = newTime = Date.now();
-      (dx = dy = ax = ay = 0),
-        stage.on("touchmove", onTouchMove),
+      dx = dy = ax = ay = 0;
+
+      if ("ontouchstart" in window) {
+        stage.on("touchmove", onTouchMove);
         stage.on("touchend", onTouchEnd);
+      } else {
+        stage.on("mousemove", onTouchMove);
+        stage.on("mouseup", onTouchEnd);
+      }
     };
-    stage.on("touchstart", onTouchStart);
+    if ("ontouchstart" in window) {
+      stage.on("touchstart", onTouchStart);
+    } else {
+      stage.on("mousedown", onTouchStart);
+    }
 
     var onTouchMove = function (t) {
       return (
-        (t = t.changedTouches[0]),
+        (t = t.changedTouches
+          ? t.changedTouches[0]
+          : {
+              clientX: t.clientX,
+              clientY: t.clientY,
+            }),
         (newTouchPos.x = t.clientX),
         (newTouchPos.y = t.clientY),
         (newTime = Date.now()),
@@ -241,8 +262,13 @@ var App = {
     var onTouchEnd = function () {
       newTime = Date.now();
       var t = (newTime - oldTime) / 1e3;
-
-      stage.off("touchmove", onTouchMove), stage.off("touchend", onTouchEnd);
+      if ("ontouchstart" in window) {
+        stage.off("touchmove", onTouchMove);
+        stage.off("touchend", onTouchEnd);
+      } else {
+        stage.off("mousemove", onTouchMove);
+        stage.off("mouseup", onTouchEnd);
+      }
     };
 
     function checkGesture() {
