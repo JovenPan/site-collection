@@ -323,7 +323,7 @@ var App = {
     }
 
     document.addEventListener(
-      "ontouchmove",
+      "touchmove",
       function (event) {
         event.preventDefault();
       },
