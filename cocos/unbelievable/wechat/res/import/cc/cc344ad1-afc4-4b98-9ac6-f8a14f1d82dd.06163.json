@@ -1,0 +1,149 @@
+[
+  {
+    "__type__": "cc.Prefab",
+    "_name": "puzzleTitle",
+    "data": {
+      "__id__": 1
+    }
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "puzzleTitle",
+    "_children": [
+      {
+        "__id__": 2
+      }
+    ],
+    "_components": [
+      {
+        "__id__": 4
+      },
+      {
+        "__type__": "99366k0B5ZOrqthgKj6hg5P",
+        "node": {
+          "__id__": 1
+        },
+        "index": {
+          "__id__": 3
+        },
+        "title": {
+          "__id__": 4
+        }
+      }
+    ],
+    "_prefab": {
+      "__type__": "cc.PrefabInfo",
+      "root": {
+        "__id__": 1
+      },
+      "asset": {
+        "__uuid__": "ccNErRr8RLmJrG+KFPHYLd"
+      },
+      "fileId": "c1N7lF7uZEgoe1wz78ihjj"
+    },
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 51,
+      "g": 51,
+      "b": 51
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 940,
+      "height": 266.67
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "y": 1
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": -418,
+      "y": 620
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "index",
+    "_parent": {
+      "__id__": 1
+    },
+    "_components": [
+      {
+        "__id__": 3
+      }
+    ],
+    "_prefab": {
+      "__type__": "cc.PrefabInfo",
+      "root": {
+        "__id__": 1
+      },
+      "asset": {
+        "__uuid__": "ccNErRr8RLmJrG+KFPHYLd"
+      },
+      "fileId": "37HGpspFhJ7LVv9jucHXIV"
+    },
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 51,
+      "g": 51,
+      "b": 51
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 36,
+      "height": 133.33
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 1,
+      "y": 1
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "__type__": "cc.Label",
+    "node": {
+      "__id__": 2
+    },
+    "_useOriginalSize": false,
+    "_string": "1",
+    "_N$string": "1",
+    "_fontSize": 80,
+    "_lineHeight": 100,
+    "_N$file": {
+      "__uuid__": "87U2a9lHZHmKrtZq4NU5OQ"
+    },
+    "_isSystemFontUsed": false,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1
+  },
+  {
+    "__type__": "cc.Label",
+    "node": {
+      "__id__": 1
+    },
+    "_useOriginalSize": false,
+    "_string": "仔细看女孩伸出的手掌，哪个手掌与其最相似？",
+    "_N$string": "仔细看女孩伸出的手掌，哪个手掌与其最相似？",
+    "_fontSize": 80,
+    "_lineHeight": 100,
+    "_N$file": {
+      "__uuid__": "87U2a9lHZHmKrtZq4NU5OQ"
+    },
+    "_isSystemFontUsed": false,
+    "_N$verticalAlign": 1,
+    "_N$overflow": 3
+  }
+]

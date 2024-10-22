@@ -1,0 +1,353 @@
+[
+  [
+    {
+      "__type__": "cc.SceneAsset",
+      "_name": "LightLamp",
+      "scene": {
+        "__id__": 1
+      },
+      "asyncLoadAssets": null
+    },
+    {
+      "__type__": "cc.Scene",
+      "_name": "New Node",
+      "_children": [
+        {
+          "__id__": 2
+        }
+      ],
+      "_anchorPoint": {
+        "__type__": "cc.Vec2"
+      },
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "autoReleaseAssets": false
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "Canvas",
+      "_parent": {
+        "__id__": 1
+      },
+      "_children": [
+        {
+          "__id__": 3
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "cc.Canvas",
+          "node": {
+            "__id__": 2
+          },
+          "_designResolution": {
+            "__type__": "cc.Size",
+            "width": 1080,
+            "height": 1920
+          },
+          "_fitWidth": true,
+          "_fitHeight": false
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 1080,
+        "height": 1920
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": 540,
+        "y": 960
+      },
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "_id": "1c/CYvcERLG6620atOs19X"
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "light-lamp",
+      "_parent": {
+        "__id__": 2
+      },
+      "_children": [
+        {
+          "__id__": 4
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "091e9fAwiNOw4feer+M+VSp",
+          "node": {
+            "__id__": 3
+          },
+          "touchLeft": {
+            "__id__": 7
+          },
+          "touchRight": {
+            "__id__": 8
+          },
+          "lightRoom": {
+            "__id__": 6
+          }
+        }
+      ],
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "room",
+      "_parent": {
+        "__id__": 3
+      },
+      "_children": [
+        {
+          "__id__": 5
+        },
+        {
+          "__id__": 6
+        },
+        {
+          "__id__": 7
+        },
+        {
+          "__id__": 8
+        }
+      ],
+      "_position": {
+        "__type__": "cc.Vec3",
+        "y": -160
+      },
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "dark",
+      "_parent": {
+        "__id__": 4
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 5
+          },
+          "_spriteFrame": {
+            "__uuid__": "c9I2drGANMAoMkt8AKcMUl"
+          }
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 1192,
+        "height": 879
+      },
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "light",
+      "_parent": {
+        "__id__": 4
+      },
+      "_active": false,
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 6
+          },
+          "_spriteFrame": {
+            "__uuid__": "83axJ6YklFsq/6J2n98KoK"
+          }
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 1192,
+        "height": 879
+      },
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "touch-left",
+      "_parent": {
+        "__id__": 4
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 7
+          },
+          "_spriteFrame": {
+            "__uuid__": "a2MjXRFdtLlYQ5ouAFv/+R"
+          },
+          "_sizeMode": 0
+        }
+      ],
+      "_opacity": 0,
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 100,
+        "height": 100
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": -23,
+        "y": -158
+      },
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "touch-right",
+      "_parent": {
+        "__id__": 4
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 8
+          },
+          "_spriteFrame": {
+            "__uuid__": "a2MjXRFdtLlYQ5ouAFv/+R"
+          },
+          "_sizeMode": 0
+        }
+      ],
+      "_opacity": 0,
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 100,
+        "height": 100
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": 125,
+        "y": 93
+      },
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    }
+  ],
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "light",
+      "texture": "894HIqx9lAZIn3/CfzscJR",
+      "rect": [
+        0,
+        0,
+        1192,
+        879
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        1192,
+        879
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "default_sprite_splash",
+      "texture": "02delMVqdBD70a/HSD99FK",
+      "rect": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        2,
+        2
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "dark",
+      "texture": "28cSglKrBCoKznsd9M5b8h",
+      "rect": [
+        0,
+        0,
+        1192,
+        879
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        1192,
+        879
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]
