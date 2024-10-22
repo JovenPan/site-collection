@@ -4273,7 +4273,7 @@ window.__require = function e(t, n, r) {
       init: function init(data) {
         var scene = data.scene, index = data.index, menu = data.menu, list = data.list;
         var step = index + 1;
-        this.lock = step > menu.puzzleStep;
+        this.lock = false;
         this.list = list;
         this.menu = menu;
         this.scene = scene;

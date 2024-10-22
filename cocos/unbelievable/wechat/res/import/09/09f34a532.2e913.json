@@ -893,7 +893,10 @@
           "__id__": 3
         },
         {
-          "__id__": 7
+          "__id__": 4
+        },
+        {
+          "__id__": 8
         }
       ],
       "_components": [
@@ -931,33 +934,57 @@
     },
     {
       "__type__": "cc.Node",
+      "_name": "Main Camera",
+      "_parent": {
+        "__id__": 2
+      },
+      "_level": 1,
+      "_components": [
+        {
+          "__type__": "cc.Camera",
+          "node": {
+            "__id__": 3
+          },
+          "_clearFlags": 7,
+          "_depth": -1
+        }
+      ],
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
       "_name": "scrollView",
       "_parent": {
         "__id__": 2
       },
       "_children": [
         {
-          "__id__": 4
+          "__id__": 5
         },
         {
-          "__id__": 5
+          "__id__": 6
         }
       ],
       "_components": [
         {
           "__type__": "cc.ScrollView",
           "node": {
-            "__id__": 3
+            "__id__": 4
           },
           "vertical": false,
           "inertia": false,
           "brake": 0.75,
           "bounceDuration": 0.5,
           "_N$content": {
-            "__id__": 6
+            "__id__": 7
           },
           "content": {
-            "__id__": 6
+            "__id__": 7
           },
           "_N$horizontalScrollBar": null,
           "_N$verticalScrollBar": null
@@ -965,7 +992,7 @@
         {
           "__type__": "cfc946y9tFNZZ75VGGaIqhs",
           "node": {
-            "__id__": 3
+            "__id__": 4
           },
           "distanceThreshold": 10
         }
@@ -992,14 +1019,14 @@
       "__type__": "cc.Node",
       "_name": "mockBg",
       "_parent": {
-        "__id__": 3
+        "__id__": 4
       },
       "_active": false,
       "_components": [
         {
           "__type__": "cc.Sprite",
           "node": {
-            "__id__": 4
+            "__id__": 5
           },
           "_spriteFrame": {
             "__uuid__": "a2MjXRFdtLlYQ5ouAFv/+R"
@@ -1009,7 +1036,7 @@
         {
           "__type__": "cc.Widget",
           "node": {
-            "__id__": 4
+            "__id__": 5
           },
           "_wasAlignOnce": {},
           "isAlignOnce": {},
@@ -1038,28 +1065,27 @@
       "__type__": "cc.Node",
       "_name": "view",
       "_parent": {
-        "__id__": 3
+        "__id__": 4
       },
       "_children": [
         {
-          "__id__": 6
+          "__id__": 7
         }
       ],
       "_components": [
         {
           "__type__": "cc.Mask",
           "node": {
-            "__id__": 5
+            "__id__": 6
           },
           "_N$alphaThreshold": 1
         },
         {
           "__type__": "cc.Widget",
           "node": {
-            "__id__": 5
+            "__id__": 6
           },
-          "_wasAlignOnce": {},
-          "isAlignOnce": {},
+          "alignMode": 0,
           "_alignFlags": 45,
           "_originalWidth": 240,
           "_originalHeight": 250
@@ -1081,13 +1107,13 @@
       "__type__": "cc.Node",
       "_name": "puzzle-btn-list",
       "_parent": {
-        "__id__": 5
+        "__id__": 6
       },
       "_components": [
         {
           "__type__": "ce29cGwRXpIn5OONPICKYuH",
           "node": {
-            "__id__": 6
+            "__id__": 7
           },
           "puzzleBtnGroupPrefab": {
             "__uuid__": "ecJzKU+4pM37Sk3jD1gP0f"
@@ -1096,19 +1122,19 @@
             "__uuid__": "0fDMY6WZ1Mw6pEFrhDMAm+"
           },
           "scrollView": {
-            "__id__": 3
+            "__id__": 4
           },
           "navPrefab": {
             "__uuid__": "02+k26tqVHTqS3TCvbanlq"
           },
           "navWrapper": {
-            "__id__": 7
+            "__id__": 8
           }
         },
         {
           "__type__": "cc.Layout",
           "node": {
-            "__id__": 6
+            "__id__": 7
           },
           "_layoutSize": {
             "__type__": "cc.Size",
@@ -1149,7 +1175,7 @@
         {
           "__type__": "cc.Layout",
           "node": {
-            "__id__": 7
+            "__id__": 8
           },
           "_layoutSize": {
             "__type__": "cc.Size",
