@@ -1,0 +1,244 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "count",
+      "texture": "1dk4TM6GdIzY6ra7JFJKzy",
+      "rect": [
+        0,
+        0,
+        849,
+        751
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        849,
+        751
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "elevator",
+      "texture": "89OnCHYmhD2Ko1VVroUHfR",
+      "rect": [
+        0,
+        0,
+        723,
+        1033
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        723,
+        1033
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  [
+    {
+      "__type__": "cc.SceneAsset",
+      "_name": "ElevatorFall",
+      "scene": {
+        "__id__": 1
+      },
+      "asyncLoadAssets": null
+    },
+    {
+      "__type__": "cc.Scene",
+      "_name": "New Node",
+      "_children": [
+        {
+          "__id__": 2
+        }
+      ],
+      "_anchorPoint": {
+        "__type__": "cc.Vec2"
+      },
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "autoReleaseAssets": false
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "Canvas",
+      "_parent": {
+        "__id__": 1
+      },
+      "_children": [
+        {
+          "__id__": 3
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "cc.Canvas",
+          "node": {
+            "__id__": 2
+          },
+          "_designResolution": {
+            "__type__": "cc.Size",
+            "width": 1080,
+            "height": 1920
+          },
+          "_fitWidth": true,
+          "_fitHeight": false
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 1080,
+        "height": 1920
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": 540,
+        "y": 960
+      },
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "_id": "feLWR8y5FGZpZ6CtZj+LVi"
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "elevator-fall",
+      "_parent": {
+        "__id__": 2
+      },
+      "_children": [
+        {
+          "__id__": 4
+        },
+        {
+          "__id__": 5
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "10c2bUpzwZGtoIMgs5MEhhy",
+          "node": {
+            "__id__": 3
+          },
+          "elevator": {
+            "__id__": 5
+          }
+        }
+      ],
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "count",
+      "_parent": {
+        "__id__": 3
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 4
+          },
+          "_spriteFrame": {
+            "__uuid__": "68EfG66JZHDZzL5ZMrPg45"
+          }
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 849,
+        "height": 751
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": 22,
+        "y": 113
+      },
+      "_scaleX": 0.85,
+      "_scaleY": 0.85,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "elevator",
+      "_parent": {
+        "__id__": 3
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 5
+          },
+          "_spriteFrame": {
+            "__uuid__": "ccowDwQpFAu4kIu7G97Hm2"
+          }
+        },
+        {
+          "__type__": "3720d3/E39P+bQWGcBZxidu",
+          "node": {
+            "__id__": 5
+          },
+          "onlyVertical": true
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 723,
+        "height": 1033
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": -59,
+        "y": -162
+      },
+      "_scaleX": 0.85,
+      "_scaleY": 0.85,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    }
+  ]
+]

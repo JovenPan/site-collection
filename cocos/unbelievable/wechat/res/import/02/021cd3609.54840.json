@@ -1,0 +1,521 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "empty",
+      "texture": "45QRBfBSJNaIN2ZZgGau1a",
+      "rect": [
+        0,
+        0,
+        425,
+        726
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        425,
+        726
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "full",
+      "texture": "03j1SAZ0NJo6e4X3+exu8J",
+      "rect": [
+        0,
+        0,
+        506,
+        786
+      ],
+      "offset": [
+        -0.5,
+        0
+      ],
+      "originalSize": [
+        507,
+        786
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  [
+    {
+      "__type__": "cc.SceneAsset",
+      "_name": "MoveVodka",
+      "scene": {
+        "__id__": 1
+      },
+      "asyncLoadAssets": null
+    },
+    {
+      "__type__": "cc.Scene",
+      "_name": "New Node",
+      "_children": [
+        {
+          "__id__": 2
+        }
+      ],
+      "_anchorPoint": {
+        "__type__": "cc.Vec2"
+      },
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "autoReleaseAssets": false
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "Canvas",
+      "_parent": {
+        "__id__": 1
+      },
+      "_children": [
+        {
+          "__id__": 3
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "cc.Canvas",
+          "node": {
+            "__id__": 2
+          },
+          "_designResolution": {
+            "__type__": "cc.Size",
+            "width": 1080,
+            "height": 1920
+          },
+          "_fitWidth": true,
+          "_fitHeight": false
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 1080,
+        "height": 1920
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": 540,
+        "y": 960
+      },
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "_id": "15/NMQPRlN5J1Wa/b3U9r8"
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "move-vodka",
+      "_parent": {
+        "__id__": 2
+      },
+      "_children": [
+        {
+          "__id__": 4
+        },
+        {
+          "__id__": 8
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "5d211q4XblKoIbEjaU0RelD",
+          "node": {
+            "__id__": 3
+          },
+          "puzzleTitle": {
+            "__id__": 7
+          },
+          "puzzleIndex": {
+            "__id__": 6
+          },
+          "vodka": {
+            "__id__": 12
+          },
+          "dot": {
+            "__id__": 14
+          }
+        }
+      ],
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "puzzle",
+      "_parent": {
+        "__id__": 3
+      },
+      "_children": [
+        {
+          "__id__": 5
+        }
+      ],
+      "_components": [
+        {
+          "__id__": 7
+        }
+      ],
+      "_color": {
+        "__type__": "cc.Color",
+        "r": 51,
+        "g": 51,
+        "b": 51
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 940,
+        "height": 133.33
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "y": 1
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": -388,
+        "y": 620
+      },
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "index",
+      "_parent": {
+        "__id__": 4
+      },
+      "_components": [
+        {
+          "__id__": 6
+        }
+      ],
+      "_color": {
+        "__type__": "cc.Color",
+        "r": 51,
+        "g": 51,
+        "b": 51
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "height": 133.33
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "x": 1,
+        "y": 1
+      },
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Label",
+      "node": {
+        "__id__": 5
+      },
+      "_useOriginalSize": false,
+      "_fontSize": 80,
+      "_lineHeight": 100,
+      "_N$file": {
+        "__uuid__": "87U2a9lHZHmKrtZq4NU5OQ"
+      },
+      "_isSystemFontUsed": false,
+      "_N$horizontalAlign": 1,
+      "_N$verticalAlign": 1
+    },
+    {
+      "__type__": "cc.Label",
+      "node": {
+        "__id__": 4
+      },
+      "_useOriginalSize": false,
+      "_string": "请让杯子都装上",
+      "_N$string": "请让杯子都装上",
+      "_fontSize": 80,
+      "_lineHeight": 100,
+      "_N$file": {
+        "__uuid__": "87U2a9lHZHmKrtZq4NU5OQ"
+      },
+      "_isSystemFontUsed": false,
+      "_N$verticalAlign": 1,
+      "_N$overflow": 3
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "role-layer",
+      "_parent": {
+        "__id__": 3
+      },
+      "_children": [
+        {
+          "__id__": 9
+        },
+        {
+          "__id__": 10
+        },
+        {
+          "__id__": 11
+        },
+        {
+          "__id__": 13
+        }
+      ],
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": 33,
+        "y": 87
+      },
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "full",
+      "_parent": {
+        "__id__": 8
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 9
+          },
+          "_spriteFrame": {
+            "__uuid__": "eeuTdXANpIo7qWvXjDgv7F"
+          }
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 506,
+        "height": 786
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": 203,
+        "y": -279
+      },
+      "_scaleX": 0.85,
+      "_scaleY": 0.85,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "empty",
+      "_parent": {
+        "__id__": 8
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 10
+          },
+          "_spriteFrame": {
+            "__uuid__": "16e3sEEjdBdI/v/fRVW4qa"
+          }
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 425,
+        "height": 726
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "x": 0.5,
+        "y": 0.8
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": -271,
+        "y": -119
+      },
+      "_scaleX": 0.85,
+      "_scaleY": 0.85,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "vodka",
+      "_parent": {
+        "__id__": 8
+      },
+      "_components": [
+        {
+          "__id__": 12
+        },
+        {
+          "__type__": "3720d3/E39P+bQWGcBZxidu",
+          "node": {
+            "__id__": 11
+          },
+          "stickyDistanceThreshold": 200,
+          "stickTarget": {
+            "__id__": 10
+          }
+        }
+      ],
+      "_color": {
+        "__type__": "cc.Color",
+        "r": 51,
+        "g": 51,
+        "b": 51
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 238.67,
+        "height": 133.33
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "x": 0.5
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": 259,
+        "y": 399
+      },
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Label",
+      "node": {
+        "__id__": 11
+      },
+      "_useOriginalSize": false,
+      "_string": "伏特加",
+      "_N$string": "伏特加",
+      "_fontSize": 80,
+      "_lineHeight": 100,
+      "_N$file": {
+        "__uuid__": "87U2a9lHZHmKrtZq4NU5OQ"
+      },
+      "_isSystemFontUsed": false,
+      "_N$horizontalAlign": 1,
+      "_N$verticalAlign": 1
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "dot",
+      "_parent": {
+        "__id__": 8
+      },
+      "_components": [
+        {
+          "__id__": 14
+        }
+      ],
+      "_color": {
+        "__type__": "cc.Color",
+        "r": 51,
+        "g": 51,
+        "b": 51
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 34.67,
+        "height": 133.33
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "x": 0.5
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": 396.7,
+        "y": 400.2
+      },
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Label",
+      "node": {
+        "__id__": 13
+      },
+      "_useOriginalSize": false,
+      "_string": "。",
+      "_N$string": "。",
+      "_fontSize": 80,
+      "_lineHeight": 100,
+      "_N$file": {
+        "__uuid__": "87U2a9lHZHmKrtZq4NU5OQ"
+      },
+      "_isSystemFontUsed": false,
+      "_N$horizontalAlign": 1,
+      "_N$verticalAlign": 1
+    }
+  ]
+]
