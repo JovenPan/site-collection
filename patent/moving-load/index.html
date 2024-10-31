@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>漫游式产品加载和推荐</title>
+	<script src="./jquery-1.11.1.min.js"></script>
+	<style>
+	html, body {padding: 0;margin: 0;width: 100%;height: 100%;overflow: hidden;}
+	.page-container {width: 100%;height: 100%;overflow: hidden;position: relative;}
+	.items-container {position: absolute;left: 0;top: 0;transition: all .5s;}
+	.items-wrap {position: relative;}
+	.item {position: absolute;width: 300px;height: 300px;border: 1px solid #f74461;overflow: hidden;-webkit-user-select: none;}
+	.item-content {position: relative;}
+	.item img {width: 300px;-webkit-user-drag: none;}
+	.item a {position: absolute;height: 40px;line-height: 40px;width: 150px;left: 75px;bottom: 20px;background-color: #f74461;display: none;text-align: center;color: #fff;text-decoration: none;}
+	</style>
+</head>
+<body>
+	<div class="page-container">
+		<div class="items-container" data-role="items-container">
+			<div class="items-wrap" data-role="items-wrap">
+				<div class="item" data-x="0" data-y="0">
+					<div class="item-content">
+						<img src="./image/1.jpg">
+						<a href="javascript:void(0)" data-role="recommend-btn">相似推荐</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	$(function(){
+		var isWebkit = /webkit/i.test(navigator.userAgent),
+			body = isWebkit || document.compatMode == 'BackCompat' ? document.body : document.documentElement;
+
+		var MovingLoad = {
+			init: function(){
+				this.isMouseDown = false; // 鼠标是否按下状态
+				this.isMouseMoving = false; // 鼠标是否正在移动
+				this.startPos = { // 鼠标按下坐标
+					x: 0,
+					y: 0
+				};
+				this.endPos = { // 鼠标抬起坐标
+					x: 0,
+					y: 0
+				};
+				this.isMoving = false;
+
+				this.lastMovingTime = 0, // 上一次动画时间点
+				this.quietPeriod = 100, // 两次动画间隔必须大于100ms
+				
+				this.itemsContainer = '[data-role=items-container]'; // items容器
+				this.itemsWrap = '[data-role=items-wrap]';
+				this.offsetX = 0; // items容器水平偏移量
+				this.offsetY = 0; // items容器垂直偏移量
+				this.itemSize = 300; // 每个item的尺寸
+				this.showedItem = {
+					'0': [0]
+				}; // 已加载item的索引
+
+				this._initStyle();
+				this._bindEv();
+			},
+
+			_initStyle: function(){
+				var self = this;
+
+				self.initOffsetX = parseInt( ($(window).width()-self.itemSize)/2, 10 );
+				self.initOffsetY = parseInt( ($(window).height()-self.itemSize)/2, 10 );
+
+				$(self.itemsContainer).css({
+					left: self.initOffsetX,
+					top: self.initOffsetY
+				});
+
+				self._moveContainer();
+			},
+
+			_bindEv: function(){
+				var self = this;
+
+				$(window).mousedown(function(ev){
+					self.startPos.x = ev.pageX;
+					self.startPos.y = ev.pageY;
+
+					self.isMouseDown = true;
+				});
+
+				$(window).mousemove(function(ev){
+					if(self.isMouseDown){
+						self.isMouseMoving = true;
+					}
+				});
+
+				$(window).mouseup(function(ev){
+					if(self.isMouseMoving){
+						self.endPos.x = ev.pageX;
+						self.endPos.y = ev.pageY;
+
+						self._moveContainer();
+					}
+
+					self.isMouseDown = false;
+					self.isMouseMoving = false;
+				});
+
+				$(window).keydown(function(ev){
+					var which = ev.which;
+
+					if( !self.isMoving 
+						&& (which==37 || which==38 || which==39 || which==40 
+						 || which==87 || which==83 || which==65 || which==68) ){
+
+						self.startPos.x = self.endPos.x;
+						self.startPos.y = self.endPos.y;
+
+						switch(which){
+							case 38:
+							case 87:
+								// up
+								self.endPos.y -= self.itemSize;
+								break;
+							case 40:
+							case 83:
+								// down
+								self.endPos.y += self.itemSize;
+								break;
+							case 37:
+							case 65:
+								// left
+								self.endPos.x -= self.itemSize;
+								break;
+							case 39:
+							case 68:
+								// right
+								self.endPos.x += self.itemSize;
+								break;
+						}
+
+						self._moveContainer();
+					}
+				});
+
+				$(body).bind('mousewheel DOMMouseScroll MozMousePixelScroll', function(event) {
+					var delta = event.originalEvent.wheelDelta || -event.originalEvent.detail;
+
+					var timeNow = new Date().getTime();
+
+					if(timeNow - self.lastMovingTime < self.quietPeriod) {
+						self.lastMovingTime = timeNow;
+						return;
+					}
+
+					if( !self.isMoving ){
+
+						self.startPos.x = self.endPos.x;
+						self.startPos.y = self.endPos.y;
+
+						if( delta<0 ){
+							self.endPos.y += self.itemSize;
+						} else {
+							self.endPos.y -= self.itemSize;
+						}
+
+						self._moveContainer();
+					}					
+				});
+
+				$(self.itemsWrap).delegate('[data-role=recommend-btn]', 'click', function(){
+					var item = $(this).parent().parent(),
+						nx = parseInt( item.data('x'), 10),
+						ny = parseInt( item.data('y'), 10);
+
+					self._showRecommendItems(nx, ny);
+				}).delegate('.item', 'mouseover', function(){
+					$(this).find('[data-role=recommend-btn]').show();
+				}).delegate('.item', 'mouseout', function(){
+					$(this).find('[data-role=recommend-btn]').hide();
+				});
+			},
+
+			_moveContainer: function(){
+				var self = this;
+
+				if(self.isMoving){
+					return;
+				}
+
+				self.isMoving = true;
+
+				var offsetX = self.endPos.x - self.startPos.x,
+					offsetY = self.endPos.y - self.startPos.y;
+
+				self.offsetX += offsetX;
+				self.offsetY += offsetY;
+
+				$(self.itemsContainer).css({
+					left: self.initOffsetX + self.offsetX,
+					top: self.initOffsetY + self.offsetY
+				});
+
+				self._showItems();
+
+				self.isMoving = false;
+				self.lastMovingTime = new Date().getTime();
+			},
+
+			_getTargetItemIndex: function(){
+				var self = this,
+
+					size = self.itemSize,
+					offsetX = self.offsetX,
+					offsetY = self.offsetY,
+
+					nx = Math.floor( Math.abs(offsetX)/size ),
+					ny = Math.floor( Math.abs(offsetY)/size );
+
+				return {
+					x: (offsetX > 0 ? -1 : 1)*nx,
+					y: (offsetY > 0 ? -1 : 1)*ny
+				};
+			},
+
+			_getRoundItemsIndex: function(nx, ny){
+				return [{
+					x: nx-1,
+					y: ny-1
+				},{
+					x: nx,
+					y: ny-1
+				},{
+					x: nx+1,
+					y: ny-1
+				},{
+					x: nx-1,
+					y: ny
+				},{
+					x: nx,
+					y: ny
+				},{
+					x: nx+1,
+					y: ny
+				},{
+					x: nx-1,
+					y: ny+1
+				},{
+					x: nx,
+					y: ny+1
+				},{
+					x: nx+1,
+					y: ny+1
+				}];
+			},
+
+			_showItems: function(){
+				var self = this,
+
+					pos = self._getTargetItemIndex(),
+					nx = pos.x,
+					ny = pos.y,
+					arr = self._getRoundItemsIndex(nx, ny),
+					index = self.showedItem;
+
+				for(var i=0,len=arr.length; i<len; i++){
+					var x = arr[i].x,
+						y = arr[i].y;
+
+					if( index.hasOwnProperty(x) ){
+						if( index[x].indexOf(y) == -1 ){
+							index[x].push(y);
+							self._loadItem(x,y);
+						}
+					} else {
+						index[x] = [y];
+						self._loadItem(x,y);
+					}
+				}
+			},
+
+			_showRecommendItems: function(nx, ny){
+				var self = this,
+
+					arr = self._getRoundItemsIndex(nx, ny),
+					index = self.showedItem;
+
+				for(var i=0,len=arr.length; i<len; i++){
+					var x = arr[i].x,
+						y = arr[i].y;
+
+					if( !(x==nx && y==ny) ){
+						self._loadItem(x,y);
+					}
+
+					if( index.hasOwnProperty(x) ){
+						if( index[x].indexOf(y) == -1 ){
+							index[x].push(y);
+						}
+					} else {
+						index[x] = [y];
+					}
+				}
+			},
+
+			_loadItem: function(nx, ny){
+				var self = this,
+
+					size = self.itemSize,
+					wrap = self.itemsWrap,
+					index = Math.ceil( Math.random()*20 );
+
+				$('<div class="item new" data-x="'+nx+'" data-y="'+ny+'"><div class="item-content"><img src="./image/'+index+'.jpg"><a href="javascript:void(0)" data-role="recommend-btn">相似推荐</a></div></div>').appendTo(wrap).css({
+					left: size*nx,
+					top: size*ny,
+					opacity: 0
+				});
+
+				$('.item.new').each(function() {
+					var d = Math.random()*500;
+
+					$(this).delay(d).animate({
+						opacity: 1
+					}, 1000)
+					.removeClass('new');
+				});
+			}
+		};
+
+		MovingLoad.init();
+	});
+	</script>
+</body>
+</html>

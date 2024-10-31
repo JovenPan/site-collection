@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一种基于可删除式网页的用户行为记录方式</title>
+	<script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<style>
+	html,body {margin: 0;padding: 0;}
+	body {background-color: #f8f8f8;}
+	img {display: block;}
+	.container {width: 1860px;overflow: hidden;}
+	</style>
+
+	<div class="container">
+		<img src="images/0.jpg" alt="">
+		<img class="soft-deletable" src="images/1.jpg" alt="">
+		<img class="soft-deletable" src="images/2.jpg" alt="">
+		<img class="soft-deletable" src="images/3.jpg" alt="">
+		<img class="soft-deletable" src="images/4.jpg" alt="">
+		<img class="soft-deletable" src="images/5.jpg" alt="">
+		<img class="soft-deletable" src="images/6.jpg" alt="">
+		<img class="soft-deletable" src="images/7.jpg" alt="">
+		<img class="soft-deletable" src="images/8.jpg" alt="">
+		<img class="soft-deletable" src="images/9.jpg" alt="">
+		<img class="soft-deletable" src="images/10.jpg" alt="">
+		<img class="soft-deletable" src="images/11.jpg" alt="">
+		<img class="soft-deletable" src="images/12.jpg" alt="">
+		<img class="soft-deletable" src="images/13.jpg" alt="">
+		<img class="soft-deletable" src="images/14.jpg" alt="">
+		<img class="soft-deletable" src="images/15.jpg" alt="">
+		<img class="soft-deletable" src="images/16.jpg" alt="">
+		<img class="soft-deletable" src="images/17.jpg" alt="">
+		<img class="soft-deletable" src="images/18.jpg" alt="">
+		<img src="images/19.jpg" alt="">
+	</div>
+	
+	<script>
+	$(function(){
+		var interval = 1000,
+			holdTime = 0,
+			downTime = 0,
+			upTime = 0;
+
+		$(window).mousedown(function(){
+			downTime = new Date().getTime();
+		})
+
+		$(window).mouseup(function(ev){
+			upTime = new Date().getTime();
+
+			holdTime = upTime - downTime;
+
+			if( holdTime > interval ){
+				var elem = $(ev.target);
+
+				if( elem.hasClass('soft-deletable') ){
+					elem.fadeOut();
+					console.log(ev);
+				}
+				
+			}
+		})
+	});
+	</script>
+</body>
+</html>

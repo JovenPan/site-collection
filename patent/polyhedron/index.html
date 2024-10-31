@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>产品多图立体展示</title>
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <style>
+      body {
+        font-family: 微软雅黑;
+      }
+      .wrap {
+        border: 1px solid #ddd;
+        margin: 20px;
+        padding: 30px 50px 50px;
+      }
+      .undraggable {
+        -webkit-user-select: none;
+      }
+      .undraggable img {
+        -webkit-user-drag: none;
+      }
+      .btn {
+        display: inline-block;
+        background-color: #aaa;
+        color: #fff;
+        padding: 2px 8px;
+        font-size: 12px;
+        margin-left: 10px;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background-color: #999;
+      }
+      .flat {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <style>
+      .double-wrap {
+        perspective: 1000px;
+      }
+      .double {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        transform-style: preserve-3d;
+        cursor: pointer;
+      }
+      .double:hover {
+        cursor: pointer;
+      }
+      .double-animaing {
+        transition: all 1s;
+      }
+      /* .double-anima {-webkit-animation: double 10s infinite;} */
+      .double i {
+        position: absolute;
+        backface-visibility: hidden;
+      }
+      .double img {
+        width: 400px;
+      }
+      .double .back {
+        transform: rotateY(-180deg);
+      }
+      .double-flat img {
+        width: 400px;
+      }
+
+      /* 	@-webkit-keyframes double
+{
+	25% {transform: rotateY(0deg);}
+	50%,
+	75% {transform: rotateY(-180deg);}
+	100% {transform: rotateY(-360deg);}
+} */
+    </style>
+    <div class="double-wrap undraggable wrap">
+      <span>产品双面图</span>
+      <span class="btn double-btn">切换到平铺视图</span>
+      <div class="double">
+        <i class="front">
+          <img src="./img/tv/TV-front.png" alt="" />
+        </i>
+        <i class="back">
+          <img src="./img/tv/TV-back.png" alt="" />
+        </i>
+      </div>
+      <div class="double-flat flat">
+        <img src="./img/tv/TV-front.png" alt="" />
+        <img src="./img/tv/TV-back.png" alt="" />
+      </div>
+    </div>
+    <script>
+      $(function () {
+        $(".double-btn").click(function () {
+          if ($(this).hasClass("flat-view")) {
+            $(this).text("切换到平铺视图");
+            $(this).removeClass("flat-view");
+            $(".double-flat").hide();
+            $(".double").show();
+          } else {
+            $(this).text("切换到空间视图");
+            $(this).addClass("flat-view");
+            $(".double").hide();
+            $(".double-flat").show();
+          }
+        });
+
+        var startPos = {
+            x: 0,
+            y: 0,
+          },
+          endPos = {
+            x: 0,
+            y: 0,
+          },
+          isMouseDown = false,
+          isMouseMoving = false,
+          deg = 0,
+          timer = null;
+
+        $(".double").mouseover(function () {
+          clearTimeout(timer);
+          console.log("over");
+        });
+
+        $(".double").mouseout(function () {
+          timer = setTimeout(function () {
+            autoSwitch();
+          }, 2000);
+          console.log("out");
+        });
+
+        function autoSwitch() {
+          deg -= 180;
+
+          $(".double")
+            .addClass("double-animaing")
+            .css({
+              transform: "rotateY(" + deg + "deg)",
+            });
+
+          if (deg == 360 || deg == -360) {
+            deg = 0;
+            setTimeout(function () {
+              $(".double").removeClass("double-animaing").css({
+                transform: "rotateY(0deg)",
+              });
+            }, 1000);
+          }
+
+          timer = setTimeout(function () {
+            autoSwitch();
+          }, 2000);
+
+          console.log(deg);
+        }
+
+        timer = setTimeout(function () {
+          autoSwitch();
+        }, 2000);
+
+        $(".double").mousedown(function (ev) {
+          startPos.x = ev.pageX;
+          startPos.y = ev.pageY;
+
+          isMouseDown = true;
+        });
+
+        $(".double").mousemove(function (ev) {
+          if (isMouseDown) {
+            isMouseMoving = true;
+          }
+        });
+
+        $(".double").mouseup(function (ev) {
+          if (isMouseMoving) {
+            endPos.x = ev.pageX;
+            endPos.y = ev.pageY;
+
+            var direction = getDirection("x");
+            console.log(direction);
+            if (direction == "left") {
+              deg -= 180;
+            } else if (direction == "right") {
+              deg += 180;
+            }
+
+            $(".double")
+              .addClass("double-animaing")
+              .css({
+                transform: "rotateY(" + deg + "deg)",
+              });
+
+            if (deg == 360 || deg == -360) {
+              deg = 0;
+              setTimeout(function () {
+                $(".double").removeClass("double-animaing").css({
+                  transform: "rotateY(0deg)",
+                });
+              }, 1000);
+            }
+            console.log(deg);
+          }
+
+          isMouseDown = false;
+          isMouseMoving = false;
+        });
+
+        function getDirection(direction) {
+          var xAxis = "none",
+            yAxis = "none",
+            xOffset = endPos.x - startPos.x,
+            yOffset = endPos.y - startPos.y,
+            xyOffset = Math.abs(xOffset) - Math.abs(yOffset);
+
+          if (xOffset > 0) {
+            xAxis = "right";
+          } else if (xOffset < 0) {
+            xAxis = "left";
+          }
+
+          if (yOffset > 0) {
+            yAxis = "down";
+          } else if (yOffset < 0) {
+            yAxis = "up";
+          }
+
+          if (direction == "x") {
+            return xAxis;
+          } else if (direction == "y") {
+            return yAxis;
+          } else {
+            if (xyOffset < 0) {
+              return yAxis;
+            } else {
+              return xAxis;
+            }
+          }
+        }
+      });
+    </script>
+
+    <style>
+      .trihedron-wrap {
+        perspective: 2000px;
+      }
+      .trihedron {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        -webkit-animation: trihedron 10s infinite;
+      }
+      .trihedron:hover {
+        cursor: pointer;
+      }
+      .trihedron i {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border: 1px solid #999;
+        opacity: 0.95;
+      }
+      .trihedron:hover i {
+        opacity: 1;
+      }
+      .trihedron .first {
+        transform: translateZ(115px);
+      }
+      .trihedron .second {
+        transform: rotateY(-60deg) translateZ(-115px);
+      }
+      .trihedron .third {
+        transform: rotateY(60deg) translateZ(-115px);
+      }
+      .trihedron img {
+        width: 400px;
+      }
+      .trihedron-flat img {
+        width: 350px;
+        margin-top: 20px;
+      }
+      @-webkit-keyframes trihedron {
+        16% {
+          transform: rotateY(0deg);
+        }
+        32%,
+        48% {
+          transform: rotateY(-120deg);
+        }
+        64%,
+        80% {
+          transform: rotateY(-240deg);
+        }
+        100% {
+          transform: rotateY(-360deg);
+        }
+      }
+    </style>
+
+    <div class="trihedron-wrap undraggable wrap">
+      <span>产品三面图</span>
+      <span class="btn trihedron-btn">切换到平铺视图</span>
+      <div class="trihedron">
+        <i class="first">
+          <img src="./img/earphone/1.jpg" alt="" />
+        </i>
+        <i class="second">
+          <img src="./img/earphone/2.jpg" alt="" />
+        </i>
+        <i class="third">
+          <img src="./img/earphone/3.jpg" alt="" />
+        </i>
+      </div>
+      <div class="trihedron-flat flat">
+        <img src="./img/earphone/1.jpg" alt="" />
+        <img src="./img/earphone/2.jpg" alt="" />
+        <img src="./img/earphone/3.jpg" alt="" />
+      </div>
+    </div>
+    <script>
+      $(function () {
+        $(".trihedron-btn").click(function () {
+          if ($(this).hasClass("flat-view")) {
+            $(this).text("切换到平铺视图");
+            $(this).removeClass("flat-view");
+            $(".trihedron-flat").hide();
+            $(".trihedron").show();
+          } else {
+            $(this).text("切换到空间视图");
+            $(this).addClass("flat-view");
+            $(".trihedron").hide();
+            $(".trihedron-flat").show();
+          }
+        });
+      });
+    </script>
+
+    <style>
+      .round-wrap {
+        perspective: 2000px;
+      }
+      .round {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        -webkit-animation: round 10s infinite;
+      }
+      .round:hover {
+        cursor: pointer;
+      }
+      .round i {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border: 1px solid #999;
+        opacity: 0.95;
+      }
+      .round:hover i {
+        opacity: 1;
+      }
+      .round .front {
+        background-color: #f74461;
+        transform: translateZ(200px);
+      }
+      .round .right {
+        background-color: green;
+        transform: rotateY(90deg) translateZ(200px);
+      }
+      .round .back {
+        background-color: yellow;
+        transform: rotateY(-180deg) translateZ(200px);
+      }
+      .round .left {
+        background-color: gray;
+        transform: rotateY(-90deg) translateZ(200px);
+      }
+      .round img {
+        width: 400px;
+      }
+      .round-flat img {
+        width: 350px;
+        margin-top: 20px;
+      }
+      @-webkit-keyframes round {
+        12% {
+          transform: rotateY(0deg);
+        }
+        24%,
+        36% {
+          transform: rotateY(-90deg);
+        }
+        49%,
+        62% {
+          transform: rotateY(-180deg);
+        }
+        75%,
+        88% {
+          transform: rotateY(-270deg);
+        }
+        100% {
+          transform: rotateY(-360deg);
+        }
+      }
+    </style>
+
+    <div class="round-wrap undraggable wrap">
+      <span>产品四面图</span>
+      <span class="btn round-btn">切换到平铺视图</span>
+      <div class="round">
+        <i class="front">
+          <img src="./img/tv2/1.png" alt="" />
+        </i>
+        <i class="right">
+          <img src="./img/tv2/2.png" alt="" />
+        </i>
+        <i class="back">
+          <img src="./img/tv2/3.png" alt="" />
+        </i>
+        <i class="left">
+          <img src="./img/tv2/4.png" alt="" />
+        </i>
+      </div>
+      <div class="round-flat flat">
+        <img src="./img/tv2/1.png" alt="" />
+        <img src="./img/tv2/2.png" alt="" />
+        <img src="./img/tv2/3.png" alt="" />
+        <img src="./img/tv2/4.png" alt="" />
+      </div>
+    </div>
+    <script>
+      $(function () {
+        $(".round-btn").click(function () {
+          if ($(this).hasClass("flat-view")) {
+            $(this).text("切换到平铺视图");
+            $(this).removeClass("flat-view");
+            $(".round-flat").hide();
+            $(".round").show();
+          } else {
+            $(this).text("切换到空间视图");
+            $(this).addClass("flat-view");
+            $(".round").hide();
+            $(".round-flat").show();
+          }
+        });
+      });
+    </script>
+
+    <style>
+      .cube-wrap {
+        perspective: 2000px;
+        margin: 30px;
+      }
+
+      .cube {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        -webkit-animation: cube 20s infinite;
+      }
+      .cube i {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border: 1px solid #999;
+        opacity: 0.95;
+      }
+      .cube:hover i {
+        opacity: 1;
+      }
+      .cube img {
+        width: 400px;
+        height: 400px;
+      }
+      .cube-flat img {
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+      }
+      .cube .front {
+        background-color: #f74461;
+        transform: translateZ(200px);
+      }
+      .cube .right {
+        background-color: green;
+        transform: rotateY(90deg) translateZ(200px);
+      }
+      .cube .back {
+        background-color: yellow;
+        transform: rotateY(-180deg) translateZ(200px);
+      }
+      .cube .left {
+        background-color: gray;
+        transform: rotateY(-90deg) translateZ(200px);
+      }
+      .cube .top {
+        background-color: blue;
+        transform: rotateX(90deg) translateZ(200px);
+      }
+      .cube .bottom {
+        background-color: black;
+        transform: rotateX(-90deg) translateZ(200px);
+      }
+      @-webkit-keyframes cube {
+        6% {
+          transform: rotateY(0deg);
+        }
+        12%,
+        19% {
+          transform: rotateY(-90deg);
+        }
+        25%,
+        32% {
+          transform: rotateY(-180deg);
+        }
+        38%,
+        45% {
+          transform: rotateY(-270deg);
+        }
+        51%,
+        58% {
+          transform: rotateY(-360deg);
+        }
+        64%,
+        71% {
+          transform: rotateX(-90deg);
+        }
+        77%,
+        84% {
+          transform: rotateX(-180deg);
+        }
+        90%,
+        95% {
+          transform: rotateX(-270deg);
+        }
+        100% {
+          transform: rotateX(-360deg);
+        }
+      }
+    </style>
+    <div class="cube-wrap undraggable wrap">
+      <span>产品六面图</span>
+      <span class="btn cube-btn">切换到平铺视图</span>
+      <div class="cube">
+        <i class="front">
+          <img src="./img/shoes/front.jpg" alt="" />
+        </i>
+        <i class="right">
+          <img src="./img/shoes/right.jpg" alt="" />
+        </i>
+        <i class="back">
+          <img src="./img/shoes/back.jpg" alt="" />
+        </i>
+        <i class="left">
+          <img src="./img/shoes/left.jpg" alt="" />
+        </i>
+        <i class="top">
+          <img src="./img/shoes/top.jpg" alt="" />
+        </i>
+        <i class="bottom">
+          <img src="./img/shoes/bottom.jpg" alt="" />
+        </i>
+      </div>
+      <div class="cube-flat flat">
+        <img src="./img/shoes/front.jpg" alt="" />
+        <img src="./img/shoes/right.jpg" alt="" />
+        <img src="./img/shoes/back.jpg" alt="" />
+        <img src="./img/shoes/left.jpg" alt="" />
+        <img src="./img/shoes/top.jpg" alt="" />
+        <img src="./img/shoes/bottom.jpg" alt="" />
+      </div>
+    </div>
+    <script>
+      $(function () {
+        $(".cube-btn").click(function () {
+          if ($(this).hasClass("flat-view")) {
+            $(this).text("切换到平铺视图");
+            $(this).removeClass("flat-view");
+            $(".cube-flat").hide();
+            $(".cube").show();
+          } else {
+            $(this).text("切换到空间视图");
+            $(this).addClass("flat-view");
+            $(".cube").hide();
+            $(".cube-flat").show();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

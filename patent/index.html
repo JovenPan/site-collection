@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>林晚的小点子</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      href="../assets/ico/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../assets/css/index.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <div class="pageWrapper" id="pageWrapper"></div>
+    </div>
+    <script id="listTemplate" type="text/x-handlebars-template">
+      {{#each list}}
+        <div class="group">
+          <div class="titleWrapper">
+            <span class="title">{{this.title}}</span>
+            {{#if this.time}}
+              <span class="time">{{this.time}}</span>
+            {{/if}}
+          </div>
+          {{#each this.items}}
+            <a href="{{this.url}}">
+              <div
+                class="item lozad"
+                data-background-image="./assets/images/tiny/{{this.coverImg}}"
+                data-background-position-y="{{this.backgroundPositionY}}"
+              >
+                <div class="mask"></div>
+                {{#if this.iconImg}}
+                  <div
+                    class="icon"
+                    style="background-image: url(./assets/images/{{this.iconImg}})"
+                  ></div>
+                {{/if}}
+                <div class="textWrapper">
+                  <span class="name">{{this.name}}</span>
+                  {{#if this.time}}
+                    <span class="time">{{this.time}}</span>
+                  {{/if}}
+                </div>
+              </div>
+            </a>
+          {{/each}}
+        </div>
+      {{/each}}
+    </script>
+    <script src="../assets/js/handlebars-4.7.7.min.js"></script>
+    <script src="../assets/js/lozad-1.16.0.min.js"></script>
+    <script>
+      function formate(data) {
+        if (!location.host) {
+          data.list.forEach((group) => {
+            group.items.forEach((item) => {
+              item.url = `${item.url}/index.html`;
+            });
+          });
+        }
+      }
+
+      // 准备数据
+      var data = {
+        list: [
+          {
+            title: "漫游式加载和推荐",
+            items: [
+              {
+                name: "Moving Load",
+                time: "2014-11-24",
+                coverImg: "moving-load.gif",
+                backgroundPositionY: "bottom",
+                url: "./moving-load",
+              },
+            ],
+          },
+          {
+            title: "粒子产品浏览",
+            items: [
+              {
+                name: "Particle",
+                time: "2014-12-17",
+                coverImg: "particle.png",
+                backgroundPositionY: "top",
+                url: "./particle",
+              },
+            ],
+          },
+          {
+            title: "用户自定义锚点",
+            items: [
+              {
+                name: "Custom Anchor",
+                time: "2015-01-23",
+                coverImg: "custom-anchor.png",
+                backgroundPositionY: "center",
+                url: "./custom-anchor",
+              },
+            ],
+          },
+          {
+            title: "产品多图立体展示",
+            items: [
+              {
+                name: "Polyhedron",
+                time: "2014-12-19",
+                coverImg: "polyhedron.png",
+                backgroundPositionY: "bottom",
+                url: "./polyhedron",
+              },
+            ],
+          },
+          {
+            title: "虚拟数据的新功能引导",
+            items: [
+              {
+                name: "Guidance",
+                time: "2016-03-03",
+                coverImg: "guidance.png",
+                backgroundPositionY: "top",
+                url: "./guidance",
+              },
+            ],
+          },
+          {
+            title: "可删除式网页",
+            items: [
+              {
+                name: "Soft Deletable",
+                time: "2014-11-26",
+                coverImg: "soft-deletable.png",
+                backgroundPositionY: "center",
+                url: "./soft-deletable",
+              },
+            ],
+          },
+        ],
+      };
+
+      formate(data);
+
+      // 获取模板
+      var source = document.getElementById("listTemplate").innerHTML;
+      // 编译模板
+      var template = Handlebars.compile(source);
+      // 渲染模板并将结果插入到指定容器中
+      var html = template(data);
+      document.getElementById("pageWrapper").innerHTML = html;
+
+      // 图片懒加载
+      const observer = lozad(".lozad", {
+        rootMargin: "100px 0px",
+        load: function (el) {
+          el.style.backgroundImage = `url(${el.dataset.backgroundImage})`;
+          el.style.backgroundPositionY = `${el.dataset.backgroundPositionY}`;
+        },
+      });
+      observer.observe();
+    </script>
+  </body>
+</html>

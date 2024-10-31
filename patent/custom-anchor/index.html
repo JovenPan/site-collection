@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>用户自定义锚点</title>
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script src="./js/jquery.scrollto.js"></script>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: 微软雅黑, arial;
+      }
+      .container {
+        width: 1200px;
+        margin: 0 auto;
+      }
+      .pinterest {
+        margin: 20px auto;
+      }
+      .prod-module {
+        float: left;
+        width: 220px;
+        margin: 4px;
+        padding: 5px;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        background-color: #fff;
+      }
+      .prod-module:hover {
+        border: 1px solid #bc0000;
+        transition: border-color 0.2s ease-in;
+      }
+      .prod-module .price {
+        color: #c00;
+        font-size: 20px;
+      }
+      .prod-module .price b {
+        font-size: 14px;
+      }
+      .prod-module .info {
+        font-size: 12px;
+        color: #333;
+      }
+      .prod-module .supplier {
+        font-size: 12px;
+        color: #666;
+      }
+
+      .fix-panel {
+        position: fixed;
+        top: 100px;
+        right: 50px;
+        width: 130px;
+        opacity: 0.1;
+        transition: opacity 0.4s;
+      }
+      .fix-panel:hover {
+        opacity: 1;
+      }
+      .wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .bar {
+        position: absolute;
+        right: 0;
+        width: 10px;
+        height: 100%;
+        background-color: #ddd;
+      }
+      .add-wrap {
+        position: absolute;
+        top: 0;
+        right: -5px;
+        width: 100%;
+        height: 20px;
+        z-index: 10;
+      }
+      .add {
+        float: right;
+        width: 20px;
+        height: 20px;
+        display: block;
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: #fcb852;
+        text-align: center;
+        color: #fff;
+        line-height: 18px;
+      }
+      .add:hover {
+        background-color: #f90;
+      }
+      .addText {
+        display: none;
+        width: 100px;
+        border: 1px solid #ddd;
+        padding: 2px;
+        border-radius: 2px;
+        vertical-align: super;
+      }
+      .mark-wrap {
+        position: absolute;
+        top: 0;
+        right: -5px;
+        width: 100%;
+      }
+      .mark {
+        float: right;
+        width: 20px;
+        height: 5px;
+        background-color: #fb8094;
+        display: block;
+        cursor: pointer;
+      }
+      .mark:hover {
+        background-color: #f74461;
+      }
+      .mark-wrap div {
+        display: none;
+        float: right;
+        margin-top: -5px;
+        margin-right: 25px;
+        color: #999;
+        font-size: 12px;
+        vertical-align: super;
+      }
+    </style>
+    <div class="container">
+      <img src="./img/header.png" alt="" />
+      <div class="pinterest"></div>
+    </div>
+    <div class="fix-panel">
+      <div class="wrap">
+        <div class="bar"></div>
+        <div class="add-wrap">
+          <b class="add" data-top="0" data-scroll="0">+</b>
+          <input type="text" class="addText" placeholder="输入标记..." />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var winHeight = $(window).height(), //窗口高度
+        barHeight = winHeight - 200; //滑竿高度
+
+      for (var i = 0; i < 100; i++) {
+        createProd();
+      }
+
+      createBar();
+
+      //   $(window).scroll(function () {
+
+      $(window).on("scroll", function () {
+        var bodyHeight = $("html").height(), //文档高度
+          winHeight = $(window).height(), //窗口高度
+          scroll = $(window).scrollTop(), //滚动高度
+          pos = Math.floor((scroll * barHeight) / (bodyHeight - winHeight));
+
+        $(".add-wrap").css({
+          top: pos + "px",
+        });
+
+        $(".add").data("top", pos).data("scroll", scroll);
+      });
+
+      $(".add").click(function () {
+        addMark();
+      });
+
+      $(".addText").keydown(function (ev) {
+        if (ev.which == 13) {
+          addMark();
+        }
+      });
+
+      $(".wrap")
+        .delegate(".mark", "click", function () {
+          var scroll = $(this).data("scroll");
+          $("html").animate({ scrollTop: scroll }, 500);
+        })
+        .delegate(".mark", "mouseover", function () {
+          $(this).parent().find("div").fadeIn("fast");
+        })
+        .delegate(".mark", "mouseout", function () {
+          $(this).parent().find("div").fadeOut("fast");
+        });
+
+      $(".add-wrap").hover(
+        function () {
+          $(".addText").fadeIn("fast");
+        },
+        function () {
+          $(".addText").fadeOut("fast");
+        }
+      );
+
+      function createProd() {
+        var html =
+          '<div class="prod-module">' +
+          '<img src="./img/shoes/' +
+          Math.ceil(Math.random() * 21) +
+          '.jpg" alt="">' +
+          '<p class="price"><b>¥</b>179.00</p>' +
+          '<p class="info">特步男鞋跑步鞋 2014秋冬新款休闲运</p>' +
+          '<p class="supplier">多麦运动专营店</p>' +
+          "</div>";
+
+        $(".pinterest").append(html);
+      }
+
+      function createBar() {
+        $(".fix-panel").css({
+          height: barHeight + "px",
+        });
+      }
+
+      function addMark() {
+        var pos = $(".add").data("top"),
+          scroll = $(".add").data("scroll"),
+          text = $(".addText").val();
+
+        $(".wrap").append(
+          '<div class="mark-wrap" style="top:' +
+            pos +
+            'px"><i class="mark" data-scroll="' +
+            scroll +
+            '"></i><div>' +
+            text +
+            "</div></div>"
+        );
+
+        $(".addText").val("").fadeOut("fast");
+      }
+    </script>
+  </body>
+</html>

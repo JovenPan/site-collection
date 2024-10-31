@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>粒子产品浏览</title>
+	<script src="./js/jquery-1.11.1.min.js"></script>
+	<script src="./js/jquery.nstSlider.js"></script>
+	<link rel="stylesheet" href="./css/jquery.nstSlider.css">
+</head>
+<body>
+	<style>
+	html, body {width: 100%;height: 100%;margin: 0;padding: 0;font-family: 微软雅黑;}
+	.container {position: relative;width: 100%;height: 100%;overflow: hidden;}
+
+	.tags-wrap {position: fixed;width: 485px;height: 80px;padding: 10px 20px;box-shadow: 0 3px 5px #ddd;background-color: rgba(245,245,245,.95);z-index: 11;overflow: hidden;}
+	.tags-wrap .new input {padding: 2px 5px;border: 1px solid #bc0000;}
+	.tags-wrap .new a {display: inline-block;height: 21px;line-height: 21px;margin-left: -5px;padding: 0 5px;color: #fff;background-color: #bc0000;font-size: 12px;text-decoration: none;}
+	.tags-wrap .tags {margin: 10px 0;height: 48px;overflow: hidden;}
+	.tags-wrap .tags span {position: relative;display: inline-block;max-width: 100px;margin-right: 4px;padding: 0 20px 0 10px;border-radius: 5px;line-height: 20px;background-color: #ccc;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;font-size: 12px;cursor: pointer;}
+	.tags-wrap .tags .remove {position: absolute;display: none;right: 0;padding: 0 4px;font-style: normal;color: #fff;background-color: #ccc;}
+	.tags-wrap .tags span:hover {background-color: #999;color: #fff;}
+	.tags-wrap .tags span:hover .remove {display: inline-block;}
+
+	.may-like {position: fixed;width: 525px;height: 100%;padding-top: 100px;border-right: 4px solid #bc0000;overflow: auto;z-index: 10;}
+	.may-like .prod-module {float: left;width: 220px;margin-left: 20px;margin-top: 10px;padding: 5px;border: 1px solid #eee;border-radius: 4px;background-color: #fff;}
+	.pinterest .prod-module {position: absolute;top: 0;width: 220px;padding: 5px;border: 1px solid #eee;border-radius: 4px;background-color: #fff;-webkit-animation: myProd 5s cubic-bezier(0,.3,.99,.3) forwards;}
+	.prod-module:hover {border: 1px solid #bc0000;transition: border-color .2s ease-in;}
+	.prod-module .price {color: #c00;font-size: 20px;}
+	.prod-module .price b {font-size: 14px;}
+	.prod-module .info {font-size: 12px;color: #333;}
+	.prod-module .supplier {font-size: 12px;color: #666;}
+
+	@-webkit-keyframes myProd
+	{
+		from {top: 0;}
+		to {top: 100%;}
+	}
+	
+	.slider {position: absolute;top: 25px;right: 126px;}
+
+	.button {position: absolute;top: 20px;right: 36px;}
+	.button .box{background:url('./img/button.png') no-repeat right bottom;display:inline-block;min-width:60px;height:33px;white-space:nowrap;position:relative;cursor:pointer;margin-left:14px;}
+	.button .box.checked{background-position:top left;margin:0 14px 0 0;}
+	.button .box .content{color: white;line-height: 31px;padding-right: 38px;text-align: right;}
+	.button .box.checked .content{text-align:left;padding:0 0 0 38px;}
+	.button .part{background:url('./img/button.png') no-repeat left bottom;width:14px;position:absolute;top:0;left:-14px;height:33px;overflow: hidden;}
+	.button .box.checked .part{background-position:top right;left:auto;right:-14px;}
+
+	.switch {position: absolute;top: 20px;right: 0;border: 1px solid #333;cursor: pointer;}
+	.switch img {width: 28px;}
+	</style>
+	<div class="container">
+		<div class="tags-wrap">
+			<div class="new">
+				<input type="text" placeholder="输入标签...">
+				<a href="#">添加</a>
+			</div>
+			<div class="tags"></div>
+		</div>
+		<div class="may-like"></div>
+		<div class="pinterest"></div>
+		
+		<div class="slider">
+			<div class="nstSlider" data-range_min="-10" data-range_max="10" data-cur_min="0" data-cur_max="0">
+				<div class="bar"></div>
+				<div class="leftGrip"></div>
+			</div>
+			<div class="leftLabel"></div>
+		</div>
+		<div class="button">
+			<span class="box checked">
+				<span class="content">ON</span>
+				<span class="part"></span>
+			</span>
+		</div>
+		<div class="switch particle">
+			<img src="./img/icon.png" alt="" title="切换到列表视图">
+		</div>
+	</div>	
+
+	<script>
+	$(function(){
+		var duration = 5,
+			timer;
+
+		$('.nstSlider').nstSlider({
+			"left_grip_selector": ".leftGrip",
+			"value_bar_selector": ".bar",
+			"value_changed_callback": function(cause, leftValue, rightValue) {
+				var $container = $(this).parent(),
+					g = 255 + leftValue*10,
+					r = 255 - g,
+					b = 0,
+					text = '常速';
+
+				if( leftValue>0 ){
+					text = '加速：+'+leftValue;
+				} else if( leftValue<0 ){
+					text = '减速：'+leftValue;
+				}
+				$container.find('.leftLabel').text(text);
+				$(this).find('.bar').css('background', 'rgb(' + [r, g, b].join(',') + ')');
+			},
+			"user_mouseup_callback": function(vmin, vmax, left_grip_moved){
+				duration = 5 - vmin/3;
+
+				$('.pinterest .prod-module').css('-webkit-animation-duration', duration+'s');
+
+				if(timer){
+					clearInterval(timer);
+
+					var offset = Math.floor( vmin/5 )*500,
+						time = 2000 - offset;
+
+					loopCreat(time);
+				}
+			}
+		});
+
+		var rightArr = [],
+			rightPadding = 20,
+			winWidth = $(window).width(),
+			moduleWidth = 220,
+			mayLikeWith = 530,
+			cols = Math.floor( (winWidth-mayLikeWith)/(moduleWidth+rightPadding) );
+
+		for(var i=0; i<cols; i++){
+			var val = (moduleWidth+rightPadding*2)*i+rightPadding;
+
+			rightArr.push(val);
+		}
+
+		var tagArr = [],
+			prodArr = [{
+				brand: '特步',
+				color: '黑色',
+				img: './img/shoes/1.jpg'
+			},{
+				brand: '玩觅',
+				color: '黑色',
+				img: './img/shoes/2.jpg'
+			},{
+				brand: '古奇天伦',
+				color: '蓝色',
+				img: './img/shoes/3.jpg'
+			},{
+				brand: '特步',
+				color: '黑红',
+				img: './img/shoes/4.jpg'
+			},{
+				brand: '乔丹',
+				color: '黑红',
+				img: './img/shoes/5.jpg'
+			},{
+				brand: 'Asics',
+				color: '灰黄',
+				img: './img/shoes/6.jpg'
+			},{
+				brand: 'Nike',
+				color: '蓝色',
+				img: './img/shoes/7.jpg'
+			},{
+				brand: 'ERKE',
+				color: '灰色',
+				img: './img/shoes/8.jpg'
+			},{
+				brand: '乔丹',
+				color: '蓝色',
+				img: './img/shoes/9.jpg'
+			},{
+				brand: 'JAZOUVO',
+				color: '蓝色',
+				img: './img/shoes/10.jpg'
+			},{
+				brand: '安踏',
+				color: '深蓝',
+				img: './img/shoes/11.jpg'
+			},{
+				brand: '特步',
+				color: '浅灰',
+				img: './img/shoes/12.jpg'
+			},{
+				brand: 'ERKE',
+				color: '黑色',
+				img: './img/shoes/13.jpg'
+			},{
+				brand: '特步',
+				color: '白色',
+				img: './img/shoes/14.jpg'
+			},{
+				brand: '乔丹',
+				color: '黑色',
+				img: './img/shoes/15.jpg'
+			},{
+				brand: 'ERKE',
+				color: '黄色',
+				img: './img/shoes/16.jpg'
+			},{
+				brand: '安踏',
+				color: '咖啡色',
+				img: './img/shoes/17.jpg'
+			},{
+				brand: '新纽伦',
+				color: '蓝红',
+				img: './img/shoes/18.jpg'
+			},{
+				brand: '特步',
+				color: '灰红',
+				img: './img/shoes/19.jpg'
+			},{
+				brand: '李宁',
+				color: '蓝白',
+				img: './img/shoes/20.jpg'
+			},{
+				brand: 'APPLE',
+				color: '黑色',
+				img: './img/shoes/21.jpg'
+			}
+		];
+
+		var index = 0,
+			isGlobalPaused = false, // 开关或者键盘控制，全局停止
+			isTempPaused = false; // 鼠标悬浮在产品上，临时停止
+
+		function creatProd(){
+			if(isGlobalPaused || isTempPaused){
+				return;
+			}
+
+			var prod = prodArr[ Math.floor( Math.random()*prodArr.length ) ],
+				html = '<div class="prod-module" data-brand="'+prod.brand+'" data-color="'+prod.color+'" style="right: '+rightArr[index]+'px;-webkit-animation-duration: '+duration+'s;">'+
+					'<img src="'+prod.img+'" alt="">'+
+					'<p class="price"><b>¥</b>179.00</p>'+
+					'<p class="info">特步男鞋跑步鞋 2014秋冬新款休闲运</p>'+
+					'<p class="supplier">多麦运动专营店</p>'+
+				'</div>';
+
+			$('.pinterest').append(html);
+
+			if(++index==rightArr.length){
+				index = 0;
+			}
+		}
+
+		function loopCreat(time){
+			creatProd();
+
+			timer = setTimeout(function(){
+				loopCreat(time);
+			}, time);
+		}
+
+		loopCreat(2000);
+
+		$('.pinterest').delegate('.prod-module', 'mouseover', function(){
+			tmpPause();
+		}).delegate('.prod-module', 'mouseout', function(){
+			tmpRun();
+		}).delegate('.prod-module', 'webkitAnimationEnd', function(){
+			$(this).remove();
+		}).delegate('.prod-module', 'click', function(){
+			var brand = $(this).data('brand'),
+				color = $(this).data('color');
+
+			addTag(brand);
+			addTag(color);
+
+			$(this).appendTo('.may-like');
+
+			var height = $('.may-like')[0].scrollHeight;
+			$('.may-like').animate({scrollTop: height}, 'slow');
+
+			tmpRun();
+
+			creatProd();
+		});
+
+		$('.new a').click(function(event){
+			event.preventDefault();
+
+			var input = $('.new input'),
+				tag = input.val();
+
+			input.val('');
+
+			addTag(tag);
+		});
+
+		$(window).keydown(function(ev){
+			if(ev.which == 32){
+				if(isGlobalPaused){
+					run();
+				} else {
+					pause();
+				}
+			}
+		});
+
+		$('.button').click(function(){
+			if(isGlobalPaused){
+				run();
+			} else {
+				pause();
+			}
+		});
+
+		$('.switch').click(function(){
+			if( $(this).hasClass('particle') ){
+				$(this).removeClass('particle');
+				$(this).find('img').attr('src', './img/icon0.png').attr('title', '切换到粒子视图');
+			} else {
+				$(this).addClass('particle');
+				$(this).find('img').attr('src', './img/icon.png').attr('title', '切换到列表视图');
+			}
+		});
+
+		$('.tags').delegate('.remove', 'click', function(){
+			$(this).parent().remove();
+		});
+
+		function addTag(tag){
+			if( tagArr.indexOf(tag) == -1  ){
+				tagArr.push(tag);
+				$('.tags').prepend('<span>'+tag+'<i class="remove">x</i></span>');
+			}
+		}
+
+		function pause(){
+			$('.prod-module').css('animation-play-state', 'paused');
+			isGlobalPaused = true;
+			$('.button .box').removeClass('checked');
+			$('.button .content').text('OFF');
+		}
+
+		function run(){
+			$('.prod-module').css('animation-play-state', 'running');
+			isGlobalPaused = false;
+			$('.button .box').addClass('checked');
+			$('.button .content').text('ON');
+		}
+
+		function tmpPause(){
+			$('.prod-module').css('animation-play-state', 'paused');
+			isTempPaused = true;
+		}
+
+		function tmpRun(){
+			isTempPaused = false;
+
+			if(isGlobalPaused){
+				return;
+			} else {
+				$('.prod-module').css('animation-play-state', 'running');
+			}			
+		}
+
+	});
+	</script>
+</body>
+</html>
