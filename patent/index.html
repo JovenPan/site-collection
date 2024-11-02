@@ -10,10 +10,52 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../assets/css/index.css" />
+    <style>
+      .tips {
+        display: none;
+        padding: 10px 20px 0 20px;
+
+        img {
+          width: 16px;
+          height: 16px;
+        }
+
+        p {
+          margin-left: 5px;
+          font-size: 12px;
+          color: #666;
+        }
+      }
+
+      .certificate {
+        margin-top: -60px;
+
+        p {
+          padding: 0 0 5px 20px;
+        }
+
+        img {
+          width: 100%;
+          margin-top: 5px;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div class="tips" id="tips">
+      <img src="./assets/images/icon-pc.png" alt="pc" />
+      <p>推荐在电脑端体验</p>
+    </div>
     <div class="layout">
       <div class="pageWrapper" id="pageWrapper"></div>
+    </div>
+    <div class="layout certificate">
+      <div class="pageWrapper">
+        <p>专利证书</p>
+        <img src="./assets/images/certificate1.pic" />
+        <img src="./assets/images/certificate2.pic" />
+        <img src="./assets/images/certificate3.pic" />
+      </div>
     </div>
     <script id="listTemplate" type="text/x-handlebars-template">
       {{#each list}}
@@ -53,6 +95,16 @@
     <script src="../assets/js/handlebars-4.7.7.min.js"></script>
     <script src="../assets/js/lozad-1.16.0.min.js"></script>
     <script>
+      function isMobileDevice() {
+        return /Mobile|Android|iP(ad|hone|od)|Windows Phone|BlackBerry|webOS|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      }
+
+      if (isMobileDevice()) {
+        document.getElementById("tips").style.display = "flex";
+      }
+
       function formate(data) {
         if (!location.host) {
           data.list.forEach((group) => {
@@ -72,8 +124,8 @@
               {
                 name: "Moving Load",
                 time: "2014-11-24",
-                coverImg: "moving-load.gif",
-                backgroundPositionY: "bottom",
+                coverImg: "moving-load.png",
+                backgroundPositionY: "center",
                 url: "./moving-load",
               },
             ],
