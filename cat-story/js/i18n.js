@@ -18,8 +18,8 @@ const translations = {
     "footer.description":
       "Cat Story is an app dedicated to the healthy growth and companionship of cats, helping you record and share every wonderful moment of your cats.",
     "footer.contact": "Contact Us",
-    "download.tooltip": "App is under development, stay tuned!",
-    "social.tooltip": "Coming soon",
+    "download.tooltip": "Coming soon!",
+    "social.tooltip": "Coming soon!",
   },
   zh: {
     "nav.app": "应用",
@@ -38,8 +38,8 @@ const translations = {
     "footer.description":
       "Cat Story 是一款专注于猫咪健康成长陪伴的应用，让铲屎官记录和分享猫咪的每一个精彩瞬间。",
     "footer.contact": "联系我们",
-    "download.tooltip": "应用正在开发中，敬请期待！",
-    "social.tooltip": "敬请期待",
+    "download.tooltip": "敬请期待！",
+    "social.tooltip": "敬请期待！",
   },
 };
 

@@ -156,10 +156,50 @@ nav .container {
 @media (max-width: 768px) {
   .nav-links {
     display: none;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    width: 160px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
   }
 
   .menu-btn {
     display: block;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .menu-btn.active i {
+    transform: rotate(90deg);
+  }
+
+  .nav-links .lang-switch {
+    margin: 0;
+    width: auto;
+    padding: 5px 15px;
   }
 
   .hero .container {
@@ -286,7 +326,7 @@ footer {
   left: 50%;
   transform: translateX(-50%);
   padding: 8px 12px;
-  background-color: rgba(47, 72, 88, 0.9);
+  background-color: var(--primary-color);
   color: white;
   border-radius: 6px;
   font-size: 14px;
@@ -295,6 +335,7 @@ footer {
   opacity: 0;
   transition: opacity 0.3s, visibility 0.3s;
   margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .tooltip-trigger::before {
@@ -304,7 +345,7 @@ footer {
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
-  border-top-color: rgba(47, 72, 88, 0.9);
+  border-top-color: var(--primary-color);
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s, visibility 0.3s;
