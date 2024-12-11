@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat Story - Share Your Cat's Daily Life</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Add Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <div class="logo">
+          <img src="images/logo.jpg" alt="Cat Story Logo" />
+          <span>Cat Story</span>
+        </div>
+        <div class="nav-links">
+          <a href="#header" data-i18n="nav.app">App</a>
+          <a href="#features" data-i18n="nav.features">Features</a>
+          <a href="#footer" data-i18n="nav.about">About</a>
+          <a href="#" class="lang-switch" data-lang="zh">中文</a>
+        </div>
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <header id="header" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 data-i18n="hero.title">Share Your Cat's Amazing Stories</h1>
+          <p data-i18n="hero.subtitle">
+            Connect with cat lovers worldwide and share your furry friend's
+            daily adventures
+          </p>
+          <div class="cta-buttons">
+            <a
+              href="#"
+              class="btn-primary tooltip-trigger"
+              data-tooltip="App is under development, stay tuned!"
+            >
+              <i class="fab fa-apple"></i> App Store
+            </a>
+            <a
+              href="#"
+              class="btn-primary tooltip-trigger"
+              data-tooltip="App is under development, stay tuned!"
+            >
+              <i class="fab fa-google-play"></i> Google Play
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="images/app-preview.jpg" alt="Cat Story App Preview" />
+        </div>
+      </div>
+    </header>
+
+    <section id="features" class="features">
+      <div class="container">
+        <h2 data-i18n="features.title">Why Choose Cat Story?</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <i class="fas fa-camera"></i>
+            <h3 data-i18n="features.photo.title">Photo Stories</h3>
+            <p data-i18n="features.photo.desc">
+              Create beautiful photo stories of your cat's daily life
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-users"></i>
+            <h3 data-i18n="features.community.title">Cat Community</h3>
+            <p data-i18n="features.community.desc">
+              Connect with other cat lovers around the world
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-heart"></i>
+            <h3 data-i18n="features.health.title">Health Tracking</h3>
+            <p data-i18n="features.health.desc">
+              Monitor your cat's health and daily activities
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3 data-i18n="footer.about">About Cat Story</h3>
+            <p data-i18n="footer.description">
+              Cat Story is a social app focused on cats, allowing cat owners to
+              record and share every wonderful moment of their cats.
+            </p>
+          </div>
+          <div class="footer-contact">
+            <h3 data-i18n="footer.contact">Contact Us</h3>
+            <p>
+              <a href="mailto:support@catstory.com">support@catstory.com</a>
+            </p>
+            <div class="social-links">
+              <!-- 中文社交媒体 -->
+              <div class="social-cn">
+                <a
+                  href="#"
+                  class="tooltip-trigger"
+                  data-tooltip="敬请期待"
+                  target="_blank"
+                  aria-label="WeChat"
+                >
+                  <i class="fab fa-weixin"></i>
+                </a>
+                <a
+                  href="#"
+                  class="tooltip-trigger"
+                  data-tooltip="敬请期待"
+                  target="_blank"
+                  aria-label="Weibo"
+                >
+                  <i class="fab fa-weibo"></i>
+                </a>
+              </div>
+              <!-- 英文社交媒体 -->
+              <div class="social-en">
+                <a
+                  href="#"
+                  class="tooltip-trigger"
+                  data-tooltip="Coming soon"
+                  target="_blank"
+                  aria-label="Twitter"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="#"
+                  class="tooltip-trigger"
+                  data-tooltip="Coming soon"
+                  target="_blank"
+                  aria-label="Facebook"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">&copy; 2024 Cat Story. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/i18n.js"></script>
+  </body>
+</html>
