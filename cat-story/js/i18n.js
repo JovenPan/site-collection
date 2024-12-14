@@ -6,7 +6,7 @@ const translations = {
     "hero.title": "Share Your Cat's Amazing Stories",
     "hero.subtitle":
       "Connect with cat lovers worldwide and share your furry friend's daily moments",
-    "features.title": "Why Choose Cat Story?",
+    "features.title": "Why Choose CatStory?",
     "features.photo.title": "Photo Stories",
     "features.photo.desc":
       "Create beautiful photo stories of your cat's daily life",
@@ -27,7 +27,7 @@ const translations = {
     "nav.about": "关于",
     "hero.title": "分享你猫咪的精彩故事",
     "hero.subtitle": "与全球爱猫人士连接，分享你毛孩子的日常精彩",
-    "features.title": "为什么选择 Cat Story？",
+    "features.title": "为什么选择 CatStory？",
     "features.photo.title": "照片故事",
     "features.photo.desc": "创建精美的猫咪日常生活照片故事",
     "features.community.title": "猫咪社区",
@@ -44,56 +44,24 @@ const translations = {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-  const langSwitch = document.querySelector(".lang-switch");
-  let currentLang = "en";
-
-  function updateLanguage(lang) {
-    if (lang !== "en" && lang !== "zh") return;
-
-    document.documentElement.setAttribute("lang", lang);
-
-    document.querySelectorAll("[data-i18n]").forEach((element) => {
-      const key = element.getAttribute("data-i18n");
-      if (translations[lang][key]) {
-        element.textContent = translations[lang][key];
-      }
-    });
-
-    document.querySelectorAll(".tooltip-trigger").forEach((trigger) => {
-      if (trigger.closest(".cta-buttons")) {
-        trigger.setAttribute(
-          "data-tooltip",
-          translations[lang]["download.tooltip"]
-        );
-      } else if (trigger.closest(".social-links")) {
-        trigger.setAttribute(
-          "data-tooltip",
-          translations[lang]["social.tooltip"]
-        );
-      }
-    });
-
-    langSwitch.textContent = lang === "en" ? "中文" : "English";
-    langSwitch.setAttribute("data-lang", lang === "en" ? "zh" : "en");
-    currentLang = lang;
-  }
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const key = element.getAttribute("data-i18n");
+    if (translations["en"][key]) {
+      element.textContent = translations["en"][key];
+    }
+  });
 
   document.querySelectorAll(".tooltip-trigger").forEach((trigger) => {
-    trigger.addEventListener("click", function (e) {
-      e.preventDefault();
-      this.classList.add("show-tooltip");
-
-      setTimeout(() => {
-        this.classList.remove("show-tooltip");
-      }, 2000);
-    });
+    if (trigger.closest(".cta-buttons")) {
+      trigger.setAttribute(
+        "data-tooltip",
+        translations["en"]["download.tooltip"]
+      );
+    } else if (trigger.closest(".social-links")) {
+      trigger.setAttribute(
+        "data-tooltip",
+        translations["en"]["social.tooltip"]
+      );
+    }
   });
-
-  langSwitch.addEventListener("click", function (e) {
-    e.preventDefault();
-    const targetLang = this.getAttribute("data-lang");
-    updateLanguage(targetLang);
-  });
-
-  updateLanguage("en");
 });
