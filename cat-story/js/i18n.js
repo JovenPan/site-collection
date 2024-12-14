@@ -14,9 +14,9 @@ const translations = {
     "features.community.desc": "Connect with other cat lovers around the world",
     "features.health.title": "Health Tracking",
     "features.health.desc": "Monitor your cat's health and daily activities",
-    "footer.about": "About Cat Story",
+    "footer.about": "About CatStory",
     "footer.description":
-      "Cat Story is an app dedicated to the healthy growth and companionship of cats, helping you record and share every wonderful moment of your cats.",
+      "CatStory is an app dedicated to the healthy growth and companionship of cats, helping you record and share every wonderful moment of your cats.",
     "footer.contact": "Contact Us",
     "download.tooltip": "Coming soon!",
     "social.tooltip": "Coming soon!",
@@ -34,9 +34,9 @@ const translations = {
     "features.community.desc": "与世界各地的爱猫人士交流互动",
     "features.health.title": "健康追踪",
     "features.health.desc": "监控猫咪的健康状况和日常活动",
-    "footer.about": "关于 Cat Story",
+    "footer.about": "关于 CatStory",
     "footer.description":
-      "Cat Story 是一款专注于猫咪健康成长陪伴的应用，让铲屎官记录和分享猫咪的每一个精彩瞬间。",
+      "CatStory 是一款专注于猫咪健康成长陪伴的应用，让铲屎官记录和分享猫咪的每一个精彩瞬间。",
     "footer.contact": "联系我们",
     "download.tooltip": "敬请期待！",
     "social.tooltip": "敬请期待！",

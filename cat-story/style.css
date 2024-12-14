@@ -359,15 +359,7 @@ footer {
 
 /* Language Switch Styles */
 .lang-switch {
-  padding: 5px 10px;
-  border: 1px solid var(--accent-color);
-  border-radius: 4px;
-  margin-left: 20px;
-}
-
-.lang-switch:hover {
-  background-color: var(--accent-color);
-  color: white !important;
+  display: none;
 }
 
 .social-cn {
@@ -390,4 +382,23 @@ html[lang="en"] .social-cn {
 
 html[lang="en"] .social-en {
   display: block;
+}
+
+.coming-soon {
+  display: block;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 12px;
+  margin-top: 12px;
+  font-weight: normal;
+  opacity: 0.9;
+  position: relative;
+  font-style: italic;
+}
+
+/* 在移动端保持样式一致 */
+@media (max-width: 768px) {
+  .coming-soon {
+    margin-top: 12px;
+  }
 }
